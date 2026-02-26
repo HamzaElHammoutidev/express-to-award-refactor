@@ -20,16 +20,19 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="declaration" className="py-24 md:py-40 section-padding bg-dark-surface">
+    <section id="declaration" className="py-28 md:py-44 section-padding bg-surface">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif">
+          <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Processus simple
+          </p>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.05]">
             Comment <span className="italic text-gradient-gold">ça marche</span>
           </h2>
         </motion.div>
@@ -41,18 +44,24 @@ const ProcessSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group"
+              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative"
             >
-              <span className="text-6xl md:text-7xl font-serif text-gradient-gold opacity-40 group-hover:opacity-100 transition-opacity">
-                {step.number}
-              </span>
-              <h3 className="text-2xl md:text-3xl font-serif mt-4 mb-4">
+              <div className="mb-6">
+                <span className="text-7xl md:text-8xl font-serif text-gradient-gold opacity-30 group-hover:opacity-60 transition-opacity duration-500 leading-none">
+                  {step.number}
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-serif mb-4 leading-tight">
                 {step.title}
               </h3>
-              <p className="text-base font-sans text-muted-foreground leading-relaxed">
+              <p className="text-sm font-sans text-muted-foreground leading-[1.8] font-light">
                 {step.desc}
               </p>
+              {/* Connector line */}
+              {i < steps.length - 1 && (
+                <div className="hidden md:block absolute top-12 -right-6 w-12 h-px bg-border/40" />
+              )}
             </motion.div>
           ))}
         </div>
@@ -68,7 +77,7 @@ const ProcessSection = () => {
             href="https://parebriseexpress.ma/declaration"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-sm uppercase tracking-widest hover:bg-gold-dark transition-colors"
+            className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-[13px] uppercase tracking-[0.15em] hover:bg-gold-dark transition-colors duration-300"
           >
             Faire une déclaration
           </a>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,51 +6,52 @@
 
 @layer base {
   :root {
-    --background: 30 5% 8%;
-    --foreground: 40 30% 92%;
+    --background: 20 8% 7%;
+    --foreground: 36 33% 93%;
 
-    --card: 30 5% 12%;
-    --card-foreground: 40 30% 92%;
+    --card: 20 8% 11%;
+    --card-foreground: 36 33% 93%;
 
-    --popover: 30 5% 10%;
-    --popover-foreground: 40 30% 92%;
+    --popover: 20 8% 9%;
+    --popover-foreground: 36 33% 93%;
 
-    --primary: 45 100% 50%;
-    --primary-foreground: 30 5% 8%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 20 8% 7%;
 
-    --secondary: 30 5% 16%;
-    --secondary-foreground: 40 30% 85%;
+    --secondary: 20 6% 14%;
+    --secondary-foreground: 36 20% 80%;
 
-    --muted: 30 5% 18%;
-    --muted-foreground: 30 10% 55%;
+    --muted: 20 6% 18%;
+    --muted-foreground: 25 10% 50%;
 
-    --accent: 45 100% 50%;
-    --accent-foreground: 30 5% 8%;
+    --accent: 43 96% 56%;
+    --accent-foreground: 20 8% 7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 5% 20%;
-    --input: 30 5% 20%;
-    --ring: 45 100% 50%;
+    --border: 20 8% 16%;
+    --input: 20 8% 16%;
+    --ring: 43 96% 56%;
 
     --radius: 0.5rem;
 
-    --cream: 40 30% 92%;
-    --cream-muted: 30 15% 70%;
-    --gold: 45 100% 50%;
-    --gold-dark: 42 90% 40%;
-    --dark-surface: 30 5% 12%;
-    --darker-surface: 30 5% 6%;
+    --cream: 36 33% 93%;
+    --cream-muted: 30 12% 65%;
+    --gold: 43 96% 56%;
+    --gold-light: 42 80% 68%;
+    --gold-dark: 40 85% 42%;
+    --surface: 20 8% 11%;
+    --surface-dark: 20 8% 5%;
 
-    --sidebar-background: 30 5% 10%;
-    --sidebar-foreground: 40 30% 92%;
-    --sidebar-primary: 45 100% 50%;
-    --sidebar-primary-foreground: 30 5% 8%;
-    --sidebar-accent: 30 5% 16%;
-    --sidebar-accent-foreground: 40 30% 92%;
-    --sidebar-border: 30 5% 20%;
-    --sidebar-ring: 45 100% 50%;
+    --sidebar-background: 20 8% 9%;
+    --sidebar-foreground: 36 33% 93%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 20 8% 7%;
+    --sidebar-accent: 20 6% 14%;
+    --sidebar-accent-foreground: 36 33% 93%;
+    --sidebar-border: 20 8% 16%;
+    --sidebar-ring: 43 96% 56%;
   }
 }
 
@@ -61,37 +62,45 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
   }
 }
 
 @layer utilities {
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(42, 80%, 65%) 100%);
+    background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
   }
 
   .section-padding {
-    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+    @apply px-6 md:px-12 lg:px-20 xl:px-28;
   }
 
-  .nav-pill {
-    background: hsla(var(--cream), 0.95);
-    backdrop-filter: blur(20px);
+  .nav-glass {
+    background: hsla(var(--cream), 0.92);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
 
-  .marquee {
-    animation: marquee 30s linear infinite;
+  .nav-glass-dark {
+    background: hsla(var(--background), 0.5);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
 
-  .marquee:hover {
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee-track:hover {
     animation-play-state: paused;
   }
 }
@@ -108,7 +117,7 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -116,10 +125,16 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
-  border-radius: 3px;
+  background: hsl(var(--border));
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--gold));
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--gold) / 0.3);
+  color: hsl(var(--foreground));
 }
