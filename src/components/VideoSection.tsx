@@ -34,7 +34,7 @@ const VideoSection = () => {
             poster="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
           >
             <source
-              src="https://parebriseexpress.ma/videos/hero-v2.mp4"
+              src="https://parebriseexpress.ma//storage/theme-videos/March2025/Y8X7He7aKX51lU78FPHq.mp4"
               type="video/mp4"
             />
           </video>
