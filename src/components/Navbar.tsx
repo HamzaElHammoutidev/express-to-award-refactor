@@ -1,17 +1,19 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Qui sommes nous?", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Centres", href: "#centres" },
-  { label: "Carrières", href: "#carrieres" },
-  { label: "Contact", href: "#contact" },
+  { label: "Qui sommes nous?", href: "/institution" },
+  { label: "Engagement", href: "/engag" },
+  { label: "Centres", href: "/centres" },
+  { label: "Carrières", href: "/carrieres" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const onScroll = useCallback(() => {
     setScrolled(window.scrollY > 60);
@@ -46,32 +48,36 @@ const Navbar = () => {
               : "nav-glass-dark"
           }`}
         >
-          <a href="#" className="flex-shrink-0 mr-6">
+          <Link to="/" className="flex-shrink-0 mr-6">
             <img
               src="https://parebriseexpress.ma/images/PBE_LOGO_01-2.png"
               alt="Pare-Brise Express"
               className="h-9 transition-all duration-700"
             />
-          </a>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
-                className="px-4 py-2 text-[13px] font-sans font-medium rounded-full transition-all duration-300 tracking-wide text-foreground/70 hover:text-foreground"
+                to={item.href}
+                className={`px-4 py-2 text-[13px] font-sans font-medium rounded-full transition-all duration-300 tracking-wide ${
+                  location.pathname === item.href
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
-          <a
-            href="#declaration"
+          <Link
+            to="/declaration"
             className="hidden sm:inline-flex ml-4 px-6 py-2.5 rounded-full text-[13px] font-sans font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-gold-dark transition-colors duration-300"
           >
             Déclarer un sinistre
-          </a>
+          </Link>
 
           <button
             className="lg:hidden ml-3 p-2 relative w-10 h-10 flex items-center justify-center"
@@ -105,28 +111,27 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center gap-6">
               {navItems.map((item, i) => (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-serif text-foreground hover:text-primary transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.06, duration: 0.5 }}
-                >
-                  {item.label}
-                </motion.a>
+                <motion.div key={item.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.06, duration: 0.5 }}>
+                  <Link
+                    to={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-3xl font-serif transition-colors ${
+                      location.pathname === item.href ? "text-primary" : "text-foreground hover:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
-              <motion.a
-                href="#declaration"
-                onClick={() => setMenuOpen(false)}
-                className="mt-6 px-8 py-3 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-sm tracking-wide"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              >
-                Déclarer un sinistre
-              </motion.a>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }}>
+                <Link
+                  to="/declaration"
+                  onClick={() => setMenuOpen(false)}
+                  className="mt-6 px-8 py-3 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-sm tracking-wide"
+                >
+                  Déclarer un sinistre
+                </Link>
+              </motion.div>
             </nav>
           </motion.div>
         )}
