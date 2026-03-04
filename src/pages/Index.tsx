@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
+import WelcomePopup from "@/components/WelcomePopup";
 import HeroSection from "@/components/HeroSection";
-import PartnershipSection from "@/components/PartnershipSection";
-import CertificationSection from "@/components/CertificationSection";
+import SalamatounaSection from "@/components/SalamatounaSection";
+import StatsCardsSection from "@/components/StatsCardsSection";
 import ServicesSection from "@/components/ServicesSection";
 import MapSection from "@/components/MapSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -13,10 +14,11 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <WelcomePopup />
       <Navbar />
       <HeroSection />
-      <PartnershipSection />
-      <CertificationSection />
+      <SalamatounaSection />
+      <StatsCardsSection />
       <ServicesSection />
       <MapSection />
       <ProcessSection />
