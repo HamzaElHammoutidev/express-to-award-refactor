@@ -24,70 +24,73 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="declaration" className="py-24 md:py-40 section-padding bg-surface">
-      <div className="max-w-7xl mx-auto">
+    <section id="declaration" className="py-24 md:py-36 section-padding bg-background">
+      <div className="max-w-6xl mx-auto">
+        {/* Section title */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 md:mb-20"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Processus simple
-          </p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.05]">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif">
             Comment <span className="italic text-gradient-gold">ça marche</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        {/* Steps - clean layout matching original */}
+        <div className="grid md:grid-cols-3 gap-12 md:gap-8 text-center">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative rounded-3xl border border-border/30 bg-card p-8 md:p-10 hover:border-primary/20 transition-all duration-700 overflow-hidden"
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="flex flex-col items-center"
             >
-              {/* Background number */}
-              <span className="absolute -top-4 -right-2 text-[120px] font-serif text-foreground/[0.03] leading-none pointer-events-none select-none">
-                {step.number}
-              </span>
-
-              {/* Icon */}
-              <div className="relative z-10 mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <img src={step.icon} alt="" className="w-8 h-8 object-contain" />
-                </div>
+              {/* Illustration / Icon */}
+              <div className="mb-8 h-40 flex items-end justify-center">
+                <img
+                  src={step.icon}
+                  alt={step.title}
+                  className="h-32 md:h-36 object-contain"
+                />
               </div>
 
-              {/* Step label */}
-              <span className="text-[11px] font-sans font-semibold text-primary uppercase tracking-[0.3em] mb-3 block">
-                Étape {step.number}
-              </span>
+              {/* Number circle */}
+              <div className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center mb-5">
+                <span className="text-sm font-sans font-medium text-foreground">
+                  {step.number}
+                </span>
+              </div>
 
-              <h3 className="text-xl md:text-2xl font-serif mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">
                 {step.title}
               </h3>
-              <p className="text-sm font-sans text-muted-foreground leading-[1.8] font-light">
+
+              {/* Description */}
+              <p className="text-sm font-sans text-muted-foreground leading-relaxed font-light max-w-xs mx-auto">
                 {step.desc}
               </p>
             </motion.div>
           ))}
         </div>
 
+        {/* Horizontal line + CTA */}
         <motion.div
-          className="mt-12 flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-16 flex flex-col items-center"
         >
+          <div className="w-full max-w-2xl h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-10" />
           <Link
             to="/declaration"
-            className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-[13px] uppercase tracking-[0.15em] hover:bg-gold-dark transition-colors duration-300"
+            className="px-10 py-4 rounded-md bg-primary text-primary-foreground font-sans font-semibold text-sm uppercase tracking-[0.15em] hover:bg-primary/90 transition-colors duration-300"
           >
             Faire une déclaration
           </Link>
