@@ -8,7 +8,7 @@ const services = [
     title: "Réparation d'impact(s)",
     description:
       "Chez Pare-Brise Express, nous savons que chaque impact doit être traité rapidement. C'est pourquoi nous vous proposons une intervention rapide, fiable et éco-responsable. Ne laissez pas un petit choc compromettre votre sécurité : contactez-nous sans attendre pour une solution sur mesure.",
-    image: "https://parebriseexpress.ma/images/assets/bpe-rca.jpg",
+    image: "https://parebriseexpress.ma/images/tech_serv.jpg",
   },
   {
     icon: "https://parebriseexpress.ma/images/voiture.png",
@@ -16,7 +16,7 @@ const services = [
     title: "Remplacement de votre pare-brise",
     description:
       "Pare-brise endommagé ? Détendez-vous, nous nous chargeons de tout. De la prise de contact à la réception de votre véhicule en passant par le remplacement et le recalibrage de votre caméra ADAS, nous vous accompagnons à chaque étape pour vous garantir un service de qualité.",
-    image: "https://parebriseexpress.ma/images/assets/bpe-mas.jpg",
+    image: "https://parebriseexpress.ma/images/jouj_serv.jpg",
   },
   {
     icon: "https://parebriseexpress.ma/images/test.png",
@@ -24,7 +24,7 @@ const services = [
     title: "Atelier mobile",
     description:
       "Service 100% gratuit — Sur tout type de vitrage — Chez vous, sur votre lieu de travail ou ailleurs. Notre atelier mobile se déplace pour vous offrir le même niveau de qualité qu'en centre technique.",
-    image: "https://parebriseexpress.ma/images/MAP_WEBSITE_PBE.png",
+    image: "https://parebriseexpress.ma/images/van_serv.jpg",
   },
 ];
 

@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
   {
     type: "video" as const,
-    src: "https://parebriseexpress.ma/videos/hero-v2.mp4",
+    src: "https://parebriseexpress.ma//storage/theme-videos/March2025/Y8X7He7aKX51lU78FPHq.mp4",
     poster: "https://parebriseexpress.ma/images/assets/bpe-rca.jpg",
     title: "L'excellence au service de votre sécurité",
     desc: "Découvrez notre savoir-faire unique à travers nos centres techniques modernes et notre équipe d'experts passionnés.",
