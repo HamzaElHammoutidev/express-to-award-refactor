@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
-  { name: "Farid Aos", city: "Marrakech", text: "Bonne réception, service bon et express, merci et bonne continuation.", color: "bg-[hsl(210,55%,45%)]" },
-  { name: "Omar Elyemlahi", city: "Larache", text: "Merci à l'équipe du Centre Larache. Pour le service et les conseils.", color: "bg-[hsl(170,30%,35%)]" },
-  { name: "Emma", city: "Agadir", text: "Équipe très efficace et le sourire en plus. Je recommande vivement Pare-Brise Express pour leur professionnalisme.", color: "bg-[hsl(15,85%,55%)]" },
-  { name: "HAMZA ER-RAJI", city: "Rabat", text: "Service très rapide et amical ! Le personnel était à l'écoute et très professionnel.", color: "bg-[hsl(210,55%,45%)]" },
-  { name: "Mehdi Idrissi", city: "Casablanca", text: "Service rapide et comportement aimable ! Très satisfait du résultat.", color: "bg-[hsl(170,30%,35%)]" },
-  { name: "Amine Wahbi", city: "Casablanca", text: "Expérience parfaite avec Pare-Brise Express, rapide et pro. Je ne changerais pour rien au monde.", color: "bg-[hsl(15,85%,55%)]" },
-  { name: "Mohammed Ghamri", city: "Fes", text: "Service rapide et de qualité, je le recommande à tous mes proches.", color: "bg-[hsl(210,55%,45%)]" },
-  { name: "Hacheme B", city: "Casablanca", text: "Bravo à Hamza! Son accueil, son professionnalisme et son engagement à vous satisfaire. Excellent !", color: "bg-[hsl(170,30%,35%)]" },
+  { name: "Farid Aos", city: "Marrakech", text: "Bonne réception, service bon et express, merci et bonne continuation.", color: "bg-[hsl(20,8%,12%)]" },
+  { name: "Omar Elyemlahi", city: "Larache", text: "Merci à l'équipe du Centre Larache. Pour le service et les conseils.", color: "bg-[hsl(43,96%,46%)]" },
+  { name: "Emma", city: "Agadir", text: "Équipe très efficace et le sourire en plus. Je recommande vivement Pare-Brise Express pour leur professionnalisme.", color: "bg-[hsl(20,8%,18%)]" },
+  { name: "HAMZA ER-RAJI", city: "Rabat", text: "Service très rapide et amical ! Le personnel était à l'écoute et très professionnel.", color: "bg-[hsl(40,85%,42%)]" },
+  { name: "Mehdi Idrissi", city: "Casablanca", text: "Service rapide et comportement aimable ! Très satisfait du résultat.", color: "bg-[hsl(20,8%,12%)]" },
+  { name: "Amine Wahbi", city: "Casablanca", text: "Expérience parfaite avec Pare-Brise Express, rapide et pro. Je ne changerais pour rien au monde.", color: "bg-[hsl(43,96%,46%)]" },
+  { name: "Mohammed Ghamri", city: "Fes", text: "Service rapide et de qualité, je le recommande à tous mes proches.", color: "bg-[hsl(20,8%,18%)]" },
+  { name: "Hacheme B", city: "Casablanca", text: "Bravo à Hamza! Son accueil, son professionnalisme et son engagement à vous satisfaire. Excellent !", color: "bg-[hsl(40,85%,42%)]" },
 ];
 
 const rotations = [-4, 2, -1, 3, -3, 1, -2, 4];
@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
   const allCards = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 md:py-36 overflow-hidden bg-background">
+    <section className="py-24 md:py-36 overflow-hidden bg-[hsl(36,33%,93%)]">
       <div className="section-padding mb-14">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
@@ -55,8 +55,8 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.05]">
-              Quelques mots de nos{" "}
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.05] text-[hsl(20,8%,12%)]">
+              Témoignages de nos{" "}
               <span className="italic text-gradient-gold">clients</span>
             </h2>
           </motion.div>
