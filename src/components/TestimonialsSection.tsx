@@ -1,6 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
 const testimonials = [
   { name: "Farid Aos", city: "Marrakech", text: "Bonne réception, service bon et express, merci et bonne continuation." },
@@ -13,100 +12,84 @@ const testimonials = [
   { name: "Hacheme B", city: "Casablanca", text: "Bravo à Hamza! Son accueil, son professionnalisme et son engagement à vous satisfaire. Excellent !" },
 ];
 
-const TestimonialsSection = () => {
-  const [current, setCurrent] = useState(0);
+// Duplicate for infinite marquee - 3 rows with different speeds
+const row1 = testimonials.slice(0, 4);
+const row2 = testimonials.slice(4, 8);
+const row3 = [...testimonials.slice(2, 6)];
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % testimonials.length);
-  }, []);
+const TestimonialCard = ({ name, city, text }: { name: string; city: string; text: string }) => (
+  <div className="flex-shrink-0 w-[320px] md:w-[380px] p-6 md:p-8 rounded-2xl border border-border/30 bg-card hover:border-primary/20 transition-all duration-500 group">
+    {/* Stars */}
+    <div className="flex gap-1 mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} size={14} className="fill-primary text-primary" />
+      ))}
+    </div>
 
-  const prev = useCallback(() => {
-    setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
-  }, []);
+    {/* Text */}
+    <p className="text-sm md:text-base font-sans text-foreground/90 leading-[1.8] font-light mb-6 italic">
+      «&nbsp;{text}&nbsp;»
+    </p>
 
-  useEffect(() => {
-    const timer = setInterval(next, 6000);
-    return () => clearInterval(timer);
-  }, [next]);
+    {/* Author */}
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+        <span className="text-sm font-serif text-primary font-medium">
+          {name.charAt(0)}
+        </span>
+      </div>
+      <div>
+        <p className="text-sm font-sans font-medium text-foreground">{name}</p>
+        <p className="text-xs font-sans text-muted-foreground">{city}</p>
+      </div>
+    </div>
+  </div>
+);
 
+const MarqueeRow = ({ items, speed, reverse = false }: { items: typeof testimonials; speed: number; reverse?: boolean }) => {
+  const allItems = [...items, ...items, ...items, ...items];
   return (
-    <section className="py-28 md:py-44 section-padding bg-surface">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16"
-        >
-          <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4 text-center">
-            Ils nous font confiance
-          </p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-center leading-[1.05]">
-            <span className="italic text-gradient-gold">Témoignages</span>
-          </h2>
-        </motion.div>
+    <div className="flex overflow-hidden">
+      <motion.div
+        className="flex gap-5 flex-shrink-0"
+        animate={{ x: reverse ? ["0%", "-50%"] : ["-50%", "0%"] }}
+        transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
+      >
+        {allItems.map((t, i) => (
+          <TestimonialCard key={`${t.name}-${i}`} {...t} />
+        ))}
+      </motion.div>
+    </div>
+  );
+};
 
-        <div className="relative min-h-[240px] md:min-h-[280px] flex items-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center w-full"
-            >
-              <div className="mb-8">
-                <svg width="40" height="30" viewBox="0 0 40 30" fill="none" className="mx-auto opacity-20">
-                  <path d="M0 30V18C0 12.4 1.2 8 3.6 4.8C6 1.6 9.6 0 14.4 0V6C12 6 10.2 7 9 9C7.8 11 7.2 13.4 7.2 16.2H14V30H0ZM24 30V18C24 12.4 25.2 8 27.6 4.8C30 1.6 33.6 0 38.4 0V6C36 6 34.2 7 33 9C31.8 11 31.2 13.4 31.2 16.2H38V30H24Z" fill="hsl(var(--primary))" />
-                </svg>
-              </div>
-              <blockquote className="text-xl md:text-3xl lg:text-4xl font-serif leading-[1.3] mb-10 text-foreground/90 max-w-3xl mx-auto font-light italic">
-                «&nbsp;{testimonials[current].text}&nbsp;»
-              </blockquote>
-              <div>
-                <p className="text-sm font-sans font-medium text-foreground tracking-wide">
-                  {testimonials[current].name}
-                </p>
-                <p className="text-xs font-sans text-muted-foreground mt-1 tracking-wider uppercase">
-                  {testimonials[current].city}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="flex items-center justify-center gap-6 mt-14">
-          <button
-            onClick={prev}
-            className="w-11 h-11 rounded-full border border-border/60 flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
-            aria-label="Précédent"
+const TestimonialsSection = () => {
+  return (
+    <section className="py-24 md:py-40 overflow-hidden bg-surface">
+      <div className="section-padding mb-14">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <ChevronLeft size={18} />
-          </button>
-
-          <div className="flex gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  i === current ? "bg-primary w-8" : "bg-border w-1.5"
-                }`}
-                aria-label={`Témoignage ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={next}
-            className="w-11 h-11 rounded-full border border-border/60 flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
-            aria-label="Suivant"
-          >
-            <ChevronRight size={18} />
-          </button>
+            <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
+              Ils nous font confiance
+            </p>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.05]">
+              Quelques mots de nos{" "}
+              <span className="italic text-gradient-gold">clients</span>
+            </h2>
+          </motion.div>
         </div>
+      </div>
+
+      {/* Marquee rows - Thrive-style */}
+      <div className="space-y-5">
+        <MarqueeRow items={row1} speed={45} />
+        <MarqueeRow items={row2} speed={55} reverse />
+        <MarqueeRow items={row3} speed={50} />
       </div>
     </section>
   );

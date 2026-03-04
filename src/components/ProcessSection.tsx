@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 
 const steps = [
   {
-    number: "01",
+    number: "1",
+    icon: "https://parebriseexpress.ma/images/shape/comp.svg",
     title: "Déclarez votre sinistre",
     desc: "Fissure, bris de glace, nous vous aidons à remplir votre déclaration pour la soumettre à votre assureur.",
   },
   {
-    number: "02",
+    number: "2",
+    icon: "https://parebriseexpress.ma/images/shape/check.svg",
     title: "Prenez rendez-vous",
     desc: "Choisissez le centre technique et le créneau qui vous convient le mieux.",
   },
   {
-    number: "03",
+    number: "3",
+    icon: "https://ubermensch-staging.com//storage/acceuil-icons/Mediamodifier-Design-Template.png",
     title: "Confiez-nous votre voiture",
     desc: "Nos experts confirmés prendront grand soin de votre véhicule.",
   },
@@ -21,14 +24,14 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="declaration" className="py-28 md:py-44 section-padding bg-surface">
+    <section id="declaration" className="py-24 md:py-40 section-padding bg-surface">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-20"
+          className="mb-16 md:mb-20"
         >
           <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Processus simple
@@ -38,7 +41,7 @@ const ProcessSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
@@ -46,29 +49,37 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative"
+              className="group relative rounded-3xl border border-border/30 bg-card p-8 md:p-10 hover:border-primary/20 transition-all duration-700 overflow-hidden"
             >
-              <div className="mb-6">
-                <span className="text-7xl md:text-8xl font-serif text-gradient-gold opacity-30 group-hover:opacity-60 transition-opacity duration-500 leading-none">
-                  {step.number}
-                </span>
+              {/* Background number */}
+              <span className="absolute -top-4 -right-2 text-[120px] font-serif text-foreground/[0.03] leading-none pointer-events-none select-none">
+                {step.number}
+              </span>
+
+              {/* Icon */}
+              <div className="relative z-10 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <img src={step.icon} alt="" className="w-8 h-8 object-contain" />
+                </div>
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif mb-4 leading-tight">
+
+              {/* Step label */}
+              <span className="text-[11px] font-sans font-semibold text-primary uppercase tracking-[0.3em] mb-3 block">
+                Étape {step.number}
+              </span>
+
+              <h3 className="text-xl md:text-2xl font-serif mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
                 {step.title}
               </h3>
               <p className="text-sm font-sans text-muted-foreground leading-[1.8] font-light">
                 {step.desc}
               </p>
-              {/* Connector line */}
-              {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 -right-6 w-12 h-px bg-border/40" />
-              )}
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-16 flex justify-start"
+          className="mt-12 flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
