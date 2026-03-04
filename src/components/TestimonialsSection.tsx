@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
   const allCards = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 md:py-36 overflow-hidden bg-[hsl(36,33%,93%)]">
+    <section className="py-24 md:py-36 overflow-hidden bg-background">
       <div className="section-padding mb-14">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
