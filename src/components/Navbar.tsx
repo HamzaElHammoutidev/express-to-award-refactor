@@ -44,8 +44,8 @@ const Navbar = () => {
         <nav
           className={`flex items-center gap-1 px-4 py-2.5 rounded-full transition-all duration-700 ease-out ${
             scrolled
-              ? "bg-background/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-border/30"
-              : "nav-glass-dark"
+              ? "bg-background/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-border/20"
+              : "bg-background shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-border/30"
           }`}
         >
           <Link to="/" className="flex-shrink-0 mr-6">
