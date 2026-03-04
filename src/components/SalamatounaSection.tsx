@@ -2,27 +2,8 @@ import { motion } from "framer-motion";
 
 const SalamatounaSection = () => {
   return (
-    <section className="relative bg-background">
-      {/* Video background area */}
-      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-          poster="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
-        >
-          <source
-            src="https://parebriseexpress.ma//storage/theme-videos/March2025/wRZK8aB8oLsXQUO0nwC9.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
-
-      {/* Yellow banner overlapping the video */}
-      <div className="relative -mt-20 md:-mt-24 z-10 section-padding">
+    <section className="relative bg-background py-12 md:py-20">
+      <div className="section-padding">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
