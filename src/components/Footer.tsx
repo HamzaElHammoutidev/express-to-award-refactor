@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const footerLinks = [
-  { label: "Accueil", href: "#" },
-  { label: "Qui Sommes Nous?", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Centres", href: "#centres" },
-  { label: "Carrières", href: "#carrieres" },
+  { label: "Accueil", href: "/" },
+  { label: "Qui Sommes Nous?", href: "/institution" },
+  { label: "Engagement", href: "/engag" },
+  { label: "Centres", href: "/centres" },
+  { label: "Carrières", href: "/carrieres" },
+  { label: "Contactez-Nous", href: "/contact" },
 ];
 
 const Footer = () => {
@@ -26,14 +28,12 @@ const Footer = () => {
               <br />
               <span className="italic text-gradient-gold">de votre véhicule</span>
             </h2>
-            <a
-              href="https://parebriseexpress.ma/contact"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contact"
               className="inline-block px-10 py-4 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-[13px] uppercase tracking-[0.15em] hover:bg-gold-dark transition-colors duration-300"
             >
               Contactez-nous
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -57,6 +57,12 @@ const Footer = () => {
                 )
               )}
             </ul>
+            <Link
+              to="/centres"
+              className="inline-block mt-6 text-[13px] font-sans text-primary hover:underline font-medium"
+            >
+              Trouver un centre →
+            </Link>
           </div>
 
           {/* Quick Links */}
@@ -67,13 +73,13 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-[13px] font-sans text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2 group font-light"
                   >
                     <span className="inline-block w-0 h-px bg-primary group-hover:w-4 transition-all duration-300" />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

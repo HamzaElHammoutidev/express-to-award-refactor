@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -73,14 +74,12 @@ const ProcessSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <a
-            href="https://parebriseexpress.ma/declaration"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/declaration"
             className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-[13px] uppercase tracking-[0.15em] hover:bg-gold-dark transition-colors duration-300"
           >
             Faire une déclaration
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
