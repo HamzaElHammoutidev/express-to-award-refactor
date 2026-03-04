@@ -20,24 +20,24 @@ const HeroSection = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/20 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80" />
       </div>
 
       {/* Content — bottom left like vincentetdussault.com */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-32 section-padding">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-32 px-5 md:section-padding">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
         >
-          <h1 className="text-[clamp(2.5rem,8vw,7rem)] font-serif leading-[0.95] tracking-[-0.02em]">
+          <h1 className="text-[clamp(2rem,7vw,6rem)] font-serif leading-[0.95] tracking-[-0.02em]">
             Votre pare-brise,
             <br />
             <span className="text-gradient-gold italic font-light">
               notre priorité
             </span>
           </h1>
-          <p className="text-base md:text-lg font-sans text-cream-muted max-w-md mt-8 font-light leading-relaxed">
+          <p className="text-sm md:text-lg font-sans text-cream-muted max-w-md mt-5 md:mt-8 font-light leading-relaxed">
             Réparation rapide, qualité garantie
           </p>
         </motion.div>
