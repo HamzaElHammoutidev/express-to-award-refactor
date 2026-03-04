@@ -14,7 +14,7 @@ const PartnersLogoSection = () => {
   const allLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="py-24 md:py-32 overflow-hidden">
+    <section className="py-24 md:py-32 overflow-hidden bg-background">
       <div className="section-padding mb-12">
         <div className="max-w-7xl mx-auto">
           <motion.div

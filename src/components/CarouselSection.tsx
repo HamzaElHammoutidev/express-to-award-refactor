@@ -86,7 +86,7 @@ const CarouselSection = () => {
   const slide = slides[current];
 
   return (
-    <section className="py-20 md:py-32 overflow-hidden bg-surface-dark">
+    <section className="py-20 md:py-32 overflow-hidden bg-surface">
       <div className="section-padding">
         <div className="max-w-7xl mx-auto">
           <motion.div

@@ -13,7 +13,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-surface-dark">
+    <footer id="contact" className="bg-surface">
       {/* Large CTA Section */}
       <div className="section-padding py-28 md:py-40 border-b border-border/30">
         <div className="max-w-7xl mx-auto text-center">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const SalamatounaSection = () => {
   return (
-    <section className="py-24 md:py-36 section-padding">
+    <section className="py-24 md:py-36 section-padding bg-background">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="relative flex flex-col md:flex-row items-center gap-12 md:gap-20"
