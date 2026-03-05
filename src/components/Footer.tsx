@@ -13,9 +13,9 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-surface">
+    <footer id="contact">
       {/* Large CTA Section */}
-      <div className="section-padding py-28 md:py-40 border-b border-border/30">
+      <div className="section-padding py-28 md:py-40 bg-surface border-b border-border/30">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -38,8 +38,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer Grid */}
-      <div className="section-padding py-16 md:py-20">
+      {/* Footer Grid - dark background */}
+      <div className="section-padding py-16 md:py-20 bg-[hsl(0,0%,15%)]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Logo & Brand */}
           <div>
@@ -51,7 +51,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               {["Marque certifiée", "Réseau d'experts national", "Agréé toutes assurances", "Garantie à vie"].map(
                 (item) => (
-                  <li key={item} className="text-[13px] font-sans text-muted-foreground font-light">
+                  <li key={item} className="text-[13px] font-sans text-gray-400 font-light">
                     {item}
                   </li>
                 )
@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[11px] font-sans font-semibold text-foreground uppercase tracking-[0.25em] mb-6">
+            <h4 className="text-[11px] font-sans font-semibold text-white uppercase tracking-[0.25em] mb-6">
               Liens Utiles
             </h4>
             <ul className="space-y-3">
@@ -75,7 +75,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-[13px] font-sans text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2 group font-light"
+                    className="text-[13px] font-sans text-gray-400 hover:text-primary transition-colors duration-300 flex items-center gap-2 group font-light"
                   >
                     <span className="inline-block w-0 h-px bg-primary group-hover:w-4 transition-all duration-300" />
                     {link.label}
@@ -87,31 +87,31 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="md:col-span-2">
-            <h4 className="text-[11px] font-sans font-semibold text-foreground uppercase tracking-[0.25em] mb-6">
+            <h4 className="text-[11px] font-sans font-semibold text-white uppercase tracking-[0.25em] mb-6">
               Contact
             </h4>
             <div className="space-y-4">
               <a
                 href="tel:+212522663166"
-                className="flex items-center gap-3 text-[13px] font-sans text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
+                className="flex items-center gap-3 text-[13px] font-sans text-gray-400 hover:text-primary transition-colors duration-300 font-light"
               >
                 <Phone size={14} className="flex-shrink-0 opacity-60" />
                 +212 5 22 66 31 66
               </a>
               <a
                 href="tel:+212661247009"
-                className="flex items-center gap-3 text-[13px] font-sans text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
+                className="flex items-center gap-3 text-[13px] font-sans text-gray-400 hover:text-primary transition-colors duration-300 font-light"
               >
                 <Phone size={14} className="flex-shrink-0 opacity-60" />
                 +212 6 61 24 70 09
               </a>
-              <div className="flex items-start gap-3 text-[13px] font-sans text-muted-foreground font-light">
+              <div className="flex items-start gap-3 text-[13px] font-sans text-gray-400 font-light">
                 <MapPin size={14} className="flex-shrink-0 mt-0.5 opacity-60" />
                 Quartier Les Camps, rue Émile Brunet, immeuble Fajr. Ain borja Casablanca
               </div>
               <a
                 href="mailto:serviceclient@parebriseexpress.ma"
-                className="flex items-center gap-3 text-[13px] font-sans text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
+                className="flex items-center gap-3 text-[13px] font-sans text-gray-400 hover:text-primary transition-colors duration-300 font-light"
               >
                 <Mail size={14} className="flex-shrink-0 opacity-60" />
                 serviceclient@parebriseexpress.ma
@@ -121,10 +121,10 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="section-padding py-6 border-t border-border/20">
+      {/* Copyright - darker */}
+      <div className="section-padding py-6 bg-[hsl(0,0%,10%)] border-t border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] font-sans text-muted-foreground/60 tracking-wide">
+          <p className="text-[11px] font-sans text-gray-500 tracking-wide">
             © Copyright PARE-BRISE EXPRESS 2025. All Rights Reserved.
           </p>
         </div>

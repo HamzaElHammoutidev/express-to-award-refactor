@@ -12,13 +12,13 @@ const SalamatounaSection = () => {
         {/* Yellow banner - full width */}
         <div className="relative bg-primary">
           <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center">
-            {/* IMANOR Logo - circle overlapping top edge */}
-            <div className="flex-shrink-0 relative z-10 -mt-10 md:-mt-14 -mr-2 md:-mr-0">
-              <div className="w-28 h-28 md:w-44 md:h-44 rounded-full bg-white flex items-center justify-center shadow-xl">
+            {/* IMANOR Logo - large circle overflowing top & bottom */}
+            <div className="flex-shrink-0 relative z-10 -my-6 md:-my-8 -mr-2 md:mr-0">
+              <div className="w-36 h-36 md:w-52 md:h-52 rounded-full bg-white flex items-center justify-center shadow-xl border-4 border-white">
                 <img
                   src="https://parebriseexpress.ma/images/assets/imanor-orig.png"
                   alt="IMANOR - Certification Salamatouna"
-                  className="h-18 md:h-28 object-contain"
+                  className="h-22 md:h-36 object-contain"
                 />
               </div>
             </div>
