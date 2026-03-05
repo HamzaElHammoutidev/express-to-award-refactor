@@ -1,31 +1,28 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Calendar, MapPin, Handshake } from "lucide-react";
+import { CalendarDays, MapPinned, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
-    icon: Calendar,
+    Icon: CalendarDays,
     target: 10,
     suffix: "+",
     label: "Ans",
     desc: "d'expérience couronnée de succès",
-    img: "https://parebriseexpress.ma/images/calendar.svg",
   },
   {
-    icon: MapPin,
+    Icon: MapPinned,
     target: 80,
     suffix: "+",
     label: "Centres",
     desc: "techniques et ateliers mobiles à travers le Maroc",
-    img: "https://ubermensch-staging.com//storage/acceuil-icons/download%20(2).png",
   },
   {
-    icon: Handshake,
+    Icon: ShieldCheck,
     target: 7,
     suffix: "+",
     label: "Partenaires",
     desc: "assureurs qui nous font confiance",
-    img: "https://ubermensch-staging.com//storage/acceuil-icons/download%20(1).png",
   },
 ];
 
@@ -86,7 +83,7 @@ const StatsCardsSection = () => {
               {/* Icon */}
               <div className="relative z-10 mb-8">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <img src={stat.img} alt="" className="w-7 h-7 object-contain" />
+                  <stat.Icon size={26} className="text-primary" />
                 </div>
               </div>
 
