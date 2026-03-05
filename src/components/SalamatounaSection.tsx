@@ -2,31 +2,30 @@ import { motion } from "framer-motion";
 
 const SalamatounaSection = () => {
   return (
-    <section className="relative bg-card">
-      {/* Yellow banner that overlaps into the hero above */}
+    <section className="relative">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative -mt-24 md:-mt-28"
       >
-        <div className="section-padding">
-          <div className="flex items-center">
-            {/* IMANOR Logo - overlapping circle */}
-            <div className="flex-shrink-0 relative z-10 -mr-4 md:-mr-2">
-              <div className="w-36 h-36 md:w-52 md:h-52 rounded-full bg-card flex items-center justify-center shadow-xl border-4 border-card">
+        {/* Yellow banner - full width */}
+        <div className="relative bg-primary">
+          <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center">
+            {/* IMANOR Logo - circle overlapping top edge */}
+            <div className="flex-shrink-0 relative z-10 -mt-10 md:-mt-14 -mr-2 md:-mr-0">
+              <div className="w-28 h-28 md:w-44 md:h-44 rounded-full bg-white flex items-center justify-center shadow-xl">
                 <img
                   src="https://parebriseexpress.ma/images/assets/imanor-orig.png"
                   alt="IMANOR - Certification Salamatouna"
-                  className="h-24 md:h-36 object-contain"
+                  className="h-18 md:h-28 object-contain"
                 />
               </div>
             </div>
 
-            {/* Text content on yellow background */}
-            <div className="flex-1 bg-primary py-6 md:py-8 px-8 md:px-12 pl-10 md:pl-14">
-              <p className="text-sm md:text-lg text-primary-foreground leading-[1.7] font-normal">
+            {/* Text content */}
+            <div className="flex-1 py-5 md:py-7 px-4 md:px-10">
+              <p className="text-xs md:text-base text-primary-foreground leading-[1.7] font-normal">
                 Certifié par IMANOR, Pare-Brise Express met plus de dix ans d'expertise
                 à votre service pour la réparation et le remplacement des vitrages
                 de vos véhicules. Que vous ayez un impact, une fissure ou un bris de glace,
