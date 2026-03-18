@@ -45,7 +45,7 @@ const PartnersLogoSection = () => {
                 key={`${logo.name}-${i}`}
                 src={logo.src}
                 alt={logo.name}
-                className="h-10 md:h-14 object-contain opacity-40 hover:opacity-90 transition-opacity duration-500 grayscale hover:grayscale-0 flex-shrink-0"
+                className="h-14 md:h-20 object-contain opacity-40 hover:opacity-90 transition-opacity duration-500 grayscale hover:grayscale-0 flex-shrink-0"
                 loading="lazy"
               />
             ))}

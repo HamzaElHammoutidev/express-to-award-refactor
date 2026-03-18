@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 const VideoSection = () => {
   return (
-    <section className="py-14 md:py-20 section-padding bg-surface">
+    <section className="py-10 md:py-16 section-padding bg-surface">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12"
+          className="mb-8"
         >
           <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
             En action
@@ -30,11 +30,12 @@ const VideoSection = () => {
           <video
             controls
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
             poster="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
           >
             <source
-              src="https://parebriseexpress.ma//storage/theme-videos/March2025/Y8X7He7aKX51lU78FPHq.mp4"
+              src="/videos/hero-video.mp4"
               type="video/mp4"
             />
           </video>

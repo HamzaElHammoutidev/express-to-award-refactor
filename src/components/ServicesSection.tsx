@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRef } from "react";
 
 const services = [
   {
@@ -30,6 +31,29 @@ const services = [
     imagePosition: "left" as const,
   },
 ];
+
+const FloatingImage = ({ src, alt }: { src: string; alt: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.02, 0.95]);
+
+  return (
+    <div ref={ref} className="w-full md:w-[45%] flex-shrink-0 overflow-hidden rounded-xl">
+      <motion.div style={{ y, scale }} className="aspect-[4/3]">
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+    </div>
+  );
+};
 
 const ServicesSection = () => {
   const { t } = useLanguage();
@@ -66,17 +90,11 @@ const ServicesSection = () => {
                   service.imagePosition === "left" ? "md:flex-row" : "md:flex-row-reverse"
                 } items-center gap-8 md:gap-14 py-14 md:py-20`}
               >
-                {/* Image */}
-                <div className="w-full md:w-[45%] flex-shrink-0">
-                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                    <img
-                      src={service.image}
-                      alt={t(service.titleFr, service.titleAr)}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+                {/* Floating Image */}
+                <FloatingImage
+                  src={service.image}
+                  alt={t(service.titleFr, service.titleAr)}
+                />
 
                 {/* Text */}
                 <div className="w-full md:w-[55%] text-center md:text-start">
