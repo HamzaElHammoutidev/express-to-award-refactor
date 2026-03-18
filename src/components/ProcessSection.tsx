@@ -160,7 +160,7 @@ const ProcessSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20 max-w-[1020px] mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold tracking-tight mb-5">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight mb-5">
             {t("Comment", "كيف")} <span className="italic text-primary">{t("ça marche ?", "يعمل ؟")}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-[940px] mx-auto leading-[1.7]">
