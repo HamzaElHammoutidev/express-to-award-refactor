@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const VideoSection = () => {
   return (
-    <section className="py-28 md:py-44 section-padding bg-surface">
+    <section className="py-14 md:py-20 section-padding bg-surface">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

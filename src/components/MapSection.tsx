@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 
 const MapSection = () => {
   return (
-    <section id="centres" className="py-24 md:py-40 section-padding relative overflow-hidden bg-surface">
+    <section id="centres" className="py-14 md:py-20 section-padding relative overflow-hidden bg-surface">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text content */}

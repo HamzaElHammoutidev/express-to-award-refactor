@@ -1,30 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { CalendarDays, MapPinned, ShieldCheck } from "lucide-react";
-
-const stats = [
-  {
-    Icon: CalendarDays,
-    target: 10,
-    suffix: "+",
-    label: "Ans",
-    desc: "d'expérience couronnée de succès",
-  },
-  {
-    Icon: MapPinned,
-    target: 80,
-    suffix: "+",
-    label: "Centres",
-    desc: "techniques et ateliers mobiles à travers le Maroc",
-  },
-  {
-    Icon: ShieldCheck,
-    target: 7,
-    suffix: "+",
-    label: "Partenaires",
-    desc: "assureurs qui nous font confiance",
-  },
-];
+import { Award, MapPin, Shield } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
@@ -45,60 +22,82 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
     requestAnimationFrame(step);
   }, [isInView, target]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span ref={ref}>{suffix}{count}</span>;
 };
 
 const StatsCardsSection = () => {
+  const { t } = useLanguage();
+
+  const stats = [
+    {
+      Icon: Award,
+      target: 10,
+      suffix: "+",
+      label: t("ans", "سنة"),
+      desc: t("D'expérience couronnée de succès", "من الخبرة المتوجة بالنجاح"),
+    },
+    {
+      Icon: MapPin,
+      target: 80,
+      suffix: "+",
+      label: t("Centres", "مركز"),
+      desc: t("Centres techniques et ateliers mobiles", "مراكز تقنية وورشات متنقلة"),
+    },
+    {
+      Icon: Shield,
+      target: 7,
+      suffix: "+",
+      label: t("Partenaires", "شريك"),
+      desc: t("Partenaires assurances qui nous font confiance", "شركاء تأمين يثقون بنا"),
+    },
+  ];
+
   return (
-    <section className="py-20 md:py-32 section-padding bg-surface">
+    <section className="py-14 md:py-20 section-padding bg-foreground text-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Réparation rapide, qualité garantie
-          </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.05]">
-            Pourquoi nous <span className="italic text-gradient-gold">choisir</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.1]">
+            {t("Votre Pare-brise,", "زجاجكم الأمامي،")}
+            <br />
+            <span className="italic text-primary">{t("notre priorité !", "أولويتنا !")}</span>
           </h2>
+          <p className="text-sm md:text-base text-background/60 mt-4 max-w-xl mx-auto font-light leading-relaxed">
+            {t(
+              "Réparation rapide, qualité garantie. Découvrez dès maintenant tous nos services de réparation et de remplacement.",
+              "إصلاح سريع، جودة مضمونة. اكتشفوا الآن جميع خدماتنا للإصلاح والاستبدال."
+            )}
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-3 gap-5 md:gap-6">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="group relative overflow-hidden rounded-3xl border border-border/30 bg-card p-8 md:p-10 hover:border-primary/30 transition-all duration-700"
-              initial={{ opacity: 0, y: 40 }}
+              className="rounded-2xl border border-background/10 bg-background/5 p-8 text-center"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              {/* Glow effect on hover */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-              {/* Icon */}
-              <div className="relative z-10 mb-8">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <stat.Icon size={26} className="text-primary" />
-                </div>
-              </div>
-
-              {/* Number */}
-              <div className="relative z-10">
-                <span className="text-5xl md:text-6xl font-serif text-gradient-gold leading-none">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <stat.Icon size={24} className="text-primary" />
+                <span className="text-4xl md:text-5xl font-serif text-primary font-bold">
                   <AnimatedNumber target={stat.target} suffix={stat.suffix} />
                 </span>
-                <h3 className="text-sm font-sans font-semibold text-foreground mt-3 uppercase tracking-[0.2em]">
-                  {stat.label}
-                </h3>
-                <p className="text-sm font-sans text-muted-foreground mt-3 leading-relaxed font-light">
-                  {stat.desc}
-                </p>
               </div>
+              <h3 className="text-sm font-semibold text-background uppercase tracking-wider mb-1">
+                {stat.label}
+              </h3>
+              <p className="text-sm text-background/50 font-light">{stat.desc}</p>
+
+              {/* Bottom accent bar */}
+              <div className="mt-6 mx-auto w-16 h-1 rounded-full bg-primary/40" />
             </motion.div>
           ))}
         </div>
