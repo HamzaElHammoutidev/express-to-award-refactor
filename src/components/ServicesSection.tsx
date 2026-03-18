@@ -19,7 +19,7 @@ const services = [
   },
   {
     id: "remplacement",
-    image: "https://parebriseexpress.ma/images/rem_serv.jpg",
+    image: "https://parebriseexpress.ma/images/jouj_serv.jpg",
     icon: "https://parebriseexpress.ma/images/voiture.png",
     titleFr: "Remplacement de votre",
     titleAccentFr: " pare-brise",
