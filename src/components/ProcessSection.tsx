@@ -135,19 +135,16 @@ const ProcessSection = () => {
     >
       {/* Parallax background blobs */}
       <motion.div
-        style={{ y: blob1Y }}
-        className="absolute top-10 -left-20 w-[320px] h-[320px] rounded-full blur-[14px] opacity-90 pointer-events-none"
         style={{ y: blob1Y, background: "radial-gradient(circle, hsl(var(--primary) / 0.16), transparent 68%)" }}
+        className="absolute top-10 -left-20 w-[320px] h-[320px] rounded-full blur-[14px] opacity-90 pointer-events-none"
       />
       <motion.div
-        style={{ y: blob2Y }}
-        className="absolute top-[220px] -right-12 w-[240px] h-[240px] rounded-full blur-[14px] opacity-90 pointer-events-none"
         style={{ y: blob2Y, background: "radial-gradient(circle, hsl(var(--background) / 0.75), transparent 68%)" }}
+        className="absolute top-[220px] -right-12 w-[240px] h-[240px] rounded-full blur-[14px] opacity-90 pointer-events-none"
       />
       <motion.div
-        style={{ y: blob3Y }}
-        className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full blur-[14px] opacity-90 pointer-events-none"
         style={{ y: blob3Y, background: "radial-gradient(circle, hsl(var(--primary) / 0.14), transparent 70%)" }}
+        className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full blur-[14px] opacity-90 pointer-events-none"
       />
 
       {/* Decorative ring */}
