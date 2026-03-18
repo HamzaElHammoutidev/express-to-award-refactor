@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from "fram
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef, useEffect, useState } from "react";
+import carShieldImg from "@/assets/car-shield.png";
 
 const steps = [
   {
