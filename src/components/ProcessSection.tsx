@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from "fram
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef, useEffect, useState } from "react";
+import carShieldImg from "@/assets/car-shield.png";
 
 const steps = [
   {
@@ -22,7 +23,7 @@ const steps = [
   },
   {
     number: "03",
-    icon: "https://parebriseexpress.ma/images/shape/car.svg",
+    icon: "car-shield",
     titleFr: "Confiez-nous votre\nvéhicule",
     titleAr: "سلّمنا سيارتك",
     descFr: "Nos techniciens interviennent avec soin pour une prise en charge rapide, fiable et professionnelle.",
@@ -80,7 +81,7 @@ const StepCard = ({ step, index }: { step: typeof steps[0]; index: number }) => 
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl md:text-3xl font-serif font-bold mb-5 min-h-[80px] flex items-center justify-center whitespace-pre-line text-foreground">
+      <h3 className="text-lg md:text-xl font-serif font-bold mb-5 min-h-[56px] flex items-center justify-center whitespace-pre-line text-foreground">
         {t(step.titleFr, step.titleAr)}
       </h3>
 
@@ -92,7 +93,7 @@ const StepCard = ({ step, index }: { step: typeof steps[0]; index: number }) => 
       >
         <div className="absolute bottom-3 w-[58%] h-[14px] rounded-full bg-foreground/[0.07] blur-[8px]" />
         <img
-          src={step.icon}
+          src={step.icon === "car-shield" ? carShieldImg : step.icon}
           alt={t(step.titleFr, step.titleAr)}
           className="relative z-10 max-w-[180px] max-h-[130px] w-auto h-auto object-contain"
         />
@@ -159,7 +160,7 @@ const ProcessSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20 max-w-[1020px] mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold tracking-tight mb-5">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight mb-5">
             {t("Comment", "كيف")} <span className="italic text-primary">{t("ça marche ?", "يعمل ؟")}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-[940px] mx-auto leading-[1.7]">
@@ -201,10 +202,10 @@ const ProcessSection = () => {
         >
           <Link
             to="/declaration"
-            className="inline-flex items-center justify-center min-w-[300px] md:min-w-[360px] min-h-[72px] md:min-h-[82px] px-10 rounded-full text-background text-lg md:text-2xl font-bold tracking-tight hover:-translate-y-1 hover:scale-[1.015] transition-all duration-200"
+            className="inline-flex items-center justify-center min-w-[220px] md:min-w-[280px] min-h-[52px] md:min-h-[58px] px-8 rounded-full text-foreground text-sm md:text-base font-bold tracking-tight hover:-translate-y-1 hover:scale-[1.015] transition-all duration-200"
             style={{
-              background: "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.85) 45%, hsl(var(--foreground)) 100%)",
-              boxShadow: "0 20px 46px rgba(0,0,0,0.16), inset 0 -3px 0 hsl(var(--primary) / 0.95)",
+              background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.85) 45%, hsl(var(--primary)) 100%)",
+              boxShadow: "0 16px 36px rgba(217,173,52,0.22), inset 0 -3px 0 hsl(var(--foreground) / 0.85)",
             }}
           >
             {t("Prendre rendez-vous", "حجز موعد")}
