@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Award, MapPin, Shield } from "lucide-react";
+import { Trophy, MapPinCheck, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) => {
@@ -30,21 +30,21 @@ const StatsCardsSection = () => {
 
   const stats = [
     {
-      Icon: Award,
+      Icon: Trophy,
       target: 10,
       suffix: "+",
       label: t("ans", "سنة"),
       desc: t("D'expérience couronnée de succès", "من الخبرة المتوجة بالنجاح"),
     },
     {
-      Icon: MapPin,
+      Icon: MapPinCheck,
       target: 80,
       suffix: "+",
       label: t("Centres", "مركز"),
       desc: t("Centres techniques et ateliers mobiles", "مراكز تقنية وورشات متنقلة"),
     },
     {
-      Icon: Shield,
+      Icon: ShieldCheck,
       target: 7,
       suffix: "+",
       label: t("Partenaires", "شريك"),

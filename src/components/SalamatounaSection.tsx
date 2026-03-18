@@ -5,14 +5,14 @@ const SalamatounaSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative">
+    <section className="relative section-padding">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="relative bg-primary/90 backdrop-blur-sm">
+        <div className="relative bg-primary rounded-2xl md:rounded-3xl overflow-hidden">
           <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center">
             {/* IMANOR Logo */}
             <div className="flex-shrink-0 relative z-10 -my-8 md:-my-10">
