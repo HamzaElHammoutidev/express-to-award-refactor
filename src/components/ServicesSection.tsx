@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef, useEffect, useCallback } from "react";
+import joujServImg from "@/assets/jouj_serv.jpg";
 
 const services = [
   {
