@@ -174,14 +174,18 @@ const ProcessSection = () => {
         {/* Steps grid with connector line */}
         <div className="relative pt-4">
           {/* Connector line (desktop only) */}
-          <div className="hidden md:block absolute left-[14%] right-[14%] top-[43%] h-[2px] z-[1]"
+          <div className="hidden md:block absolute left-[14%] right-[14%] top-[43%] h-[3px] z-[3]"
             style={{
-              background: "linear-gradient(90deg, hsl(var(--primary) / 0), hsl(var(--primary) / 0.55), hsl(var(--primary) / 0.55), hsl(var(--primary) / 0))",
+              background: "linear-gradient(90deg, hsl(var(--primary) / 0), hsl(var(--primary) / 0.7), hsl(var(--primary) / 0.7), hsl(var(--primary) / 0))",
             }}
           >
             {/* Arrows */}
-            <div className="absolute top-1/2 left-[33.2%] w-4 h-4 border-t-2 border-r-2 border-primary/75 -translate-y-1/2 rotate-45" />
-            <div className="absolute top-1/2 right-[33.2%] w-4 h-4 border-t-2 border-r-2 border-primary/75 -translate-y-1/2 rotate-45" />
+            <div className="absolute top-1/2 left-[33.2%] -translate-y-1/2">
+              <div className="w-6 h-6 border-t-[3px] border-r-[3px] border-primary rotate-45" />
+            </div>
+            <div className="absolute top-1/2 right-[33.2%] -translate-y-1/2">
+              <div className="w-6 h-6 border-t-[3px] border-r-[3px] border-primary rotate-45" />
+            </div>
           </div>
 
           {/* Cards */}
