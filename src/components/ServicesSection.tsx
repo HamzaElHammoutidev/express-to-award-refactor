@@ -20,7 +20,7 @@ const services = [
   },
   {
     id: "remplacement",
-    image: new URL("@/assets/jouj_serv.jpg", import.meta.url).href,
+    image: joujServImg,
     icon: "https://parebriseexpress.ma/images/voiture.png",
     titleFr: "Remplacement de votre",
     titleAccentFr: " pare-brise",
