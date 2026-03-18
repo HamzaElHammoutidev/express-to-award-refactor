@@ -1,115 +1,177 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const services = [
   {
-    icon: "https://parebriseexpress.ma/images/motif.png",
+    id: "reparation",
+    tab: "Réparation",
     number: "01",
     title: "Réparation d'impact(s)",
-    description:
-      "Chez Pare-Brise Express, nous savons que chaque impact doit être traité rapidement. C'est pourquoi nous vous proposons une intervention rapide, fiable et éco-responsable. Ne laissez pas un petit choc compromettre votre sécurité : contactez-nous sans attendre pour une solution sur mesure.",
-    image: "https://parebriseexpress.ma/images/tech_serv.jpg",
+    heroImage: "https://parebriseexpress.ma/images/tech_serv.jpg",
+    cards: [
+      {
+        image: "https://parebriseexpress.ma/images/motif.png",
+        title: "Intervention rapide",
+        description:
+          "Chaque impact doit être traité rapidement. Nous vous proposons une intervention fiable et éco-responsable.",
+      },
+      {
+        image: "https://parebriseexpress.ma/images/van_serv.jpg",
+        title: "Sécurité garantie",
+        description:
+          "Ne laissez pas un petit choc compromettre votre sécurité : contactez-nous sans attendre pour une solution sur mesure.",
+      },
+    ],
   },
   {
-    icon: "https://parebriseexpress.ma/images/voiture.png",
+    id: "remplacement",
+    tab: "Remplacement",
     number: "02",
     title: "Remplacement de votre pare-brise",
-    description:
-      "Pare-brise endommagé ? Détendez-vous, nous nous chargeons de tout. De la prise de contact à la réception de votre véhicule en passant par le remplacement et le recalibrage de votre caméra ADAS, nous vous accompagnons à chaque étape pour vous garantir un service de qualité.",
-    image: "https://parebriseexpress.ma/images/jouj_serv.jpg",
+    heroImage: "https://parebriseexpress.ma/images/jouj_serv.jpg",
+    cards: [
+      {
+        image: "https://parebriseexpress.ma/images/voiture.png",
+        title: "Prise en charge complète",
+        description:
+          "De la prise de contact à la réception de votre véhicule, nous vous accompagnons à chaque étape.",
+      },
+      {
+        image: "https://parebriseexpress.ma/images/tech_serv.jpg",
+        title: "Recalibrage ADAS",
+        description:
+          "Remplacement et recalibrage de votre caméra ADAS pour garantir un service de qualité optimale.",
+      },
+    ],
   },
   {
-    icon: "https://parebriseexpress.ma/images/test.png",
+    id: "mobile",
+    tab: "Atelier mobile",
     number: "03",
     title: "Atelier mobile",
-    description:
-      "Service 100% gratuit — Sur tout type de vitrage — Chez vous, sur votre lieu de travail ou ailleurs. Notre atelier mobile se déplace pour vous offrir le même niveau de qualité qu'en centre technique.",
-    image: "https://parebriseexpress.ma/images/van_serv.jpg",
+    heroImage: "https://parebriseexpress.ma/images/van_serv.jpg",
+    cards: [
+      {
+        image: "https://parebriseexpress.ma/images/test.png",
+        title: "Service 100% gratuit",
+        description:
+          "Sur tout type de vitrage — Chez vous, sur votre lieu de travail ou ailleurs.",
+      },
+      {
+        image: "https://parebriseexpress.ma/images/jouj_serv.jpg",
+        title: "Qualité en déplacement",
+        description:
+          "Notre atelier mobile se déplace pour vous offrir le même niveau de qualité qu'en centre technique.",
+      },
+    ],
   },
 ];
 
 const ServicesSection = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const active = services[activeTab];
+
   return (
-    <section id="services" className="py-24 md:py-40 section-padding bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-24 md:py-32 bg-foreground text-background">
+      <div className="max-w-7xl mx-auto section-padding">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 md:mb-20"
+          className="text-center mb-16"
         >
-          <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <p className="text-xs font-sans uppercase tracking-[0.3em] text-background/50 mb-4">
             Ce que nous faisons
           </p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.05]">
-            Nos <span className="italic text-gradient-gold">services</span>
+            Nos <span className="italic text-primary">services</span>
           </h2>
-          <p className="text-base font-sans text-secondary-foreground mt-5 max-w-xl font-light leading-relaxed">
+          <p className="text-base font-sans text-background/60 mt-5 max-w-xl mx-auto font-light leading-relaxed">
             Découvrez dès maintenant tous nos services de réparation et de remplacement.
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:gap-10">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              className="group grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-border/30 bg-card hover:border-primary/20 transition-all duration-700"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {/* Image side */}
-              <div className={`relative aspect-[4/3] md:aspect-auto overflow-hidden ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-card/30 to-transparent md:bg-none" />
-                {/* Number overlay */}
-                <div className="absolute top-6 left-6">
-                  <span className="text-7xl font-serif text-foreground/10 leading-none">
-                    {service.number}
-                  </span>
-                </div>
-              </div>
+        {/* Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex bg-background/10 rounded-full p-1.5 backdrop-blur-sm border border-background/10">
+            {services.map((service, i) => (
+              <button
+                key={service.id}
+                onClick={() => setActiveTab(i)}
+                className={`relative px-6 md:px-8 py-3 text-sm md:text-base font-sans font-medium rounded-full transition-all duration-500 ${
+                  activeTab === i
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "text-background/60 hover:text-background"
+                }`}
+              >
+                {service.tab}
+              </button>
+            ))}
+          </div>
+        </div>
 
-              {/* Content side */}
-              <div className={`flex flex-col justify-center p-8 md:p-12 lg:p-16 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+        {/* Content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* Hero Image */}
+            <div className="relative rounded-3xl overflow-hidden mb-12 aspect-[16/7]">
+              <img
+                src={active.heroImage}
+                alt={active.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
+                <span className="text-8xl md:text-9xl font-serif text-background/10 leading-none absolute -top-16 -left-2">
+                  {active.number}
+                </span>
+              </div>
+            </div>
+
+            {/* Feature title */}
+            <h3 className="text-2xl md:text-4xl font-serif mb-10 text-center">
+              {active.title}
+            </h3>
+
+            {/* Cards */}
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              {active.cards.map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  className="group rounded-2xl overflow-hidden bg-background/5 border border-background/10 hover:border-primary/30 transition-all duration-500"
+                >
+                  <div className="aspect-[16/9] overflow-hidden">
                     <img
-                      src={service.icon}
-                      alt=""
-                      className="w-6 h-6 object-contain"
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
                     />
                   </div>
-                  <span className="text-xs font-sans font-semibold text-primary uppercase tracking-[0.25em]">
-                    Service {service.number}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-5 leading-tight group-hover:text-primary transition-colors duration-500">
-                  {service.title}
-                </h3>
-
-                <p className="text-sm md:text-base font-sans text-secondary-foreground leading-[1.9] font-light">
-                  {service.description}
-                </p>
-
-                <div className="mt-8">
-                  <span className="inline-flex items-center gap-2 text-[13px] font-sans font-medium text-primary group-hover:gap-4 transition-all duration-500">
-                    En savoir plus
-                    <ArrowRight size={14} />
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  <div className="p-6 md:p-8">
+                    <h4 className="text-lg md:text-xl font-serif mb-3 group-hover:text-primary transition-colors duration-300">
+                      {card.title}
+                    </h4>
+                    <p className="text-sm font-sans text-background/60 leading-[1.8] font-light">
+                      {card.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
