@@ -44,7 +44,7 @@ const StatsCardsSection = () => {
       desc: t("Centres techniques et ateliers mobiles", "مراكز تقنية وورشات متنقلة"),
     },
     {
-      Icon: Shield,
+      Icon: ShieldCheck,
       target: 7,
       suffix: "+",
       label: t("Partenaires", "شريك"),
