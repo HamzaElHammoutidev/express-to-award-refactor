@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef, useEffect, useCallback } from "react";
+import joujServImg from "@/assets/jouj_serv.jpg";
 
 const services = [
   {
@@ -19,7 +20,7 @@ const services = [
   },
   {
     id: "remplacement",
-    image: "https://parebriseexpress.ma/images/jouj_serv.jpg",
+    image: joujServImg,
     icon: "https://parebriseexpress.ma/images/voiture.png",
     titleFr: "Remplacement de votre",
     titleAccentFr: " pare-brise",
