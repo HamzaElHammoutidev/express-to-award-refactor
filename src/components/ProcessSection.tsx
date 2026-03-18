@@ -81,7 +81,7 @@ const StepCard = ({ step, index }: { step: typeof steps[0]; index: number }) => 
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl md:text-3xl font-serif font-bold mb-5 min-h-[80px] flex items-center justify-center whitespace-pre-line text-foreground">
+      <h3 className="text-lg md:text-xl font-serif font-bold mb-5 min-h-[56px] flex items-center justify-center whitespace-pre-line text-foreground">
         {t(step.titleFr, step.titleAr)}
       </h3>
 
@@ -93,7 +93,7 @@ const StepCard = ({ step, index }: { step: typeof steps[0]; index: number }) => 
       >
         <div className="absolute bottom-3 w-[58%] h-[14px] rounded-full bg-foreground/[0.07] blur-[8px]" />
         <img
-          src={step.icon}
+          src={step.icon === "car-shield" ? carShieldImg : step.icon}
           alt={t(step.titleFr, step.titleAr)}
           className="relative z-10 max-w-[180px] max-h-[130px] w-auto h-auto object-contain"
         />
