@@ -1,30 +1,39 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const steps = [
   {
     number: "1",
     icon: "https://parebriseexpress.ma/images/shape/comp.svg",
-    title: "Déclarez votre sinistre",
-    desc: "Fissure, bris de glace, nous vous aidons à remplir votre déclaration pour la soumettre à votre assureur.",
+    titleFr: "Déclarez votre sinistre",
+    titleAr: "صرّح بحادثك",
+    descFr: "Fissure, bris de glace, nous vous aidons à remplir votre déclaration pour la soumettre à votre assureur.",
+    descAr: "شرخ أو كسر زجاج، نساعدكم في ملء التصريح لتقديمه لشركة التأمين.",
   },
   {
     number: "2",
     icon: "https://parebriseexpress.ma/images/shape/check.svg",
-    title: "Prenez rendez-vous",
-    desc: "Choisissez le centre technique et le créneau qui vous convient le mieux.",
+    titleFr: "Prenez rendez-vous",
+    titleAr: "حدد موعدك",
+    descFr: "Choisissez le centre technique et le créneau qui vous convient le mieux.",
+    descAr: "اختاروا المركز التقني والوقت الذي يناسبكم.",
   },
   {
     number: "3",
-    icon: "https://ubermensch-staging.com//storage/acceuil-icons/Mediamodifier-Design-Template.png",
-    title: "Confiez-nous votre voiture",
-    desc: "Nos experts confirmés prendront grand soin de votre véhicule.",
+    icon: "https://parebriseexpress.ma/images/shape/car.svg",
+    titleFr: "Confiez-nous votre voiture",
+    titleAr: "سلّمنا سيارتك",
+    descFr: "Nos experts confirmés prendront grand soin de votre véhicule.",
+    descAr: "خبراؤنا المؤهلون سيعتنون بسيارتكم بعناية فائقة.",
   },
 ];
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
+
   return (
-    <section id="declaration" className="py-24 md:py-36 section-padding bg-background">
+    <section id="declaration" className="py-16 md:py-24 section-padding bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
         <motion.div
@@ -35,11 +44,11 @@ const ProcessSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif">
-            Comment <span className="italic text-gradient-gold">ça marche</span>
+            {t("Comment", "كيف")} <span className="italic text-gradient-gold">{t("ça marche", "يعمل")}</span>
           </h2>
         </motion.div>
 
-        {/* Steps - clean layout matching original */}
+        {/* Steps */}
         <div className="grid md:grid-cols-3 gap-12 md:gap-8 text-center">
           {steps.map((step, i) => (
             <motion.div
@@ -50,36 +59,32 @@ const ProcessSection = () => {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="flex flex-col items-center"
             >
-              {/* Illustration / Icon */}
               <div className="mb-8 h-40 flex items-end justify-center">
                 <img
                   src={step.icon}
-                  alt={step.title}
+                  alt={t(step.titleFr, step.titleAr)}
                   className="h-32 md:h-36 object-contain"
                 />
               </div>
 
-              {/* Number circle */}
               <div className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center mb-5">
                 <span className="text-sm font-sans font-medium text-foreground">
                   {step.number}
                 </span>
               </div>
 
-              {/* Title */}
               <h3 className="text-xl md:text-2xl font-serif mb-3 text-foreground">
-                {step.title}
+                {t(step.titleFr, step.titleAr)}
               </h3>
 
-              {/* Description */}
               <p className="text-sm font-sans text-muted-foreground leading-relaxed font-light max-w-xs mx-auto">
-                {step.desc}
+                {t(step.descFr, step.descAr)}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Horizontal line + CTA */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +97,7 @@ const ProcessSection = () => {
             to="/declaration"
             className="px-10 py-4 rounded-md bg-primary text-primary-foreground font-sans font-semibold text-sm uppercase tracking-[0.15em] hover:bg-primary/90 transition-colors duration-300"
           >
-            Faire une déclaration
+            {t("Faire une déclaration", "تقديم تصريح")}
           </Link>
         </motion.div>
       </div>
