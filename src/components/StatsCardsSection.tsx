@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Award, MapPin, Shield } from "lucide-react";
+import { Trophy, MapPinCheck, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) => {
