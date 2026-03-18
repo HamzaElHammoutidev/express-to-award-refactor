@@ -29,9 +29,27 @@ const StatsCardsSection = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { Icon: Award, target: 10, suffix: "+", label: t("ans", "سنة"), desc: t("D'expérience couronnée de succès", "من الخبرة المتوجة بالنجاح") },
-    { Icon: MapPin, target: 80, suffix: "+", label: t("Centres", "مركز"), desc: t("Centres techniques et ateliers mobiles", "مراكز تقنية وورشات متنقلة") },
-    { Icon: Shield, target: 7, suffix: "+", label: t("Partenaires", "شريك"), desc: t("Partenaires assurances qui nous font confiance", "شركاء تأمين يثقون بنا") },
+    {
+      Icon: Award,
+      target: 10,
+      suffix: "+",
+      label: t("ans", "سنة"),
+      desc: t("D'expérience couronnée de succès", "من الخبرة المتوجة بالنجاح"),
+    },
+    {
+      Icon: MapPin,
+      target: 80,
+      suffix: "+",
+      label: t("Centres", "مركز"),
+      desc: t("Centres techniques et ateliers mobiles", "مراكز تقنية وورشات متنقلة"),
+    },
+    {
+      Icon: Shield,
+      target: 7,
+      suffix: "+",
+      label: t("Partenaires", "شريك"),
+      desc: t("Partenaires assurances qui nous font confiance", "شركاء تأمين يثقون بنا"),
+    },
   ];
 
   return (
@@ -42,7 +60,7 @@ const StatsCardsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.1]">
             {t("Votre Pare-brise,", "زجاجكم الأمامي،")}
@@ -57,25 +75,29 @@ const StatsCardsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-5 md:gap-6">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="rounded-2xl border border-background/10 bg-background/5 p-7 text-center"
+              className="rounded-2xl border border-background/10 bg-background/5 p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
               <div className="flex items-center justify-center gap-3 mb-3">
-                <stat.Icon size={22} className="text-primary" />
+                <stat.Icon size={24} className="text-primary" />
                 <span className="text-4xl md:text-5xl font-serif text-primary font-bold">
                   <AnimatedNumber target={stat.target} suffix={stat.suffix} />
                 </span>
               </div>
-              <h3 className="text-sm font-semibold text-background uppercase tracking-wider mb-1">{stat.label}</h3>
+              <h3 className="text-sm font-semibold text-background uppercase tracking-wider mb-1">
+                {stat.label}
+              </h3>
               <p className="text-sm text-background/50 font-light">{stat.desc}</p>
-              <div className="mt-5 mx-auto w-14 h-0.5 rounded-full bg-primary/30" />
+
+              {/* Bottom accent bar */}
+              <div className="mt-6 mx-auto w-16 h-1 rounded-full bg-primary/40" />
             </motion.div>
           ))}
         </div>

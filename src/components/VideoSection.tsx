@@ -1,25 +1,22 @@
 import { motion } from "framer-motion";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const VideoSection = () => {
-  const { t } = useLanguage();
-
   return (
-    <section className="py-12 md:py-16 section-padding bg-surface">
+    <section className="py-14 md:py-20 section-padding bg-surface">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-12"
         >
           <p className="text-xs font-sans uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            {t("En action", "في الميدان")}
+            En action
           </p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.05]">
-            {t("Découvrez", "اكتشفوا")}{" "}
-            <span className="italic text-gradient-gold">{t("notre expertise", "خبرتنا")}</span>
+            Découvrez{" "}
+            <span className="italic text-gradient-gold">notre expertise</span>
           </h2>
         </motion.div>
 
@@ -37,7 +34,7 @@ const VideoSection = () => {
             poster="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
           >
             <source
-              src="/videos/hero-video.mp4"
+              src="https://parebriseexpress.ma//storage/theme-videos/March2025/Y8X7He7aKX51lU78FPHq.mp4"
               type="video/mp4"
             />
           </video>
