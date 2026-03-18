@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRef } from "react";
 
 const services = [
   {
@@ -31,11 +32,43 @@ const services = [
   },
 ];
 
+const FloatingImage = ({ src, alt, position }: { src: string; alt: string; position: "left" | "right" }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 0.98]);
+  const rotate = useTransform(
+    scrollYProgress,
+    [0, 1],
+    position === "left" ? [-2, 1] : [2, -1]
+  );
+
+  return (
+    <div ref={ref} className="w-full md:w-[48%] flex-shrink-0">
+      <motion.div
+        style={{ y, scale, rotate }}
+        className="rounded-2xl overflow-hidden aspect-[4/3] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] will-change-transform"
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+    </div>
+  );
+};
+
 const ServicesSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="py-14 md:py-20 bg-foreground text-background">
+    <section id="services" className="py-16 md:py-24 bg-foreground text-background">
       <div className="max-w-7xl mx-auto section-padding">
         {/* Header */}
         <motion.div
@@ -43,7 +76,7 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <p className="text-xs uppercase tracking-[0.3em] text-background/50 mb-4">
             {t("Ce que nous faisons", "ما نقوم به")}
@@ -57,42 +90,42 @@ const ServicesSection = () => {
         <div className="space-y-0">
           {services.map((service, i) => (
             <div key={service.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: 0.1 }}
+              <div
                 className={`flex flex-col ${
                   service.imagePosition === "left" ? "md:flex-row" : "md:flex-row-reverse"
-                } items-center gap-8 md:gap-14 py-14 md:py-20`}
+                } items-center gap-8 md:gap-16 py-12 md:py-20`}
               >
-                {/* Image */}
-                <div className="w-full md:w-[45%] flex-shrink-0">
-                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                    <img
-                      src={service.image}
-                      alt={t(service.titleFr, service.titleAr)}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+                {/* Floating Image */}
+                <FloatingImage
+                  src={service.image}
+                  alt={t(service.titleFr, service.titleAr)}
+                  position={service.imagePosition}
+                />
 
                 {/* Text */}
-                <div className="w-full md:w-[55%] text-center md:text-start">
+                <motion.div
+                  className="w-full md:w-[52%] text-center md:text-start"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                >
+                  <span className="text-[80px] md:text-[120px] font-serif font-bold leading-none text-background/[0.04] block -mb-6 md:-mb-10">
+                    0{i + 1}
+                  </span>
                   <h3 className="text-2xl md:text-4xl font-serif mb-4">
                     {t(service.titleFr, service.titleAr)}
                   </h3>
                   <p className="text-sm md:text-base text-background/60 leading-[1.8] font-light max-w-lg">
                     {t(service.descFr, service.descAr)}
                   </p>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
 
               {/* Yellow vertical separator */}
               {i < services.length - 1 && (
                 <div className="flex justify-center">
-                  <div className="w-[2px] h-16 bg-primary/60" />
+                  <div className="w-[2px] h-12 bg-primary/40" />
                 </div>
               )}
             </div>

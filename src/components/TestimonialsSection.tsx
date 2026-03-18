@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Star } from "lucide-react";
 
 const testimonials = [
   { name: "Farid Aos", city: "Marrakech", text: "Bonne réception, service bon et express, merci et bonne continuation.", textAr: "استقبال جيد، خدمة ممتازة وسريعة، شكراً واستمروا." },
@@ -13,23 +14,13 @@ const testimonials = [
   { name: "Hacheme B", city: "Casablanca", text: "Bravo à Hamza! Son accueil, son professionnalisme et son engagement à vous satisfaire. Excellent !", textAr: "برافو لحمزة! استقباله واحترافيته والتزامه بإرضائكم. ممتاز!" },
 ];
 
-const colors = [
-  "bg-foreground",
-  "bg-primary",
-  "bg-foreground/90",
-  "bg-gold-dark",
-];
-
-const rotations = [-3, 2, -1, 3, -2, 1, -3, 2];
-
 const TestimonialsSection = () => {
   const [isPaused, setIsPaused] = useState(false);
   const { t } = useLanguage();
-
   const allCards = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-14 md:py-20 overflow-hidden bg-background">
+    <section className="py-14 md:py-20 overflow-hidden bg-surface">
       <div className="section-padding mb-10">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
@@ -38,26 +29,31 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
+              {t("Ce qu'ils disent", "ماذا يقولون")}
+            </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[1.05]">
-              {t("Témoignages de nos", "شهادات")} {" "}
+              {t("Témoignages de nos", "شهادات")}{" "}
               <span className="italic text-gradient-gold">{t("clients", "عملائنا")}</span>
             </h2>
           </motion.div>
         </div>
       </div>
 
-      {/* Marquee */}
       <div
         className="relative"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="flex overflow-hidden py-6">
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none" />
+
+        <div className="flex overflow-hidden py-4">
           <motion.div
             className="flex gap-5 flex-shrink-0"
-            animate={{ x: [0, -(300 + 20) * testimonials.length] }}
+            animate={{ x: [0, -(320 + 20) * testimonials.length] }}
             transition={{
-              duration: isPaused ? 0 : 45,
+              duration: isPaused ? 0 : 50,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -65,19 +61,20 @@ const TestimonialsSection = () => {
             {allCards.map((item, i) => (
               <div
                 key={`${item.name}-${i}`}
-                className={`flex-shrink-0 w-[270px] md:w-[300px] p-6 md:p-7 rounded-2xl text-card shadow-md ${colors[i % colors.length]}`}
-                style={{ transform: `rotate(${rotations[i % rotations.length]}deg)` }}
+                className="flex-shrink-0 w-[290px] md:w-[320px] p-6 md:p-7 rounded-2xl bg-card border border-border/40 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                {/* Quote */}
-                <div className="text-4xl font-serif leading-none text-card/20 mb-2">
-                  &#x201C;
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} size={14} className="fill-primary text-primary" />
+                  ))}
                 </div>
-                <p className="text-[13px] md:text-sm leading-[1.7] font-light mb-5 text-card/90">
-                  {t(item.text, item.textAr)}
+                <p className="text-[13px] md:text-sm leading-[1.7] font-light mb-5 text-foreground/80">
+                  "{t(item.text, item.textAr)}"
                 </p>
-                <div className="w-8 h-px bg-card/20 mb-3" />
-                <p className="text-sm font-medium text-card">{item.name}</p>
-                <p className="text-xs text-card/50">{item.city}</p>
+                <div className="w-8 h-px bg-border mb-3" />
+                <p className="text-sm font-semibold text-foreground">{item.name}</p>
+                <p className="text-xs text-muted-foreground">{item.city}</p>
               </div>
             ))}
           </motion.div>
