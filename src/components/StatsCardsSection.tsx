@@ -37,7 +37,7 @@ const StatsCardsSection = () => {
       desc: t("D'expérience couronnée de succès", "من الخبرة المتوجة بالنجاح"),
     },
     {
-      Icon: MapPin,
+      Icon: MapPinCheck,
       target: 80,
       suffix: "+",
       label: t("Centres", "مركز"),
