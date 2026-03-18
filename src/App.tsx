@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Engagement from "./pages/Engagement";
@@ -27,21 +28,23 @@ const ScrollToTop = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/institution" element={<About />} />
-          <Route path="/engag" element={<Engagement />} />
-          <Route path="/centres" element={<Centres />} />
-          <Route path="/carrieres" element={<Carrieres />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/declaration" element={<Declaration />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <LanguageProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/institution" element={<About />} />
+            <Route path="/engag" element={<Engagement />} />
+            <Route path="/centres" element={<Centres />} />
+            <Route path="/carrieres" element={<Carrieres />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/declaration" element={<Declaration />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

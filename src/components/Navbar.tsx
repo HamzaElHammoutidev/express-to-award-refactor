@@ -1,19 +1,22 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-
-const navItems = [
-  { label: "Qui sommes nous?", href: "/institution" },
-  { label: "Engagement", href: "/engag" },
-  { label: "Centres", href: "/centres" },
-  { label: "Carrières", href: "/carrieres" },
-  { label: "Contact", href: "/contact" },
-];
+import { Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navItems = [
+    { label: t("Qui sommes nous?", "من نحن؟"), href: "/institution" },
+    { label: t("Engagement", "التزامنا"), href: "/engag" },
+    { label: t("Centres", "مراكزنا"), href: "/centres" },
+    { label: t("Carrières", "وظائف"), href: "/carrieres" },
+    { label: t("Contact", "اتصل بنا"), href: "/contact" },
+  ];
 
   const onScroll = useCallback(() => {
     setScrolled(window.scrollY > 60);
@@ -25,13 +28,11 @@ const Navbar = () => {
   }, [onScroll]);
 
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  const toggleLang = () => setLang(lang === "fr" ? "ar" : "fr");
 
   return (
     <>
@@ -59,9 +60,9 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 to={item.href}
-                className={`px-4 py-2 text-[13px] font-sans font-medium rounded-full transition-all duration-300 tracking-wide ${
+                className={`px-4 py-2 text-[13px] font-medium rounded-full transition-all duration-300 tracking-wide ${
                   location.pathname === item.href
                     ? "text-primary"
                     : "text-foreground/70 hover:text-foreground"
@@ -72,11 +73,21 @@ const Navbar = () => {
             ))}
           </div>
 
+          {/* Language toggle */}
+          <button
+            onClick={toggleLang}
+            className="hidden sm:inline-flex items-center gap-1.5 ml-2 px-3 py-2 rounded-full text-xs font-semibold text-foreground/70 hover:text-foreground transition-colors"
+            aria-label="Changer de langue"
+          >
+            <Globe size={14} />
+            {lang === "fr" ? "AR" : "FR"}
+          </button>
+
           <Link
             to="/declaration"
-            className="hidden sm:inline-flex ml-4 px-6 py-2.5 rounded-full text-[13px] font-sans font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-gold-dark transition-colors duration-300"
+            className="hidden sm:inline-flex ml-2 px-6 py-2.5 rounded-full text-[13px] font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-gold-dark transition-colors duration-300"
           >
-            Déclarer un sinistre
+            {t("Déclarer un sinistre", "التصريح بحادث")}
           </Link>
 
           <button
@@ -85,21 +96,15 @@ const Navbar = () => {
             aria-label="Menu"
           >
             <div className="relative w-5 h-4">
-              <span
-                className={`absolute left-0 top-0 w-full h-[1.5px] bg-foreground transition-all duration-500 ease-out ${menuOpen ? "rotate-45 top-[7px]" : ""}`}
-              />
-              <span
-                className={`absolute left-0 top-[7px] w-full h-[1.5px] bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`}
-              />
-              <span
-                className={`absolute left-0 top-[14px] w-full h-[1.5px] bg-foreground transition-all duration-500 ease-out ${menuOpen ? "-rotate-45 top-[7px]" : ""}`}
-              />
+              <span className={`absolute left-0 top-0 w-full h-[1.5px] bg-foreground transition-all duration-500 ease-out ${menuOpen ? "rotate-45 top-[7px]" : ""}`} />
+              <span className={`absolute left-0 top-[7px] w-full h-[1.5px] bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+              <span className={`absolute left-0 top-[14px] w-full h-[1.5px] bg-foreground transition-all duration-500 ease-out ${menuOpen ? "-rotate-45 top-[7px]" : ""}`} />
             </div>
           </button>
         </nav>
       </motion.header>
 
-      {/* Mobile fullscreen menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -111,7 +116,7 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center gap-6">
               {navItems.map((item, i) => (
-                <motion.div key={item.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.06, duration: 0.5 }}>
+                <motion.div key={item.href} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.06, duration: 0.5 }}>
                   <Link
                     to={item.href}
                     onClick={() => setMenuOpen(false)}
@@ -123,13 +128,20 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }}>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }} className="flex flex-col items-center gap-4 mt-4">
+                <button
+                  onClick={toggleLang}
+                  className="flex items-center gap-2 text-lg text-foreground/70"
+                >
+                  <Globe size={18} />
+                  {lang === "fr" ? "العربية" : "Français"}
+                </button>
                 <Link
                   to="/declaration"
                   onClick={() => setMenuOpen(false)}
-                  className="mt-6 px-8 py-3 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-sm tracking-wide"
+                  className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm tracking-wide"
                 >
-                  Déclarer un sinistre
+                  {t("Déclarer un sinistre", "التصريح بحادث")}
                 </Link>
               </motion.div>
             </nav>
