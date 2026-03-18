@@ -116,7 +116,7 @@ const FloatingDivider = () => {
     offset: ["start end", "end start"],
   });
   const centered = useTransform(scrollYProgress, [0, 1], [-1, 1]);
-  const moveY = useTransform(centered, (v) => v * 30 * 4.5);
+  const moveY = useTransform(centered, (v) => v * 8 * 4.5);
   const smoothY = useSpring(moveY, { stiffness: 80, damping: 30 });
 
   return (
