@@ -22,7 +22,7 @@ const steps = [
   },
   {
     number: "03",
-    icon: "https://parebriseexpress.ma/images/shape/car.svg",
+    icon: "car-shield",
     titleFr: "Confiez-nous votre\nvéhicule",
     titleAr: "سلّمنا سيارتك",
     descFr: "Nos techniciens interviennent avec soin pour une prise en charge rapide, fiable et professionnelle.",
