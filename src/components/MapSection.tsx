@@ -77,7 +77,7 @@ const MapSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative rounded-3xl overflow-hidden border border-border/30 bg-card aspect-[4/3]">
+            <div className="relative rounded-3xl overflow-hidden border border-border/30 bg-card aspect-[3/4] lg:aspect-[4/5]">
               <iframe
                 src="https://www.google.com/maps/d/embed?mid=1mKXMR_VgSsSCfnmMOCKqBCvF6gU&ehbc=2E312F&noprof=1&z=5&ll=31.7917,-7.0926"
                 width="100%"

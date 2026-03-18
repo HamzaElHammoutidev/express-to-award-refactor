@@ -202,10 +202,10 @@ const ProcessSection = () => {
         >
           <Link
             to="/declaration"
-            className="inline-flex items-center justify-center min-w-[300px] md:min-w-[360px] min-h-[72px] md:min-h-[82px] px-10 rounded-full text-background text-lg md:text-2xl font-bold tracking-tight hover:-translate-y-1 hover:scale-[1.015] transition-all duration-200"
+            className="inline-flex items-center justify-center min-w-[220px] md:min-w-[280px] min-h-[52px] md:min-h-[58px] px-8 rounded-full text-foreground text-sm md:text-base font-bold tracking-tight hover:-translate-y-1 hover:scale-[1.015] transition-all duration-200"
             style={{
-              background: "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.85) 45%, hsl(var(--foreground)) 100%)",
-              boxShadow: "0 20px 46px rgba(0,0,0,0.16), inset 0 -3px 0 hsl(var(--primary) / 0.95)",
+              background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.85) 45%, hsl(var(--primary)) 100%)",
+              boxShadow: "0 16px 36px rgba(217,173,52,0.22), inset 0 -3px 0 hsl(var(--foreground) / 0.85)",
             }}
           >
             {t("Prendre rendez-vous", "حجز موعد")}
