@@ -55,15 +55,15 @@ const FloatingImage = ({ src, alt, depth, dir }: { src: string; alt: string; dep
   });
 
   const centered = useTransform(scrollYProgress, [0, 1], [-1, 1]);
-  const moveY = useTransform(centered, (v) => v * 78 * depth);
+  const moveY = useTransform(centered, (v) => v * 20 * depth);
   const smoothY = useSpring(moveY, { stiffness: 80, damping: 30 });
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const rotateY = useTransform(mouseX, [-1, 1], [-3.2 * dir, 3.2 * dir]);
-  const rotateX = useTransform(mouseY, [-1, 1], [2.1, -2.1]);
-  const translateX = useTransform(mouseX, [-1, 1], [-24 * depth * dir, 24 * depth * dir]);
+  const rotateY = useTransform(mouseX, [-1, 1], [-1 * dir, 1 * dir]);
+  const rotateX = useTransform(mouseY, [-1, 1], [0.6, -0.6]);
+  const translateX = useTransform(mouseX, [-1, 1], [-6 * depth * dir, 6 * depth * dir]);
 
   const smoothRotateY = useSpring(rotateY, { stiffness: 60, damping: 20 });
   const smoothRotateX = useSpring(rotateX, { stiffness: 60, damping: 20 });
@@ -116,7 +116,7 @@ const FloatingDivider = () => {
     offset: ["start end", "end start"],
   });
   const centered = useTransform(scrollYProgress, [0, 1], [-1, 1]);
-  const moveY = useTransform(centered, (v) => v * 30 * 4.5);
+  const moveY = useTransform(centered, (v) => v * 8 * 4.5);
   const smoothY = useSpring(moveY, { stiffness: 80, damping: 30 });
 
   return (
@@ -148,11 +148,11 @@ const FloatingText = ({ children, depth }: { children: React.ReactNode; depth: n
     offset: ["start end", "end start"],
   });
   const centered = useTransform(scrollYProgress, [0, 1], [-1, 1]);
-  const moveY = useTransform(centered, (v) => v * 18 * depth);
+  const moveY = useTransform(centered, (v) => v * 5 * depth);
   const smoothY = useSpring(moveY, { stiffness: 80, damping: 30 });
 
   const mouseX = useMotionValue(0);
-  const translateX = useTransform(mouseX, [-1, 1], [-6 * depth, 6 * depth]);
+  const translateX = useTransform(mouseX, [-1, 1], [-2 * depth, 2 * depth]);
   const smoothX = useSpring(translateX, { stiffness: 60, damping: 20 });
 
   useEffect(() => {
