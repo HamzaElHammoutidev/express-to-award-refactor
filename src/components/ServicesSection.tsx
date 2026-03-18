@@ -148,11 +148,11 @@ const FloatingText = ({ children, depth }: { children: React.ReactNode; depth: n
     offset: ["start end", "end start"],
   });
   const centered = useTransform(scrollYProgress, [0, 1], [-1, 1]);
-  const moveY = useTransform(centered, (v) => v * 18 * depth);
+  const moveY = useTransform(centered, (v) => v * 5 * depth);
   const smoothY = useSpring(moveY, { stiffness: 80, damping: 30 });
 
   const mouseX = useMotionValue(0);
-  const translateX = useTransform(mouseX, [-1, 1], [-6 * depth, 6 * depth]);
+  const translateX = useTransform(mouseX, [-1, 1], [-2 * depth, 2 * depth]);
   const smoothX = useSpring(translateX, { stiffness: 60, damping: 20 });
 
   useEffect(() => {
