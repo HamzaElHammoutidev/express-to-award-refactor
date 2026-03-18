@@ -30,7 +30,7 @@ const StatsCardsSection = () => {
 
   const stats = [
     {
-      Icon: Award,
+      Icon: Trophy,
       target: 10,
       suffix: "+",
       label: t("ans", "سنة"),
