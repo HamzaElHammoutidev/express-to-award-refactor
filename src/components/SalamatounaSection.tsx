@@ -12,17 +12,21 @@ const SalamatounaSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="relative bg-primary">
+        <div className="relative bg-primary/90 backdrop-blur-sm">
           <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center">
             {/* IMANOR Logo */}
             <div className="flex-shrink-0 relative z-10 -my-8 md:-my-10">
-              <div className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-card flex items-center justify-center shadow-xl border-4 border-card">
+              <motion.div
+                className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-card flex items-center justify-center shadow-xl border-4 border-card cursor-pointer overflow-hidden"
+                whileHover={{ scale: 1.08, rotate: 3, boxShadow: "0 20px 40px rgba(228,181,44,0.3)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <img
                   src="https://parebriseexpress.ma/images/assets/imanor-orig.png"
                   alt="IMANOR - Certification Salamatouna"
                   className="h-24 md:h-40 object-contain"
                 />
-              </div>
+              </motion.div>
             </div>
 
             {/* Text content */}
