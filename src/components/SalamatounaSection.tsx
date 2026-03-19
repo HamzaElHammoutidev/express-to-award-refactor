@@ -120,7 +120,7 @@ const SalamatounaSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        padding: "20px 20px 0px",
+        padding: "0px 20px 0px",
         background: `
           radial-gradient(circle at 15% 15%, rgba(228,181,44,0.08), transparent 20%),
           radial-gradient(circle at 85% 80%, rgba(228,181,44,0.06), transparent 18%),
@@ -156,7 +156,7 @@ const SalamatounaSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative mb-14"
+          className="relative mb-20 pt-10"
         >
           {/* The yellow card — full width, compact height */}
           <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-12 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
