@@ -25,24 +25,34 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
   return <span ref={ref}>{suffix}{count}</span>;
 };
 
-const TrophySvg = () => (
-  <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-    <path d="M8 21h8M12 17v4M7 4h10v3a5 5 0 0 1-10 0V4Z" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M5 6H3a2 2 0 0 0 2 2M19 6h2a2 2 0 0 1-2 2" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+/* Large expressive SVG icons */
+const ExperienceIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
+    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="2" opacity="0.15"/>
+    <path d="M32 10L36.5 23H50L39 31.5L43 45L32 36.5L21 45L25 31.5L14 23H27.5L32 10Z" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+    <path d="M32 52V56M26 54h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
-const MapPinSvg = () => (
-  <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-    <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10Z" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+const CentresIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
+    <rect x="8" y="24" width="48" height="30" rx="4" stroke="currentColor" strokeWidth="2"/>
+    <path d="M8 32h48" stroke="currentColor" strokeWidth="2"/>
+    <rect x="24" y="38" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
+    <path d="M20 24V16a12 12 0 0 1 24 0v8" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="32" cy="14" r="3" fill="currentColor" opacity="0.3"/>
+    <path d="M14 32v22M50 32v22" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 3"/>
   </svg>
 );
 
-const ShieldSvg = () => (
-  <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-    <path d="M12 21s7-3.8 7-10V5l-7-2-7 2v6c0 6.2 7 10 7 10Z" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="m9.5 12 1.7 1.7 3.3-3.7" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+const PartenairesIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
+    <path d="M16 38c-4 0-8-3-8-8s4-8 8-8 8 3 8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M48 38c4 0 8-3 8-8s-4-8-8-8-8 3-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M24 30h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M20 42l12 12 12-12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
+    <circle cx="32" cy="30" r="4" fill="currentColor" opacity="0.25"/>
+    <path d="M28 46h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
@@ -58,24 +68,12 @@ const SalamatounaSection = () => {
   });
 
   const centered = useTransform(scrollYProgress, [0, 1], [-1, 1]);
-
-  // Parallax for orbs
   const orb1Y = useTransform(centered, (v) => v * 22 * 0.12);
   const orb2Y = useTransform(centered, (v) => v * 22 * 0.18);
   const smoothOrb1Y = useSpring(orb1Y, { stiffness: 80, damping: 30 });
   const smoothOrb2Y = useSpring(orb2Y, { stiffness: 80, damping: 30 });
-
-  // Parallax for cert card
-  const certY = useTransform(centered, (v) => v * 16 * 0.8);
-  const smoothCertY = useSpring(certY, { stiffness: 80, damping: 30 });
-
-  // Parallax for heading
   const headY = useTransform(centered, (v) => v * 16 * 0.5);
   const smoothHeadY = useSpring(headY, { stiffness: 80, damping: 30 });
-
-  // Mouse parallax
-  const certMoveX = useTransform(mouseX, [-1, 1], [-8, 8]);
-  const smoothCertMoveX = useSpring(certMoveX, { stiffness: 60, damping: 20 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -96,21 +94,21 @@ const SalamatounaSection = () => {
 
   const stats = [
     {
-      Icon: TrophySvg,
+      Icon: ExperienceIcon,
       target: 10,
       suffix: "+",
       label: t("Ans", "سنة"),
       desc: t("D'expérience couronnée de succès", "من الخبرة المتوجة بالنجاح"),
     },
     {
-      Icon: MapPinSvg,
+      Icon: CentresIcon,
       target: 80,
       suffix: "+",
       label: t("Centres", "مركز"),
       desc: t("Centres techniques et ateliers mobiles", "مراكز تقنية وورشات متنقلة"),
     },
     {
-      Icon: ShieldSvg,
+      Icon: PartenairesIcon,
       target: 7,
       suffix: "+",
       label: t("Partenaires", "شريك"),
@@ -153,42 +151,44 @@ const SalamatounaSection = () => {
       />
 
       <div className="max-w-[1240px] mx-auto relative z-[2]">
-        {/* Certification Card */}
+        {/* IMANOR Certification Card — logo overflows */}
         <motion.div
-          style={{ y: smoothCertY, x: smoothCertMoveX }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="relative mb-20"
         >
-          <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-7 items-center bg-gradient-to-br from-primary to-primary/90 text-foreground rounded-[28px] p-5 md:p-6 md:px-7 mx-auto mb-14 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
-            {/* Logo */}
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-card flex items-center justify-center shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] mx-auto md:mx-0">
-              <motion.div
-                whileHover={{ scale: 1.08, rotate: 3 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="cursor-pointer"
-              >
-                <img
-                  src="https://parebriseexpress.ma/images/assets/imanor-orig.png"
-                  alt="IMANOR - Certification Salamatouna"
-                  className="h-20 md:h-28 object-contain"
-                />
-              </motion.div>
+          {/* The yellow card — reduced height, full width */}
+          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-10 py-6 md:py-7 mx-auto shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr] gap-4 items-center md:ps-[180px]">
+              <div className="text-center md:text-start pt-16 md:pt-0">
+                <span className="inline-block mb-2.5 px-3 py-1.5 rounded-full bg-white/[0.28] text-xs font-extrabold uppercase tracking-[0.08em] text-foreground">
+                  {t("Certification", "شهادة")}
+                </span>
+                <p className="text-sm md:text-base leading-[1.75] font-medium text-foreground">
+                  {t(
+                    "Certifié par IMANOR, Pare-Brise Express met plus de dix ans d'expertise à votre service pour la réparation et le remplacement des vitrages de vos véhicules. Des interventions conformes aux standards les plus exigeants.",
+                    "حاصلة على شهادة IMANOR، تضع بار بريز إكسبرس أكثر من عشر سنوات من الخبرة في خدمتكم لإصلاح واستبدال زجاج سياراتكم. تدخلات مطابقة لأعلى المعايير."
+                  )}
+                </p>
+              </div>
             </div>
+          </div>
 
-            {/* Content */}
-            <div className="text-center md:text-start">
-              <span className="inline-block mb-2.5 px-3 py-1.5 rounded-full bg-white/[0.28] text-xs font-extrabold uppercase tracking-[0.08em]">
-                {t("Certification", "شهادة")}
-              </span>
-              <p className="text-sm md:text-lg leading-[1.75] font-medium">
-                {t(
-                  "Certifié par IMANOR, Pare-Brise Express met plus de dix ans d'expertise à votre service pour la réparation et le remplacement des vitrages de vos véhicules. Des interventions conformes aux standards les plus exigeants, pour une tranquillité d'esprit totale.",
-                  "حاصلة على شهادة IMANOR، تضع بار بريز إكسبرس أكثر من عشر سنوات من الخبرة في خدمتكم لإصلاح واستبدال زجاج سياراتكم. تدخلات مطابقة لأعلى المعايير في القطاع، لراحة بال تامة."
-                )}
-              </p>
-            </div>
+          {/* Logo circle — overflows the card */}
+          <div className="absolute left-1/2 md:left-8 -translate-x-1/2 md:translate-x-0 -top-10 md:-top-8 w-28 h-28 md:w-36 md:h-36 rounded-full bg-card flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.18)] border-4 border-background/20 z-10">
+            <motion.div
+              whileHover={{ scale: 1.08, rotate: 3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="cursor-pointer"
+            >
+              <img
+                src="https://parebriseexpress.ma/images/assets/imanor-orig.png"
+                alt="IMANOR - Certification Salamatouna"
+                className="h-16 md:h-24 object-contain"
+              />
+            </motion.div>
           </div>
         </motion.div>
 
@@ -214,21 +214,18 @@ const SalamatounaSection = () => {
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
+        {/* Stats Grid — bigger icons */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-[26px]">
           {stats.map((stat, i) => (
             <motion.article
               key={stat.label}
-              className="relative rounded-[28px] border border-white/[0.08] p-8 md:p-[34px_28px_30px] text-center shadow-[0_16px_38px_rgba(0,0,0,0.16)] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1.5 hover:border-primary/[0.24] hover:shadow-[0_22px_46px_rgba(0,0,0,0.22)]"
-              style={{
-                background: "linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03))",
-              }}
+              className="relative rounded-[28px] border border-white/[0.08] p-8 md:p-[34px_28px_30px] text-center shadow-[0_16px_38px_rgba(0,0,0,0.16)] bg-white/[0.04] transition-transform duration-300 hover:-translate-y-1.5 hover:border-primary/[0.24] hover:shadow-[0_22px_46px_rgba(0,0,0,0.22)]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <div className="w-[34px] h-[34px] text-primary mx-auto mb-4">
+              <div className="w-16 h-16 md:w-20 md:h-20 text-primary mx-auto mb-5">
                 <stat.Icon />
               </div>
               <div className="text-[clamp(52px,5vw,78px)] leading-[0.95] font-extrabold tracking-[-0.05em] text-primary mb-2.5">
@@ -240,7 +237,6 @@ const SalamatounaSection = () => {
               <p className="max-w-[260px] mx-auto text-background/[0.62] text-base leading-[1.7] mb-[18px]">
                 {stat.desc}
               </p>
-              {/* Bottom accent bar */}
               <div className="w-[82px] h-1 rounded-full bg-primary/[0.68] mx-auto" />
             </motion.article>
           ))}

@@ -171,23 +171,8 @@ const ProcessSection = () => {
           </p>
         </motion.div>
 
-        {/* Steps grid with connector line */}
+        {/* Steps grid */}
         <div className="relative pt-4">
-          {/* Connector line (desktop only) */}
-          <div className="hidden md:block absolute left-[14%] right-[14%] top-[43%] h-[3px] z-[3]"
-            style={{
-              background: "linear-gradient(90deg, hsl(var(--primary) / 0), hsl(var(--primary) / 0.7), hsl(var(--primary) / 0.7), hsl(var(--primary) / 0))",
-            }}
-          >
-            {/* Arrows */}
-            <div className="absolute top-1/2 left-[33.2%] -translate-y-1/2">
-              <div className="w-6 h-6 border-t-[3px] border-r-[3px] border-primary rotate-45" />
-            </div>
-            <div className="absolute top-1/2 right-[33.2%] -translate-y-1/2">
-              <div className="w-6 h-6 border-t-[3px] border-r-[3px] border-primary rotate-45" />
-            </div>
-          </div>
-
           {/* Cards */}
           <div className="relative z-[2] grid md:grid-cols-3 gap-8 md:gap-9">
             {steps.map((step, i) => (
