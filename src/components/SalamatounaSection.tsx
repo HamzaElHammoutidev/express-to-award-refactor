@@ -120,7 +120,7 @@ const SalamatounaSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        padding: "70px 20px 0px",
+        padding: "20px 20px 0px",
         background: `
           radial-gradient(circle at 15% 15%, rgba(228,181,44,0.08), transparent 20%),
           radial-gradient(circle at 85% 80%, rgba(228,181,44,0.06), transparent 18%),
