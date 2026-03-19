@@ -156,7 +156,7 @@ const SalamatounaSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative mb-20"
+          className="relative mb-14"
         >
           {/* The yellow card — full width, compact height */}
           <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-12 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
