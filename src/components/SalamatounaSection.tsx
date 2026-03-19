@@ -171,7 +171,7 @@ const SalamatounaSection = () => {
           </div>
 
           {/* Logo circle — overflows the card top & bottom */}
-          <div className="absolute left-1/2 md:left-6 -translate-x-1/2 md:translate-x-0 -top-12 md:top-1/2 md:-translate-y-1/2 w-32 h-32 md:w-44 md:h-44 rounded-full bg-card flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.18)] border-4 border-background/20 z-10">
+          <div className="absolute left-1/2 md:left-6 -translate-x-1/2 md:translate-x-0 -top-12 md:top-1/2 md:-translate-y-1/2 w-32 h-32 md:w-44 md:h-44 rounded-full bg-card flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.18)] border-4 border-background/20 z-[60]">
             <motion.div
               whileHover={{ scale: 1.08, rotate: 3 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
