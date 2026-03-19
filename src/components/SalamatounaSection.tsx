@@ -159,7 +159,7 @@ const SalamatounaSection = () => {
           className="relative mb-20"
         >
           {/* The yellow card — full width, compact height */}
-          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-10 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
+          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-12 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
             <div className="md:ps-[200px] pt-20 md:pt-0">
               <p className="text-sm md:text-[15px] leading-[1.8] font-medium text-foreground">
                 {t(
