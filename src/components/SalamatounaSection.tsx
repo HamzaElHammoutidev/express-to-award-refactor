@@ -159,25 +159,20 @@ const SalamatounaSection = () => {
           transition={{ duration: 0.8 }}
           className="relative mb-20"
         >
-          {/* The yellow card — reduced height, full width */}
-          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-10 py-6 md:py-7 mx-auto shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr] gap-4 items-center md:ps-[180px]">
-              <div className="text-center md:text-start pt-16 md:pt-0">
-                <span className="inline-block mb-2.5 px-3 py-1.5 rounded-full bg-white/[0.28] text-xs font-extrabold uppercase tracking-[0.08em] text-foreground">
-                  {t("Certification", "شهادة")}
-                </span>
-                <p className="text-sm md:text-base leading-[1.75] font-medium text-foreground">
-                  {t(
-                    "Certifié par IMANOR, Pare-Brise Express met plus de dix ans d'expertise à votre service pour la réparation et le remplacement des vitrages de vos véhicules. Des interventions conformes aux standards les plus exigeants.",
-                    "حاصلة على شهادة IMANOR، تضع بار بريز إكسبرس أكثر من عشر سنوات من الخبرة في خدمتكم لإصلاح واستبدال زجاج سياراتكم. تدخلات مطابقة لأعلى المعايير."
-                  )}
-                </p>
-              </div>
+          {/* The yellow card — full width, compact height */}
+          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-10 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
+            <div className="md:ps-[200px] pt-20 md:pt-0">
+              <p className="text-sm md:text-[15px] leading-[1.8] font-medium text-foreground">
+                {t(
+                  "Certifié par IMANOR, Pare-Brise Express met plus de dix ans d'expertise à votre service pour la réparation et le remplacement des vitrages de vos véhicules. Que vous ayez un impact, une fissure ou un bris de glace, nous vous offrons des solutions certifiées, adaptées à tous types de véhicules, qu'il s'agisse de voitures légères ou de poids lourds. Nos certifications vous garantissent des interventions conformes aux standards les plus exigeants du secteur, pour une tranquillité d'esprit totale.",
+                  "حاصلة على شهادة IMANOR، تضع بار بريز إكسبرس أكثر من عشر سنوات من الخبرة في خدمتكم لإصلاح واستبدال زجاج سياراتكم. سواء كان لديكم تأثير أو شق أو كسر في الزجاج، نقدم لكم حلولاً معتمدة ومناسبة لجميع أنواع المركبات، سواء كانت سيارات خفيفة أو ثقيلة. شهاداتنا تضمن لكم تدخلات مطابقة لأعلى معايير القطاع، لراحة بال تامة."
+                )}
+              </p>
             </div>
           </div>
 
-          {/* Logo circle — overflows the card */}
-          <div className="absolute left-1/2 md:left-8 -translate-x-1/2 md:translate-x-0 -top-10 md:-top-8 w-28 h-28 md:w-36 md:h-36 rounded-full bg-card flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.18)] border-4 border-background/20 z-10">
+          {/* Logo circle — overflows the card top & bottom */}
+          <div className="absolute left-1/2 md:left-6 -translate-x-1/2 md:translate-x-0 -top-12 md:top-1/2 md:-translate-y-1/2 w-32 h-32 md:w-44 md:h-44 rounded-full bg-card flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.18)] border-4 border-background/20 z-10">
             <motion.div
               whileHover={{ scale: 1.08, rotate: 3 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -186,7 +181,7 @@ const SalamatounaSection = () => {
               <img
                 src="https://parebriseexpress.ma/images/assets/imanor-orig.png"
                 alt="IMANOR - Certification Salamatouna"
-                className="h-16 md:h-24 object-contain"
+                className="h-20 md:h-28 object-contain"
               />
             </motion.div>
           </div>
