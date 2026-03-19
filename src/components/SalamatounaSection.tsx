@@ -149,7 +149,7 @@ const SalamatounaSection = () => {
         }}
       />
 
-      <div className="max-w-[1240px] mx-auto relative z-[2]">
+      <div className="max-w-[1400px] mx-auto relative z-[2]">
         {/* IMANOR Certification Card — logo overflows */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
