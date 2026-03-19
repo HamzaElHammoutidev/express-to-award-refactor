@@ -1,6 +1,6 @@
 const VideoSection = () => {
   return (
-    <section className="w-full bg-background">
+    <section className="w-full bg-background py-4 md:py-6">
       <video
         autoPlay
         muted
