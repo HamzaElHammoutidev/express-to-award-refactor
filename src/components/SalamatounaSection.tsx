@@ -25,34 +25,33 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
   return <span ref={ref}>{suffix}{count}</span>;
 };
 
-/* Large expressive SVG icons */
+/* Icons matching the uploaded reference */
 const ExperienceIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="2" opacity="0.15"/>
-    <path d="M32 10L36.5 23H50L39 31.5L43 45L32 36.5L21 45L25 31.5L14 23H27.5L32 10Z" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M32 52V56M26 54h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
+    <circle cx="40" cy="40" r="34" stroke="currentColor" strokeWidth="3.5"/>
+    <path d="M40 14l7.5 15.5H64L51 40.5l5 15L40 46l-16 9.5 5-15L16 29.5h16.5L40 14Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+    <path d="M40 62v6M36 66h8" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
   </svg>
 );
 
 const CentresIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-    <rect x="8" y="24" width="48" height="30" rx="4" stroke="currentColor" strokeWidth="2"/>
-    <path d="M8 32h48" stroke="currentColor" strokeWidth="2"/>
-    <rect x="24" y="38" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <path d="M20 24V16a12 12 0 0 1 24 0v8" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="32" cy="14" r="3" fill="currentColor" opacity="0.3"/>
-    <path d="M14 32v22M50 32v22" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 3"/>
+  <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
+    <path d="M10 58c0-2 0-4 2-4h56c2 0 2 2 2 4v6c0 2 0 4-2 4H12c-2 0-2-2-2-4v-6z" stroke="currentColor" strokeWidth="3"/>
+    <path d="M14 54V38c0-2 2-4 4-4h44c2 0 4 2 4 4v16" stroke="currentColor" strokeWidth="3"/>
+    <path d="M30 34l-4-12h28l-4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="50" cy="20" r="8" stroke="currentColor" strokeWidth="3"/>
+    <circle cx="50" cy="20" r="3" fill="currentColor"/>
+    <path d="M50 12v-2" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    <path d="M20 46h12M48 46h12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 4"/>
   </svg>
 );
 
 const PartenairesIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-    <path d="M16 38c-4 0-8-3-8-8s4-8 8-8 8 3 8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M48 38c4 0 8-3 8-8s-4-8-8-8-8 3-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M24 30h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M20 42l12 12 12-12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
-    <circle cx="32" cy="30" r="4" fill="currentColor" opacity="0.25"/>
-    <path d="M28 46h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
+    <path d="M12 44l14-14h6l8 8 8-8h6l14 14" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M26 44l7 7 7-7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M40 44l7 7 7-7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M18 20l-4 4M62 20l4 4M40 16v-4" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
   </svg>
 );
 
@@ -121,7 +120,7 @@ const SalamatounaSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        padding: "70px 20px 90px",
+        padding: "70px 20px 0px",
         background: `
           radial-gradient(circle at 15% 15%, rgba(228,181,44,0.08), transparent 20%),
           radial-gradient(circle at 85% 80%, rgba(228,181,44,0.06), transparent 18%),
@@ -150,7 +149,7 @@ const SalamatounaSection = () => {
         }}
       />
 
-      <div className="max-w-[1240px] mx-auto relative z-[2]">
+      <div className="max-w-[1400px] mx-auto relative z-[2]">
         {/* IMANOR Certification Card — logo overflows */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -160,7 +159,7 @@ const SalamatounaSection = () => {
           className="relative mb-20"
         >
           {/* The yellow card — full width, compact height */}
-          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-10 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
+          <div className="relative bg-primary rounded-2xl md:rounded-3xl px-6 md:px-12 py-5 md:py-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
             <div className="md:ps-[200px] pt-20 md:pt-0">
               <p className="text-sm md:text-[15px] leading-[1.8] font-medium text-foreground">
                 {t(
