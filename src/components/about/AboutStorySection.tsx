@@ -58,12 +58,6 @@ const AboutStorySection = () => {
               {t("pas seulement pour réparer", "وليس فقط للإصلاح")}
             </span>
           </h2>
-          <p className="text-muted-foreground text-[clamp(17px,1.7vw,21px)] leading-[1.8]">
-            {t(
-              "Nous avons optimisé le contenu pour mieux refléter le positionnement premium de Pare-Brise Express : une entreprise structurée, orientée qualité, proximité, conformité et expérience client.",
-              "تمت إعادة صياغة المحتوى ليعكس تموقع باري بريز إكسبريس بشكل أقوى: شركة منظمة، قريبة من عملائها، تركز على الجودة، المطابقة، والخبرة العملية."
-            )}
-          </p>
         </motion.div>
 
         {/* About layout */}
