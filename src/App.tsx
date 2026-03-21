@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Engagement from "./pages/Engagement";
 import Centres from "./pages/Centres";
 import Carrieres from "./pages/Carrieres";
+import JobDetail from "./pages/JobDetail";
 import Contact from "./pages/Contact";
 import Declaration from "./pages/Declaration";
 import NotFound from "./pages/NotFound";
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/engag" element={<Engagement />} />
             <Route path="/centres" element={<Centres />} />
             <Route path="/carrieres" element={<Carrieres />} />
+            <Route path="/carrieres/:id" element={<JobDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/declaration" element={<Declaration />} />
             <Route path="*" element={<NotFound />} />
