@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -29,10 +29,10 @@ const events = [
     image: "https://parebriseexpress.ma/images/events/AvitoEvent.jpg",
   },
   {
-    date: { fr: "17 et 18 avril 2024", ar: "2024" },
+    date: { fr: "17 et 18 avril 2024", ar: "17 و18 أبريل 2024" },
     title: {
       fr: "La 10ème édition du rendez-vous de Casablanca de l'assurance",
-      ar: "لقاءات مهنية وتفعيل ميداني للعلامة",
+      ar: "الدورة العاشرة لملتقى الدار البيضاء للتأمين",
     },
     desc: {
       fr: "Des temps forts pensés pour développer les synergies, valoriser l'image de marque et créer une relation durable avec les partenaires.",
@@ -43,116 +43,170 @@ const events = [
 ];
 
 const AboutEventsCarousel = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [current, setCurrent] = useState(0);
   const { t, lang } = useLanguage();
 
-  const checkScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 10);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener("scroll", checkScroll);
-    return () => el.removeEventListener("scroll", checkScroll);
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % events.length);
   }, []);
 
-  const scroll = (dir: number) => {
-    scrollRef.current?.scrollBy({ left: dir * 400, behavior: "smooth" });
-  };
+  const prev = useCallback(() => {
+    setCurrent((prev) => (prev - 1 + events.length) % events.length);
+  }, []);
+
+  // Auto-play
+  useEffect(() => {
+    const interval = setInterval(next, 5000);
+    return () => clearInterval(interval);
+  }, [next]);
 
   return (
     <section className="pb-20 md:pb-24">
       <div className="max-w-[1320px] mx-auto px-6">
-        <div className="relative bg-gradient-to-br from-card/70 to-card/50 border border-border rounded-[34px] p-7 md:p-8 shadow-[0_16px_40px_rgba(0,0,0,0.08)] overflow-hidden">
-          {/* Header */}
-          <div className="flex items-end justify-between gap-5 mb-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card/60 border border-border text-muted-foreground text-xs font-extrabold uppercase tracking-[0.1em] mb-3">
-                <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_6px_rgba(228,181,44,0.10)]" />
-                {t("Nos événements", "فعالياتنا")}
-              </div>
-              <h3 className="text-[clamp(28px,3vw,42px)] leading-[1.08] tracking-[-0.04em] mb-2">
-                {t("Retour sur nos ", "محطات من ")}
-                <span className="text-primary italic font-bold">{t("temps forts", "أبرز مشاركاتنا")}</span>
-              </h3>
-              <p className="text-muted-foreground text-base leading-[1.75] max-w-[760px]">
-                {t(
-                  "Un carousel élégant pour mettre en avant les salons, rencontres sectorielles et activations de marque de Pare-Brise Express.",
-                  "كاروسيل أنيق لإبراز المعارض واللقاءات المهنية والفعاليات التي تعزز حضور باري بريز إكسبريس في السوق."
-                )}
-              </p>
-            </motion.div>
-            <div className="hidden md:inline-flex items-center gap-2.5 flex-shrink-0">
-              <button
-                onClick={() => scroll(-1)}
-                disabled={!canScrollLeft}
-                className="w-12 h-12 rounded-full border border-border bg-card/80 text-foreground grid place-items-center shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 hover:border-primary/20 disabled:opacity-30 transition-all"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                onClick={() => scroll(1)}
-                disabled={!canScrollRight}
-                className="w-12 h-12 rounded-full border border-border bg-card/80 text-foreground grid place-items-center shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 hover:border-primary/20 disabled:opacity-30 transition-all"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
-          </div>
-
-          {/* Carousel */}
-          <div
-            ref={scrollRef}
-            className="overflow-x-auto scrollbar-hide"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollBehavior: "smooth" }}
+        {/* Header */}
+        <div className="flex items-end justify-between gap-5 mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="grid grid-flow-col auto-cols-[minmax(300px,32%)] gap-4 md:gap-5">
-              {events.map((event, i) => (
-                <motion.article
-                  key={i}
-                  className="relative overflow-hidden min-h-[430px] rounded-[28px] bg-foreground shadow-[0_24px_60px_rgba(0,0,0,0.12)] isolate hover:-translate-y-1.5 transition-transform duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                >
-                  <img
-                    src={event.image}
-                    alt={lang === "ar" ? event.title.ar : event.title.fr}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-foreground/10 via-foreground/30 to-foreground/90 z-[1]" />
-                  {/* Content */}
-                  <div className="absolute inset-x-4 bottom-4 z-[2] text-background bg-foreground/50 border border-white/[0.08] backdrop-blur-sm rounded-[22px] p-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/20 text-[#f3d477] text-xs font-extrabold uppercase tracking-[0.08em] mb-3">
-                      <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_6px_rgba(228,181,44,0.10)]" />
-                      {lang === "ar" ? event.date.ar : event.date.fr}
-                    </div>
-                    <h4 className="text-xl md:text-2xl leading-[1.18] tracking-[-0.03em] mb-2.5 font-bold">
-                      {lang === "ar" ? event.title.ar : event.title.fr}
-                    </h4>
-                    <p className="text-background/75 text-[15px] leading-[1.7]">
-                      {lang === "ar" ? event.desc.ar : event.desc.fr}
-                    </p>
-                  </div>
-                </motion.article>
-              ))}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card/60 border border-border text-muted-foreground text-xs font-extrabold uppercase tracking-[0.1em] mb-3">
+              <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_6px_rgba(228,181,44,0.10)]" />
+              {t("Nos événements", "فعالياتنا")}
             </div>
+            <h3 className="text-[clamp(28px,3vw,42px)] leading-[1.08] tracking-[-0.04em] mb-2">
+              {t("Retour sur nos ", "محطات من ")}
+              <span className="text-primary italic font-bold">{t("temps forts", "أبرز مشاركاتنا")}</span>
+            </h3>
+          </motion.div>
+          <div className="hidden md:inline-flex items-center gap-2.5 flex-shrink-0">
+            <button
+              onClick={prev}
+              className="w-12 h-12 rounded-full border border-border bg-card/80 text-foreground grid place-items-center shadow-lg hover:-translate-y-0.5 hover:border-primary/20 transition-all"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={next}
+              className="w-12 h-12 rounded-full border border-border bg-card/80 text-foreground grid place-items-center shadow-lg hover:-translate-y-0.5 hover:border-primary/20 transition-all"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
+        </div>
+
+        {/* Carousel - 3D perspective layout */}
+        <div className="relative" style={{ perspective: "1200px" }}>
+          <div className="flex items-center justify-center gap-4 md:gap-6 h-[420px] md:h-[520px]">
+            {events.map((event, i) => {
+              const offset = (i - current + events.length) % events.length;
+              // 0 = center, 1 = right, 2 = left (for 3 items)
+              const isCenter = offset === 0;
+              const isRight = offset === 1;
+              const isLeft = offset === events.length - 1;
+
+              let translateX = "0%";
+              let scale = 1;
+              let rotateY = "0deg";
+              let zIndex = 1;
+              let opacity = 0.5;
+              let brightness = 0.6;
+
+              if (isCenter) {
+                translateX = "0%";
+                scale = 1;
+                rotateY = "0deg";
+                zIndex = 10;
+                opacity = 1;
+                brightness = 1;
+              } else if (isRight) {
+                translateX = "65%";
+                scale = 0.78;
+                rotateY = "-12deg";
+                zIndex = 5;
+                opacity = 0.7;
+                brightness = 0.7;
+              } else if (isLeft) {
+                translateX = "-65%";
+                scale = 0.78;
+                rotateY = "12deg";
+                zIndex = 5;
+                opacity = 0.7;
+                brightness = 0.7;
+              }
+
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute w-[85%] md:w-[55%] rounded-[28px] overflow-hidden shadow-2xl cursor-pointer"
+                  animate={{
+                    x: translateX,
+                    scale,
+                    rotateY,
+                    zIndex,
+                    opacity,
+                    filter: `brightness(${brightness})`,
+                  }}
+                  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                  onClick={() => {
+                    if (isRight) next();
+                    if (isLeft) prev();
+                  }}
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative aspect-[16/10]">
+                    <img
+                      src={event.image}
+                      alt={lang === "ar" ? event.title.ar : event.title.fr}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    {/* Content overlay */}
+                    <AnimatePresence>
+                      {isCenter && (
+                        <motion.div
+                          className="absolute inset-x-5 md:inset-x-8 bottom-5 md:bottom-8"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.4, delay: 0.2 }}
+                        >
+                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-extrabold uppercase tracking-[0.08em] mb-3">
+                            <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_5px_rgba(228,181,44,0.15)]" />
+                            {lang === "ar" ? event.date.ar : event.date.fr}
+                          </div>
+                          <h4 className="text-white text-xl md:text-2xl leading-[1.18] tracking-[-0.03em] mb-2 font-bold">
+                            {lang === "ar" ? event.title.ar : event.title.fr}
+                          </h4>
+                          <p className="text-white/75 text-sm md:text-[15px] leading-[1.7] max-w-[600px]">
+                            {lang === "ar" ? event.desc.ar : event.desc.fr}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2.5 mt-8">
+          {events.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                i === current
+                  ? "w-8 bg-primary"
+                  : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
