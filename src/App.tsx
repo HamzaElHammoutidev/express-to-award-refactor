@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Engagement from "./pages/Engagement";
 import Centres from "./pages/Centres";
 import Carrieres from "./pages/Carrieres";
+import JobDetail from "./pages/JobDetail";
 import Contact from "./pages/Contact";
 import Declaration from "./pages/Declaration";
 import NotFound from "./pages/NotFound";
