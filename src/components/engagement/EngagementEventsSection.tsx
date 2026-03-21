@@ -74,10 +74,7 @@ const EngagementEventsSection = () => {
                 <span className="text-primary italic font-bold">{t("sur le terrain", "على أرض الواقع")}</span>
               </h3>
               <p className="text-muted-foreground text-base leading-[1.75] max-w-[760px]">
-                {t(
-                  "Un carousel pour mettre en avant les temps forts, les rencontres professionnelles et les activations de marque qui incarnent nos engagements au quotidien.",
-                  "كاروسيل يبرز أبرز المحطات والفعاليات المهنية التي تجسد حضور العلامة وقربها من السوق والعملاء."
-                )}
+              </p>
               </p>
             </motion.div>
             <div className="hidden md:inline-flex items-center gap-2.5 flex-shrink-0">
