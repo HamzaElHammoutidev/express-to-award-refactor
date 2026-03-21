@@ -73,9 +73,6 @@ const EngagementEventsSection = () => {
                 {t("Des engagements aussi visibles ", "التزامنا حاضر أيضاً ")}
                 <span className="text-primary italic font-bold">{t("sur le terrain", "على أرض الواقع")}</span>
               </h3>
-              <p className="text-muted-foreground text-base leading-[1.75] max-w-[760px]">
-              </p>
-              </p>
             </motion.div>
             <div className="hidden md:inline-flex items-center gap-2.5 flex-shrink-0">
               <button onClick={prev} className="w-12 h-12 rounded-full border border-border bg-card/80 text-foreground grid place-items-center shadow-lg hover:-translate-y-0.5 hover:border-primary/20 transition-all">
