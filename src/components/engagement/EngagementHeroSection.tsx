@@ -49,7 +49,7 @@ const EngagementHeroSection = () => {
               alt={t("Technicien Pare-Brise Express en intervention", "تقني من باري بريز إكسبريس أثناء التدخل")}
               className="w-full h-full object-cover absolute inset-0"
             />
-            <div className="absolute left-6 right-6 bottom-6 grid grid-cols-3 gap-3">
+            <div className="absolute left-3 right-3 bottom-3 md:left-6 md:right-6 md:bottom-6 grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               {[
                 { val: "ISO", label: t("qualité structurée", "جودة منظمة") },
                 { val: t("Vie", "مدى الحياة"), label: t("garantie sur l'intervention", "ضمان على التدخل") },
