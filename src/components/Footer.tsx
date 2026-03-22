@@ -125,7 +125,7 @@ const Footer = () => {
 
             {/* Contact */}
             <div>
-              <ul className="grid gap-[18px] text-[17px] leading-[1.6] text-background/70">
+              <ul className="grid gap-[18px] text-[15px] md:text-[17px] leading-[1.6] text-background/70">
                 <li className="grid grid-cols-[26px_1fr] gap-3.5 items-start">
                   <Phone size={22} className="mt-0.5 text-primary" />
                   <div>
