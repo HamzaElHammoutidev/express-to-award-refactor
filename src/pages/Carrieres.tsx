@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CarrieresHeroSection from "@/components/carrieres/CarrieresHeroSection";
 import CarrieresValuesSection from "@/components/carrieres/CarrieresValuesSection";
 import CarrieresCultureSection from "@/components/carrieres/CarrieresCultureSection";
@@ -13,6 +14,13 @@ const Carrieres = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <div className="h-20" />
+      <PageHeader
+        breadcrumbs={[{ label: "Carrières", labelAr: "الوظائف" }]}
+        title="Rejoignez une équipe qui fait "
+        titleAr="انضم إلى فريق يصنع "
+        titleHighlight="grandir l'excellence"
+        titleHighlightAr="التميّز"
+      />
       <CarrieresHeroSection />
       <CarrieresValuesSection />
       <CarrieresCultureSection />

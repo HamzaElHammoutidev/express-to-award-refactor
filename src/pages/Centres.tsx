@@ -8,9 +8,15 @@ const Centres = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
-      <PageHeader breadcrumb="Centres" title="Trouvez le centre le plus proche" />
+      <div className="h-20" />
+      <PageHeader
+        breadcrumbs={[{ label: "Centres", labelAr: "المراكز" }]}
+        title="Trouvez le centre le plus "
+        titleAr="ابحث عن أقرب "
+        titleHighlight="proche"
+        titleHighlightAr="مركز"
+      />
 
-      {/* Map Section */}
       <section className="section-padding py-20 md:py-32">
         <div className="max-w-7xl mx-auto">
           <motion.div
