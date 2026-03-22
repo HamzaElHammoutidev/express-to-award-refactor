@@ -13,7 +13,7 @@ const CarrieresHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-[clamp(42px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+            <h1 className="text-[clamp(32px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
               {t("Rejoignez une équipe qui fait ", "انضم إلى فريق يصنع ")}
               <span className="text-primary italic font-bold">{t("grandir l'excellence", "التميّز")}</span>
             </h1>
