@@ -28,11 +28,6 @@ const ContactHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center gap-2 text-[11px] font-sans uppercase tracking-[0.3em] text-muted-foreground mb-6">
-              <Link to="/" className="hover:text-primary transition-colors">{t("Accueil", "الرئيسية")}</Link>
-              <span>/</span>
-              <span className="text-foreground">{t("Contact", "تواصل معنا")}</span>
-            </div>
 
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-card/60 border border-border/40 text-muted-foreground text-[11px] font-bold uppercase tracking-[0.1em] mb-4">
               <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_4px_hsl(var(--primary)/0.12)]" />
