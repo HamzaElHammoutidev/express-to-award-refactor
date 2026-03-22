@@ -293,7 +293,7 @@ const JobDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
               <article className="bg-gradient-to-br from-foreground to-foreground/90 text-background rounded-[28px] p-7 shadow-[0_24px_60px_rgba(0,0,0,0.12)] relative overflow-hidden">
                 <div className="absolute w-[300px] h-[300px] -right-[120px] -top-[120px] rounded-full bg-[radial-gradient(circle,rgba(228,181,44,0.20),transparent_70%)]" />
                 <h3 className="relative z-10 text-[clamp(28px,3vw,42px)] leading-[1.08] mb-3.5">
