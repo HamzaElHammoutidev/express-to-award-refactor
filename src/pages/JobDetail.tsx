@@ -163,7 +163,7 @@ const JobDetail = () => {
             </motion.div>
 
             <motion.div
-              className="relative rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[420px] md:min-h-[560px] bg-foreground/5"
+              className="relative rounded-[24px] md:rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[320px] md:min-h-[560px] bg-foreground/5"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
