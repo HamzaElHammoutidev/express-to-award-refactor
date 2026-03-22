@@ -180,7 +180,7 @@ const Footer = () => {
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-[42px] pt-6 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-center gap-[18px] text-sm text-background/55">
+          <div className="mt-[42px] pt-6 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-center gap-[18px] text-xs md:text-sm text-background/55 text-center">
             <span>© Copyright <span className="text-primary font-semibold">PARE-BRISE EXPRESS</span> 2025. All Rights Reserved.</span>
           </div>
         </div>
