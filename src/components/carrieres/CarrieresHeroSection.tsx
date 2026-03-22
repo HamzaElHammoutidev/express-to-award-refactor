@@ -40,7 +40,7 @@ const CarrieresHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img src="https://parebriseexpress.ma/images/assets/bpe-rca.jpg" alt={t("Équipe Pare-Brise Express", "فريق باري بريز إكسبريس")} className="w-full h-full object-cover absolute inset-0" />
-            <div className="absolute left-6 right-6 bottom-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="absolute left-3 right-3 bottom-3 md:left-6 md:right-6 md:bottom-6 grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               {[
                 { value: "+80", label: { fr: "centres et ateliers mobiles", ar: "مراكز وورش متنقلة" } },
                 { value: t("Maroc", "المغرب"), label: { fr: "présence nationale", ar: "حضور وطني" } },
