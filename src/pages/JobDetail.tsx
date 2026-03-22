@@ -147,7 +147,7 @@ const JobDetail = () => {
                 <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_6px_rgba(228,181,44,0.10)]" />
                 {job.type} • {job.city}
               </div>
-              <h1 className="text-[clamp(42px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+              <h1 className="text-[clamp(32px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
                 {job.title.replace(` à ${job.city}`, " à ")}{job.title.includes(" à ") && <span className="text-primary italic font-bold">{job.city}</span>}
                 {!job.title.includes(" à ") && ""}
               </h1>
