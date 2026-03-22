@@ -209,7 +209,7 @@ const JobDetail = () => {
       {/* Content: sidebar + main */}
       <section className="pb-20 md:pb-[92px]" id="details">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
             <motion.aside
               className="bg-card/70 border border-border rounded-[34px] shadow-[0_16px_40px_rgba(0,0,0,0.08)] p-[30px] md:sticky md:top-[92px]"
               initial={{ opacity: 0, x: -20 }}
