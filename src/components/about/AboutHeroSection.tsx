@@ -69,10 +69,10 @@ const AboutHeroSection = () => {
                   key={stat.value}
                   className="bg-foreground/70 border border-white/[0.08] backdrop-blur-xl rounded-[20px] p-4 text-background"
                 >
-                  <strong className="block text-[clamp(22px,3vw,34px)] leading-none text-primary tracking-[-0.05em] mb-2">
+                  <strong className="block text-xl md:text-[clamp(22px,3vw,34px)] leading-none text-primary tracking-[-0.05em] mb-1 md:mb-2">
                     {stat.value}
                   </strong>
-                  <span className="block text-[13px] leading-snug text-background/70 uppercase tracking-[0.08em]">
+                  <span className="block text-[11px] md:text-[13px] leading-snug text-background/70 uppercase tracking-[0.08em]">
                     {stat.label}
                   </span>
                 </div>
