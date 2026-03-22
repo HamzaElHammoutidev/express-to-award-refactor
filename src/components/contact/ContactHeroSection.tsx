@@ -67,7 +67,7 @@ const ContactHeroSection = () => {
               <div className="rounded-[22px] overflow-hidden bg-card/5 border border-card/10 min-h-[200px] flex items-center justify-center">
                 <div className="text-card/30 text-sm font-sans">{t("Image du centre", "صورة المركز")}</div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+              <div className="grid grid-cols-1 gap-3 mt-4">
                 {cards.map((card, i) => (
                   <div key={i} className="bg-card/5 border border-card/10 backdrop-blur-sm rounded-2xl p-3.5">
                     <strong className="block text-primary text-sm leading-tight mb-1 break-all">{card.title}</strong>

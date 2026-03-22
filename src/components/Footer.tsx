@@ -149,7 +149,7 @@ const Footer = () => {
                 </li>
                 <li className="grid grid-cols-[26px_1fr] gap-3.5 items-start">
                   <Mail size={22} className="mt-0.5 text-primary" />
-                  <a href="mailto:serviceclient@parebriseexpress.ma" className="hover:text-white transition-colors">
+                  <a href="mailto:serviceclient@parebriseexpress.ma" className="hover:text-white transition-colors break-all">
                     serviceclient@parebriseexpress.ma
                   </a>
                 </li>

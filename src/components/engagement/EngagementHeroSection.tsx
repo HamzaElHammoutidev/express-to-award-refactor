@@ -39,7 +39,7 @@ const EngagementHeroSection = () => {
           </motion.div>
 
           <motion.div
-            className="relative rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[460px] md:min-h-[560px] bg-foreground"
+            className="relative rounded-[24px] md:rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[300px] md:min-h-[560px] bg-foreground"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}

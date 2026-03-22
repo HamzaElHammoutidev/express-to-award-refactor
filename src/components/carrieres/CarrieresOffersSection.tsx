@@ -112,7 +112,7 @@ const CarrieresOffersSection = () => {
                     {job.type}
                   </span>
                 </div>
-                <h3 className="text-[28px] leading-[1.1] tracking-[-0.03em] mb-2.5">{lang === "ar" ? job.title.ar : job.title.fr}</h3>
+                <h3 className="text-xl md:text-[28px] leading-[1.1] tracking-[-0.03em] mb-2.5">{lang === "ar" ? job.title.ar : job.title.fr}</h3>
                 <p className="text-muted-foreground text-base mb-2.5">{lang === "ar" ? job.city.ar : job.city.fr}</p>
                 <p className="text-muted-foreground/70 text-base leading-[1.8] mb-4">{lang === "ar" ? job.desc.ar : job.desc.fr}</p>
                 <div className="flex flex-wrap gap-2.5 mb-4">
