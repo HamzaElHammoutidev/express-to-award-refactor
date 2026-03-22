@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="relative overflow-hidden">
       {/* Large CTA Section */}
-      <div className="section-padding py-28 md:py-40 bg-surface border-b border-border/30">
+      <div className="section-padding py-16 md:py-28 bg-surface border-b border-border/30">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
