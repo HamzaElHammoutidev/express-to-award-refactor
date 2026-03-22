@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
 import Footer from "@/components/Footer";
 
 const jobsData: Record<string, {
