@@ -19,9 +19,6 @@ const AboutHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="inline-flex gap-2.5 items-center px-4 py-2.5 rounded-full bg-card/60 border border-border text-muted-foreground text-xs font-extrabold uppercase tracking-[0.08em] mb-5">
-              {t("Accueil / Qui sommes-nous ?", "الرئيسية / من نحن")}
-            </div>
             <h1 className="text-[clamp(44px,7vw,96px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
               {t("L'histoire d'une ", "قصة ")}
               <span className="text-primary italic font-bold">{t("expertise", "خبرة")}</span>

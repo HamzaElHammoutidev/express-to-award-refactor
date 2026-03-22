@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import EngagementHeroSection from "@/components/engagement/EngagementHeroSection";
 import EngagementCertsSection from "@/components/engagement/EngagementCertsSection";
 import EngagementPillarsSection from "@/components/engagement/EngagementPillarsSection";
@@ -14,6 +15,13 @@ const Engagement = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <div className="h-20" />
+      <PageHeader
+        breadcrumbs={[{ label: "Engagement", labelAr: "التزامنا" }]}
+        title="L'engagement qui fait la "
+        titleAr="الالتزام الذي يصنع "
+        titleHighlight="différence !"
+        titleHighlightAr="الفرق !"
+      />
       <EngagementHeroSection />
       <EngagementCertsSection />
       <EngagementPillarsSection />

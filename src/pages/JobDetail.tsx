@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
 import Footer from "@/components/Footer";
 
 const jobsData: Record<string, {
@@ -129,15 +130,19 @@ const JobDetail = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <div className="h-20" />
+      <PageHeader
+        breadcrumbs={[
+          { label: "Carrières", href: "/carrieres" },
+          { label: "Détail de l'offre" },
+        ]}
+        title={job.title}
+      />
 
       {/* Hero */}
       <section className="relative py-14 md:py-[72px]">
         <div className="max-w-[1320px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card/60 border border-border text-muted-foreground text-xs font-extrabold uppercase tracking-[0.08em] mb-5">
-                Accueil / Carrières / Détail de l'offre
-              </div>
               <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card/65 border border-border text-muted-foreground text-xs font-black uppercase tracking-[0.1em] mb-4">
                 <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_6px_rgba(228,181,44,0.10)]" />
                 {job.type} • {job.city}

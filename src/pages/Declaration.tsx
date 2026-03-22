@@ -45,7 +45,7 @@ const Declaration = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
-      <PageHeader breadcrumb="Déclaration" title="Déclarez un sinistre !" />
+      <PageHeader breadcrumbs={[{ label: "Déclaration" }]} title="Déclarez un sinistre !" />
 
       <section className="section-padding py-12 md:py-20">
         <div className="max-w-4xl mx-auto">
