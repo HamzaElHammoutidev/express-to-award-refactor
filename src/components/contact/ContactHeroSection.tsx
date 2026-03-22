@@ -34,7 +34,7 @@ const ContactHeroSection = () => {
               {t("Contactez-nous", "اتصل بنا")}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[0.96] tracking-tight mb-5">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[0.96] tracking-tight mb-5">
               {t("Obtenez toutes nos ", "احصل على كل ")}
               <span className="italic text-gradient-gold">{t("informations", "معلوماتنا")}</span>
             </h1>
