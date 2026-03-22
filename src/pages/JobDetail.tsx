@@ -169,16 +169,16 @@ const JobDetail = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img src="https://parebriseexpress.ma/images/assets/bpe-rca.jpg" alt={job.title} className="w-full h-full object-cover absolute inset-0" />
-              <div className="absolute left-6 right-6 bottom-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="absolute left-3 right-3 bottom-3 md:left-6 md:right-6 md:bottom-6 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                 {[
                   { value: job.type, label: "type de contrat" },
                   { value: job.city, label: "lieu du poste" },
                   { value: job.date, label: "date d'expiration" },
                   { value: job.phone, label: "contact" },
                 ].map((s, i) => (
-                  <div key={i} className="bg-foreground/70 border border-border/10 backdrop-blur-xl rounded-[20px] p-4 text-background">
-                    <strong className="block text-[22px] leading-[1.1] text-primary mb-1.5">{s.value}</strong>
-                    <span className="block text-[12px] leading-[1.55] text-background/70 uppercase tracking-[0.08em]">{s.label}</span>
+                  <div key={i} className="bg-foreground/70 border border-border/10 backdrop-blur-xl rounded-[14px] md:rounded-[20px] p-2.5 md:p-4 text-background">
+                    <strong className="block text-sm md:text-[22px] leading-[1.1] text-primary mb-1 md:mb-1.5 truncate">{s.value}</strong>
+                    <span className="block text-[10px] md:text-[12px] leading-[1.55] text-background/70 uppercase tracking-[0.08em]">{s.label}</span>
                   </div>
                 ))}
               </div>
