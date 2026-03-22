@@ -59,7 +59,7 @@ const AboutHeroSection = () => {
               className="w-full h-full object-cover absolute inset-0"
             />
             {/* Stat cards overlay */}
-            <div className="absolute left-5 right-5 bottom-5 grid grid-cols-3 gap-3">
+            <div className="absolute left-3 right-3 bottom-3 md:left-5 md:right-5 md:bottom-5 grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               {[
                 { value: "+10", label: t("ans d'expertise terrain", "سنوات من الخبرة الميدانية") },
                 { value: "+80", label: t("centres et ateliers mobiles", "مراكز وورش متنقلة") },
