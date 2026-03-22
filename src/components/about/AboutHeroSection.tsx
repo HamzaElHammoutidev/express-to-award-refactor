@@ -19,7 +19,7 @@ const AboutHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-[clamp(44px,7vw,96px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+            <h1 className="text-[clamp(32px,7vw,96px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
               {t("L'histoire d'une ", "قصة ")}
               <span className="text-primary italic font-bold">{t("expertise", "خبرة")}</span>
               {t(" au service de votre sécurité", " في خدمة سلامتكم")}
