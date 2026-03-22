@@ -19,7 +19,7 @@ const AboutHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-[clamp(44px,7vw,96px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+            <h1 className="text-[clamp(32px,7vw,96px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
               {t("L'histoire d'une ", "قصة ")}
               <span className="text-primary italic font-bold">{t("expertise", "خبرة")}</span>
               {t(" au service de votre sécurité", " في خدمة سلامتكم")}
@@ -48,7 +48,7 @@ const AboutHeroSection = () => {
 
           {/* Hero Media */}
           <motion.div
-            className="relative rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[400px] md:min-h-[560px] bg-foreground"
+            className="relative rounded-[24px] md:rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[300px] md:min-h-[560px] bg-foreground"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
@@ -59,7 +59,7 @@ const AboutHeroSection = () => {
               className="w-full h-full object-cover absolute inset-0"
             />
             {/* Stat cards overlay */}
-            <div className="absolute left-5 right-5 bottom-5 grid grid-cols-3 gap-3">
+            <div className="absolute left-3 right-3 bottom-3 md:left-5 md:right-5 md:bottom-5 grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               {[
                 { value: "+10", label: t("ans d'expertise terrain", "سنوات من الخبرة الميدانية") },
                 { value: "+80", label: t("centres et ateliers mobiles", "مراكز وورش متنقلة") },
@@ -69,10 +69,10 @@ const AboutHeroSection = () => {
                   key={stat.value}
                   className="bg-foreground/70 border border-white/[0.08] backdrop-blur-xl rounded-[20px] p-4 text-background"
                 >
-                  <strong className="block text-[clamp(22px,3vw,34px)] leading-none text-primary tracking-[-0.05em] mb-2">
+                  <strong className="block text-xl md:text-[clamp(22px,3vw,34px)] leading-none text-primary tracking-[-0.05em] mb-1 md:mb-2">
                     {stat.value}
                   </strong>
-                  <span className="block text-[13px] leading-snug text-background/70 uppercase tracking-[0.08em]">
+                  <span className="block text-[11px] md:text-[13px] leading-snug text-background/70 uppercase tracking-[0.08em]">
                     {stat.label}
                   </span>
                 </div>

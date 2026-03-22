@@ -13,7 +13,7 @@ const CarrieresHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-[clamp(42px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+            <h1 className="text-[clamp(32px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
               {t("Rejoignez une équipe qui fait ", "انضم إلى فريق يصنع ")}
               <span className="text-primary italic font-bold">{t("grandir l'excellence", "التميّز")}</span>
             </h1>
@@ -34,21 +34,21 @@ const CarrieresHeroSection = () => {
           </motion.div>
 
           <motion.div
-            className="relative rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[420px] md:min-h-[560px] bg-foreground/5"
+            className="relative rounded-[24px] md:rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[300px] md:min-h-[560px] bg-foreground/5"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img src="https://parebriseexpress.ma/images/assets/bpe-rca.jpg" alt={t("Équipe Pare-Brise Express", "فريق باري بريز إكسبريس")} className="w-full h-full object-cover absolute inset-0" />
-            <div className="absolute left-6 right-6 bottom-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="absolute left-3 right-3 bottom-3 md:left-6 md:right-6 md:bottom-6 grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               {[
                 { value: "+80", label: { fr: "centres et ateliers mobiles", ar: "مراكز وورش متنقلة" } },
                 { value: t("Maroc", "المغرب"), label: { fr: "présence nationale", ar: "حضور وطني" } },
                 { value: t("Talents", "مواهب"), label: { fr: "mobilisés autour de la qualité", ar: "مجندة حول الجودة" } },
               ].map((stat, i) => (
-                <div key={i} className="bg-foreground/70 border border-border/10 backdrop-blur-xl rounded-[20px] p-4 text-background">
-                  <strong className="block text-[34px] leading-none text-primary tracking-[-0.05em] mb-2">{stat.value}</strong>
-                  <span className="block text-[13px] leading-[1.5] text-background/70 uppercase tracking-[0.08em]">{t(stat.label.fr, stat.label.ar)}</span>
+                <div key={i} className="bg-foreground/70 border border-border/10 backdrop-blur-xl rounded-[14px] md:rounded-[20px] p-3 md:p-4 text-background">
+                  <strong className="block text-xl md:text-[34px] leading-none text-primary tracking-[-0.05em] mb-1 md:mb-2">{stat.value}</strong>
+                  <span className="block text-[11px] md:text-[13px] leading-[1.5] text-background/70 uppercase tracking-[0.08em]">{t(stat.label.fr, stat.label.ar)}</span>
                 </div>
               ))}
             </div>

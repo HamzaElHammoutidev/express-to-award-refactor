@@ -18,7 +18,7 @@ const EngagementHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-[clamp(42px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+            <h1 className="text-[clamp(32px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
               {t("L'engagement qui ", "الالتزام الذي ")}
               <span className="text-primary italic font-bold">{t("fait la différence", "يصنع الفرق")}</span>
             </h1>
@@ -39,7 +39,7 @@ const EngagementHeroSection = () => {
           </motion.div>
 
           <motion.div
-            className="relative rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[460px] md:min-h-[560px] bg-foreground"
+            className="relative rounded-[24px] md:rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[300px] md:min-h-[560px] bg-foreground"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -49,15 +49,15 @@ const EngagementHeroSection = () => {
               alt={t("Technicien Pare-Brise Express en intervention", "تقني من باري بريز إكسبريس أثناء التدخل")}
               className="w-full h-full object-cover absolute inset-0"
             />
-            <div className="absolute left-6 right-6 bottom-6 grid grid-cols-3 gap-3">
+            <div className="absolute left-3 right-3 bottom-3 md:left-6 md:right-6 md:bottom-6 grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
               {[
                 { val: "ISO", label: t("qualité structurée", "جودة منظمة") },
                 { val: t("Vie", "مدى الحياة"), label: t("garantie sur l'intervention", "ضمان على التدخل") },
                 { val: t("Mobile", "متنقل"), label: t("intervention sur site", "تدخل في موقعكم") },
               ].map((stat, i) => (
-                <div key={i} className="bg-foreground/70 border border-white/[0.08] backdrop-blur-sm rounded-[20px] p-4 text-background">
-                  <strong className="block text-[34px] leading-none text-primary tracking-[-0.05em] mb-2">{stat.val}</strong>
-                  <span className="block text-[13px] leading-[1.5] text-background/70 uppercase tracking-[0.08em]">{stat.label}</span>
+                <div key={i} className="bg-foreground/70 border border-white/[0.08] backdrop-blur-sm rounded-[14px] md:rounded-[20px] p-3 md:p-4 text-background">
+                  <strong className="block text-xl md:text-[34px] leading-none text-primary tracking-[-0.05em] mb-1 md:mb-2">{stat.val}</strong>
+                  <span className="block text-[11px] md:text-[13px] leading-[1.5] text-background/70 uppercase tracking-[0.08em]">{stat.label}</span>
                 </div>
               ))}
             </div>

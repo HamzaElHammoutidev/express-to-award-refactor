@@ -147,7 +147,7 @@ const JobDetail = () => {
                 <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_0_6px_rgba(228,181,44,0.10)]" />
                 {job.type} • {job.city}
               </div>
-              <h1 className="text-[clamp(42px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
+              <h1 className="text-[clamp(32px,6.8vw,92px)] leading-[0.95] tracking-[-0.06em] font-black mb-5">
                 {job.title.replace(` à ${job.city}`, " à ")}{job.title.includes(" à ") && <span className="text-primary italic font-bold">{job.city}</span>}
                 {!job.title.includes(" à ") && ""}
               </h1>
@@ -163,22 +163,22 @@ const JobDetail = () => {
             </motion.div>
 
             <motion.div
-              className="relative rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[420px] md:min-h-[560px] bg-foreground/5"
+              className="relative rounded-[24px] md:rounded-[34px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.12)] min-h-[320px] md:min-h-[560px] bg-foreground/5"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img src="https://parebriseexpress.ma/images/assets/bpe-rca.jpg" alt={job.title} className="w-full h-full object-cover absolute inset-0" />
-              <div className="absolute left-6 right-6 bottom-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="absolute left-3 right-3 bottom-3 md:left-6 md:right-6 md:bottom-6 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                 {[
                   { value: job.type, label: "type de contrat" },
                   { value: job.city, label: "lieu du poste" },
                   { value: job.date, label: "date d'expiration" },
                   { value: job.phone, label: "contact" },
                 ].map((s, i) => (
-                  <div key={i} className="bg-foreground/70 border border-border/10 backdrop-blur-xl rounded-[20px] p-4 text-background">
-                    <strong className="block text-[22px] leading-[1.1] text-primary mb-1.5">{s.value}</strong>
-                    <span className="block text-[12px] leading-[1.55] text-background/70 uppercase tracking-[0.08em]">{s.label}</span>
+                  <div key={i} className="bg-foreground/70 border border-border/10 backdrop-blur-xl rounded-[14px] md:rounded-[20px] p-2.5 md:p-4 text-background">
+                    <strong className="block text-sm md:text-[22px] leading-[1.1] text-primary mb-1 md:mb-1.5 truncate">{s.value}</strong>
+                    <span className="block text-[10px] md:text-[12px] leading-[1.55] text-background/70 uppercase tracking-[0.08em]">{s.label}</span>
                   </div>
                 ))}
               </div>
@@ -209,7 +209,7 @@ const JobDetail = () => {
       {/* Content: sidebar + main */}
       <section className="pb-20 md:pb-[92px]" id="details">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="grid md:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
             <motion.aside
               className="bg-card/70 border border-border rounded-[34px] shadow-[0_16px_40px_rgba(0,0,0,0.08)] p-[30px] md:sticky md:top-[92px]"
               initial={{ opacity: 0, x: -20 }}
@@ -293,7 +293,7 @@ const JobDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch">
               <article className="bg-gradient-to-br from-foreground to-foreground/90 text-background rounded-[28px] p-7 shadow-[0_24px_60px_rgba(0,0,0,0.12)] relative overflow-hidden">
                 <div className="absolute w-[300px] h-[300px] -right-[120px] -top-[120px] rounded-full bg-[radial-gradient(circle,rgba(228,181,44,0.20),transparent_70%)]" />
                 <h3 className="relative z-10 text-[clamp(28px,3vw,42px)] leading-[1.08] mb-3.5">

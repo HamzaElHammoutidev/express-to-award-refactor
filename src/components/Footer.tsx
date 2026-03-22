@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="relative overflow-hidden">
       {/* Large CTA Section */}
-      <div className="section-padding py-28 md:py-40 bg-surface border-b border-border/30">
+      <div className="section-padding py-16 md:py-28 bg-surface border-b border-border/30">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -125,7 +125,7 @@ const Footer = () => {
 
             {/* Contact */}
             <div>
-              <ul className="grid gap-[18px] text-[17px] leading-[1.6] text-background/70">
+              <ul className="grid gap-[18px] text-[15px] md:text-[17px] leading-[1.6] text-background/70">
                 <li className="grid grid-cols-[26px_1fr] gap-3.5 items-start">
                   <Phone size={22} className="mt-0.5 text-primary" />
                   <div>
@@ -149,7 +149,7 @@ const Footer = () => {
                 </li>
                 <li className="grid grid-cols-[26px_1fr] gap-3.5 items-start">
                   <Mail size={22} className="mt-0.5 text-primary" />
-                  <a href="mailto:serviceclient@parebriseexpress.ma" className="hover:text-white transition-colors">
+                  <a href="mailto:serviceclient@parebriseexpress.ma" className="hover:text-white transition-colors break-all">
                     serviceclient@parebriseexpress.ma
                   </a>
                 </li>
@@ -180,7 +180,7 @@ const Footer = () => {
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-[42px] pt-6 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-center gap-[18px] text-sm text-background/55">
+          <div className="mt-[42px] pt-6 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-center gap-[18px] text-xs md:text-sm text-background/55 text-center">
             <span>© Copyright <span className="text-primary font-semibold">PARE-BRISE EXPRESS</span> 2025. All Rights Reserved.</span>
           </div>
         </div>

@@ -19,7 +19,7 @@ const ContactHeroSection = () => {
   ];
 
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+    <section className="relative pt-8 pb-12 md:pt-14 md:pb-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface to-surface" />
       <div className="relative z-10 section-padding">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -34,7 +34,7 @@ const ContactHeroSection = () => {
               {t("Contactez-nous", "اتصل بنا")}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[0.96] tracking-tight mb-5">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-[0.96] tracking-tight mb-5">
               {t("Obtenez toutes nos ", "احصل على كل ")}
               <span className="italic text-gradient-gold">{t("informations", "معلوماتنا")}</span>
             </h1>
@@ -67,7 +67,7 @@ const ContactHeroSection = () => {
               <div className="rounded-[22px] overflow-hidden bg-card/5 border border-card/10 min-h-[200px] flex items-center justify-center">
                 <div className="text-card/30 text-sm font-sans">{t("Image du centre", "صورة المركز")}</div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+              <div className="grid grid-cols-1 gap-3 mt-4">
                 {cards.map((card, i) => (
                   <div key={i} className="bg-card/5 border border-card/10 backdrop-blur-sm rounded-2xl p-3.5">
                     <strong className="block text-primary text-sm leading-tight mb-1 break-all">{card.title}</strong>

@@ -195,7 +195,7 @@ const SalamatounaSection = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-center max-w-[900px] mx-auto mb-12"
         >
-          <h2 className="text-[clamp(48px,7vw,94px)] leading-[0.98] tracking-[-0.05em] font-extrabold mb-[18px]">
+          <h2 className="text-[clamp(36px,7vw,94px)] leading-[0.98] tracking-[-0.05em] font-extrabold mb-[18px]">
             {t("Votre Pare-brise,", "زجاجكم الأمامي،")}
             <br />
             <span className="text-primary italic font-bold">{t("notre priorité !", "أولويتنا !")}</span>
