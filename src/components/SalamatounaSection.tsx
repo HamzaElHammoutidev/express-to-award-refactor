@@ -118,7 +118,7 @@ const SalamatounaSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-visible z-[50] -mt-10 md:-mt-16"
+      className="relative overflow-visible z-[50]"
       style={{
         padding: "20px 20px 0px",
         background: `
