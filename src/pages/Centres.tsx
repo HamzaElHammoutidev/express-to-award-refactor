@@ -301,6 +301,19 @@ const Centres = () => {
 
         {/* 3. Cards List (Mobile: Bottom, Desktop: Bottom-Left) */}
         <div className="flex flex-col gap-4 lg:col-start-1 lg:row-start-2 overflow-y-auto h-[600px] lg:h-auto min-h-0 custom-scrollbar pr-2 lg:pr-3 pb-8 mt-2 lg:mt-0 z-10">
+          
+          {/* Mobile UX Context Invitation */}
+          {!activeCenterId && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="lg:hidden text-center py-3 px-4 rounded-2xl bg-yellow-500/[0.08] border border-yellow-500/20 text-yellow-600 font-medium text-xs flex items-center justify-center gap-2 mb-2 shadow-[0_0_20px_rgba(234,179,8,0.05)]"
+            >
+              <MapIcon className="h-4 w-4" />
+              {t("Appuyez sur un centre pour l'afficher sur la carte", "اضغط على أي مركز لعرضه على الخريطة")}
+            </motion.div>
+          )}
+
           {filteredCenters.map((center, index) => {
             const isActive = activeCenterId === center.id;
             
