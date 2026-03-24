@@ -127,9 +127,13 @@ const centers: Center[] = [
 const MapFlyTo = ({ center }: { center: [number, number] | null }) => {
   const map = useMap();
   useEffect(() => {
-    if (center) {
-      map.flyTo(center, 14, { duration: 1.5, easeLinearity: 0.25 });
-    }
+    // Force map to recalculate its size right after layout changes (critical for mobile un-hiding)
+    setTimeout(() => {
+      map.invalidateSize();
+      if (center) {
+        map.flyTo(center, 14, { duration: 1.5, easeLinearity: 0.25 });
+      }
+    }, 100);
   }, [center, map]);
   return null;
 };
@@ -141,8 +145,8 @@ const Centres = () => {
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const filteredCenters = useMemo(() => {
-    return centers.filter((center) =>
-      center.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    return centers.filter((center) => 
+      center.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
       center.addressFr.toLowerCase().includes(searchQuery.toLowerCase()) ||
       center.addressAr.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -165,16 +169,16 @@ const Centres = () => {
       {/* Ambient Background Glows */}
       <div className="absolute top-0 left-[-10%] w-[50vw] h-[50vw] rounded-full bg-yellow-500/5 blur-[120px] pointer-events-none transform -translate-y-1/2" />
       <div className="absolute top-[40%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-yellow-500/5 blur-[150px] pointer-events-none" />
-
+      
       <Navbar />
       <div className="h-24 flex-shrink-0" /> {/* Spacer for Navbar */}
-
+      
       {/* Top Header Section */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 w-full max-w-[1920px] mx-auto px-6 lg:px-12 py-8 flex-shrink-0"
+        className="relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-16 xl:px-20 py-8 flex-shrink-0"
       >
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-3xl">
@@ -183,149 +187,102 @@ const Centres = () => {
                 {t("NOS CENTRES", "مراكزنا")}
               </span>
             </div>
-
+            
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 tracking-tight leading-tight">
               {t("Trouvez le centre ", "ابحث عن المركز ")}<span className="italic text-yellow-500 font-serif font-medium"><br className="hidden md:block" />{t("le plus proche", "الأقرب إليك")}</span>
             </h1>
-
+            
             <p className="text-gray-400 text-sm md:text-lg leading-relaxed max-w-2xl">
               {t("Bénéficiez d'une précision technologique et d'un service premium dans tout le réseau GLAZZ PRECISION.", "استفد من الدقة التكنولوجية والخدمة الممتازة في جميع أنحاء شبكة جلاز بريسيجن.")}
             </p>
           </div>
 
-          <div className="flex flex-col items-start md:items-end pb-2">
+          <div className="flex flex-row w-full justify-between items-end md:flex-col md:justify-end md:w-auto md:gap-8 pb-2 mt-4 md:mt-0">
+            {/* 24/7 Badge */}
             <div className={`text-left ${language === 'fr' ? 'md:text-right' : 'md:text-left'}`}>
               <div className="text-yellow-500 font-black text-6xl md:text-7xl tracking-tighter">24<span className="text-4xl md:text-5xl text-yellow-600">/7</span></div>
               <div className="text-[10px] md:text-xs tracking-[0.2em] text-gray-500 font-semibold uppercase mt-2">{t("ASSISTANCE MOBILE", "مساعدة متنقلة")}</div>
+            </div>
+
+            {/* Centers Count Badge */}
+            <div className={`text-right ${language === 'fr' ? 'md:text-right' : 'md:text-left'}`}>
+              <div className="text-yellow-500 font-black text-6xl md:text-7xl tracking-tighter">
+                {centers.length < 10 ? `0${centers.length}` : centers.length}
+              </div>
+              <div className="text-[10px] md:text-xs tracking-[0.2em] text-gray-500 font-semibold uppercase mt-2">
+                {t("CENTRES AU MAROC", "مركز في المغرب")}
+              </div>
             </div>
           </div>
         </div>
       </motion.div>
 
-      {/* Main 2-Column Section */}
-      <main className="relative z-10 w-full max-w-[1920px] mx-auto flex flex-col lg:flex-row lg:h-[calc(100vh-250px)] lg:min-h-[750px] lg:max-h-[900px] px-6 lg:px-12 pb-12 gap-8">
-        {/* Left Column (Search & List) */}
-        <div className="w-full lg:w-[450px] flex-shrink-0 flex flex-col z-10 h-[700px] lg:h-full">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-4 mb-6 flex-shrink-0"
-          >
-            <div className="relative">
-              <Search className={`absolute ${language === 'fr' ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 text-yellow-500 h-5 w-5`} />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t("Entrez votre ville ou code postal...", "أدخل مدينتك أو الرمز البريدي...")}
-                className={`w-full bg-[#111] border border-white/10 rounded-[28px] py-4 ${language === 'fr' ? 'pl-14 pr-6' : 'pr-14 pl-6'} text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 transition-colors shadow-[0_8px_30px_rgba(0,0,0,0.2)]`}
-              />
-            </div>
-            <div className="flex gap-3 h-[54px]">
-              <button
-                onClick={() => {
-                  if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(() => { });
-                  }
-                }}
-                className="flex-1 bg-[#1a1a1a] hover:bg-[#252525] border border-white/5 rounded-[24px] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-[0_8px_20px_rgba(0,0,0,0.15)] group"
-              >
-                <Crosshair className="h-4 w-4 group-hover:text-yellow-500 transition-colors" />
-                {t("Autour de moi", "بالقرب مني")}
-              </button>
-              <button className="bg-[#1a1a1a] hover:bg-[#252525] border border-white/5 rounded-[24px] px-6 transition-colors flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
-                <Filter className="h-5 w-5 text-gray-400" />
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Cards List with Constrained Scroll Container */}
-          <div className="flex-1 flex flex-col gap-4 overflow-y-auto min-h-0 custom-scrollbar pr-3 pb-8">
-            {filteredCenters.map((center, index) => {
-              const isActive = activeCenterId === center.id;
-
-              return (
-                <motion.div
-                  key={center.id}
-                  ref={(el) => (cardRefs.current[center.id] = el)}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => setActiveCenterId(center.id)}
-                  className={`flex-shrink-0 p-6 md:p-8 rounded-[30px] border cursor-pointer transition-all duration-300 ${isActive
-                    ? "bg-[#181818] border-yellow-500/40 shadow-[0_0_30px_rgba(234,179,8,0.15)] scale-[1.02]"
-                    : "bg-[#151515] border-white/5 hover:border-white/20 hover:shadow-[0_24px_56px_rgba(255,255,255,0.04)] shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
-                    }`}
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-xl tracking-wide">
-                      {center.name}
-                    </h3>
-                  </div>
-
-                  <p className="text-gray-400 text-sm mb-4">{t(center.addressFr, center.addressAr)}</p>
-
-                  <div className="flex flex-col gap-3 mb-5 text-sm text-gray-300">
-                    <div className="flex items-center gap-3">
-                      <Phone className="h-4 w-4 text-yellow-500" />
-                      <span dir="ltr">{center.phone}</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Clock className="h-4 w-4 text-yellow-500" />
-                      <span dir="ltr" className={language === 'ar' ? 'ml-auto' : ''}>{t(center.hoursFr, center.hoursAr)}</span>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-3 mt-4">
-                    <button className="bg-black/40 hover:bg-black/80 border border-white/5 py-3.5 rounded-[18px] flex flex-col items-center justify-center gap-2 transition-colors group">
-                      <MapIcon className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] font-bold tracking-wider">MAPS</span>
-                    </button>
-                    <button className="bg-black/40 hover:bg-black/80 border border-white/5 py-3.5 rounded-[18px] flex flex-col items-center justify-center gap-2 transition-colors group">
-                      <Navigation className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] font-bold tracking-wider">WAZE</span>
-                    </button>
-                    <button className="bg-black/40 hover:bg-black/80 border border-white/5 py-3.5 rounded-[18px] flex flex-col items-center justify-center gap-2 transition-colors group">
-                      <MessageCircle className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] font-bold tracking-wider">WHATSAPP</span>
-                    </button>
-                  </div>
-                </motion.div>
-              );
-            })}
-            {filteredCenters.length === 0 && (
-              <div className="text-center py-20 text-gray-500 text-sm">
-                {t(`Aucun centre trouvé pour "${searchQuery}".`, `لم يتم العثور على أي مركز لـ "${searchQuery}".`)}
-              </div>
-            )}
+      {/* Main Grid Section */}
+      <main className="relative z-10 w-full max-w-[1600px] mx-auto pb-12 px-6 lg:px-16 xl:px-20 grid grid-cols-1 lg:grid-cols-[500px_1fr] lg:grid-rows-[auto_1fr] gap-6 lg:gap-8 xl:gap-12 lg:h-[calc(100vh-200px)] lg:min-h-[800px] lg:max-h-[1100px]">
+        
+        {/* 1. Search Bar (Mobile: Top, Desktop: Top-Left) */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col gap-4 lg:col-start-1 lg:row-start-1 z-20"
+        >
+          <div className="relative">
+            <Search className={`absolute ${language === 'fr' ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 text-yellow-500 h-5 w-5`} />
+            <input 
+              type="text" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={t("Entrez votre ville ou code postal...", "أدخل مدينتك أو الرمز البريدي...")} 
+              className={`w-full bg-[#111] border border-white/10 rounded-[28px] py-4 ${language === 'fr' ? 'pl-14 pr-6' : 'pr-14 pl-6'} text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 transition-colors shadow-[0_8px_30px_rgba(0,0,0,0.4)]`} 
+            />
           </div>
-        </div>
+          <div className="flex gap-3 h-[54px]">
+            <button 
+              onClick={() => {
+                if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(() => {});
+                }
+              }}
+              className="flex-1 bg-[#1a1a1a] hover:bg-[#252525] border border-white/5 rounded-[24px] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-[0_8px_20px_rgba(0,0,0,0.15)] group"
+            >
+              <Crosshair className="h-4 w-4 group-hover:text-yellow-500 transition-colors" />
+              {t("Autour de moi", "بالقرب مني")}
+            </button>
+            <button className="bg-[#1a1a1a] hover:bg-[#252525] border border-white/5 rounded-[24px] px-6 transition-colors flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+              <Filter className="h-5 w-5 text-gray-400" />
+            </button>
+          </div>
+        </motion.div>
 
-        {/* Right Map Area (Column 2) */}
-        <motion.div
+        {/* 2. Map Area (Mobile: Collapsed/Hidden by default until clicked, Desktop: Right Column) */}
+        <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 w-full h-[500px] lg:h-full flex flex-col relative bg-[#111] overflow-hidden rounded-[34px] border border-white/[0.06] shadow-[0_24px_70px_rgba(0,0,0,0.32)]"
+          className={`w-full lg:!flex lg:!h-full lg:!min-h-[500px] lg:!opacity-100 lg:!border lg:!m-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 flex-col relative bg-[#111] overflow-hidden rounded-[24px] lg:rounded-[34px] border-white/[0.06] shadow-[0_24px_70px_rgba(0,0,0,0.32)] z-10 ${
+            !activeCenterId
+              ? 'hidden h-0 opacity-0 border-0 m-0'
+              : 'flex h-[45vh] min-h-[350px] opacity-100 border my-4'
+          }`}
         >
-          <MapContainer
+          <MapContainer 
             center={[31.7917, -7.0926]} // Center of Morocco
-            zoom={5.5}
-            scrollWheelZoom={true}
+            zoom={5.5} 
+            scrollWheelZoom={true} 
             zoomControl={false}
-            className="flex-1 w-full h-[500px] lg:h-full z-0"
-            style={{ minHeight: '500px' }}
+            className="flex-1 w-full h-full z-0"
+            style={{ width: '100%', height: '100%' }}
           >
             <TileLayer
               url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>'
             />
             <MapFlyTo center={activeCenterCoords} />
-
+            
             {filteredCenters.map((center) => (
-              <Marker
-                key={center.id}
+              <Marker 
+                key={center.id} 
                 position={center.coordinates}
                 icon={customMarkerIcon}
                 eventHandlers={{
@@ -341,6 +298,68 @@ const Centres = () => {
             ))}
           </MapContainer>
         </motion.div>
+
+        {/* 3. Cards List (Mobile: Bottom, Desktop: Bottom-Left) */}
+        <div className="flex flex-col gap-4 lg:col-start-1 lg:row-start-2 overflow-y-auto h-[600px] lg:h-auto min-h-0 custom-scrollbar pr-2 lg:pr-3 pb-8 mt-2 lg:mt-0 z-10">
+          {filteredCenters.map((center, index) => {
+            const isActive = activeCenterId === center.id;
+            
+            return (
+              <motion.div 
+                key={center.id}
+                ref={(el) => (cardRefs.current[center.id] = el)}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => setActiveCenterId(activeCenterId === center.id ? null : center.id)}
+                className={`flex-shrink-0 p-6 md:p-8 rounded-[24px] lg:rounded-[30px] border cursor-pointer transition-all duration-300 ${
+                  isActive 
+                    ? "bg-[#181818] border-yellow-500/40 shadow-[0_0_30px_rgba(234,179,8,0.15)] scale-[1.02]" 
+                    : "bg-[#151515] border-white/5 hover:border-white/20 hover:shadow-[0_24px_56px_rgba(255,255,255,0.04)] shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
+                }`}
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-xl tracking-wide">
+                    {center.name}
+                  </h3>
+                </div>
+                
+                <p className="text-gray-400 text-sm mb-4">{t(center.addressFr, center.addressAr)}</p>
+                
+                <div className="flex flex-col gap-3 mb-5 text-sm text-gray-300">
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-4 w-4 text-yellow-500" />
+                    <span dir="ltr">{center.phone}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Clock className="h-4 w-4 text-yellow-500" />
+                    <span dir="ltr" className={language === 'ar' ? 'ml-auto' : ''}>{t(center.hoursFr, center.hoursAr)}</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3 mt-4">
+                  <button className="bg-black/40 hover:bg-black/80 border border-white/5 py-3.5 rounded-[18px] flex flex-col items-center justify-center gap-2 transition-colors group">
+                    <MapIcon className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
+                    <span className="text-[10px] font-bold tracking-wider">MAPS</span>
+                  </button>
+                  <button className="bg-black/40 hover:bg-black/80 border border-white/5 py-3.5 rounded-[18px] flex flex-col items-center justify-center gap-2 transition-colors group">
+                    <Navigation className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
+                    <span className="text-[10px] font-bold tracking-wider">WAZE</span>
+                  </button>
+                  <button className="bg-black/40 hover:bg-black/80 border border-white/5 py-3.5 rounded-[18px] flex flex-col items-center justify-center gap-2 transition-colors group">
+                    <MessageCircle className="h-5 w-5 text-yellow-500 group-hover:scale-110 transition-transform" />
+                    <span className="text-[10px] font-bold tracking-wider">WHATSAPP</span>
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
+          {filteredCenters.length === 0 && (
+            <div className="text-center py-20 text-gray-500 text-sm">
+              {t(`Aucun centre trouvé pour "${searchQuery}".`, `لم يتم العثور على أي مركز لـ "${searchQuery}".`)}
+            </div>
+          )}
+        </div>
       </main>
 
       {/* Certifications footer matching the design bottom */}
