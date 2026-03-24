@@ -38,24 +38,36 @@ const Footer = () => {
   return (
     <footer id="contact" className="relative overflow-hidden">
       {/* Large CTA Section */}
-      <div className="section-padding py-16 md:py-28 bg-surface border-b border-border/30">
-        <div className="max-w-7xl mx-auto text-center">
+      <div className="relative section-padding py-24 md:py-36 border-b border-border/10 overflow-hidden isolate">
+        {/* Background Image & Ambient Overlays */}
+        <div className="absolute inset-0 z-[-2]">
+          <img 
+            src="https://parebriseexpress.ma/images/tech_serv.jpg" 
+            alt="Technicien Pare-Brise Express au travail" 
+            className="w-full h-full object-cover object-center opacity-[0.25] mix-blend-luminosity"
+          />
+        </div>
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent" />
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-[#0a0a0a] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a] opacity-80" />
+
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-serif leading-[1.05] mb-10">
+            <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-serif leading-[1.05] mb-12 mix-blend-plus-lighter drop-shadow-2xl text-white">
               {t("Ensemble, prenons soin", "معًا، لنعتني")}
               <br />
-              <span className="italic text-gradient-gold">
+              <span className="italic text-yellow-500/90 font-bold drop-shadow-[0_0_20px_rgba(234,179,8,0.3)]">
                 {t("de votre véhicule", "بسيارتكم")}
               </span>
             </h2>
             <Link
               to="/contact"
-              className="inline-block px-10 py-4 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-[13px] uppercase tracking-[0.15em] hover:bg-gold-dark transition-colors duration-300"
+              className="inline-block px-12 py-4 rounded-full bg-yellow-500 text-black font-sans font-extrabold text-[14px] uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(234,179,8,0.25)] hover:shadow-[0_0_40px_rgba(234,179,8,0.4)] hover:scale-105 hover:bg-yellow-400 transition-all duration-300"
             >
               {t("Contactez-nous", "اتصل بنا")}
             </Link>
