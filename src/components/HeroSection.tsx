@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="w-full px-4 md:px-6 pt-24 md:pt-28 pb-2">
+    <section className="w-full px-4 md:px-6 pt-24 md:pt-28">
       <div className="w-full overflow-hidden rounded-[20px] md:rounded-[32px]">
         <video
           autoPlay
