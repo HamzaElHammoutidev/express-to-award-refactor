@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <>
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5 px-4"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-8 px-4"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
