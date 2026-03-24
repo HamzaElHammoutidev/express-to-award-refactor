@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="w-full px-4 md:px-6 pt-24 md:pt-28">
-      <div className="w-full overflow-hidden rounded-[20px] md:rounded-[32px]">
+    <section className="w-full pb-2 md:pb-4">
+      <div className="w-full overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-[50vh] md:h-[85vh] object-cover"
+          className="w-full h-[60vh] md:h-[100vh] object-cover"
           poster="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
         >
           <source

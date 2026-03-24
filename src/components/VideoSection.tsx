@@ -1,6 +1,6 @@
 const VideoSection = () => {
   return (
-    <section className="w-full px-4 md:px-6">
+    <section className="w-full px-4 md:px-6 pb-2 md:pb-4">
       <div className="w-full overflow-hidden rounded-[20px] md:rounded-[32px]">
         <video
           autoPlay
@@ -8,7 +8,7 @@ const VideoSection = () => {
           loop
           playsInline
           preload="auto"
-          className="w-full h-[40vh] md:h-auto object-cover block"
+          className="w-full aspect-video object-cover block"
         >
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
