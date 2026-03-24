@@ -16,6 +16,24 @@ import Contact from "./pages/Contact";
 import Declaration from "./pages/Declaration";
 import NotFound from "./pages/NotFound";
 
+// Admin
+import AdminLayout from "./admin/layouts/AdminLayout";
+import Dashboard from "./admin/pages/Dashboard";
+import PagesAdmin from "./admin/pages/PagesAdmin";
+import SectionsAdmin from "./admin/pages/SectionsAdmin";
+import MediaLibrary from "./admin/pages/MediaLibrary";
+import CentersAdmin from "./admin/pages/CentersAdmin";
+import ClaimsAdmin from "./admin/pages/ClaimsAdmin";
+import MessagesAdmin from "./admin/pages/MessagesAdmin";
+import JobsAdmin from "./admin/pages/JobsAdmin";
+import ApplicationsAdmin from "./admin/pages/ApplicationsAdmin";
+import SpontaneousAdmin from "./admin/pages/SpontaneousAdmin";
+import FaqAdmin from "./admin/pages/FaqAdmin";
+import TestimonialsAdmin from "./admin/pages/TestimonialsAdmin";
+import SiteSettings from "./admin/pages/SiteSettings";
+import UsersAdmin from "./admin/pages/UsersAdmin";
+import ActivityLog from "./admin/pages/ActivityLog";
+
 const queryClient = new QueryClient();
 
 const ScrollToTop = () => {
@@ -35,6 +53,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
+            {/* Public */}
             <Route path="/" element={<Index />} />
             <Route path="/institution" element={<About />} />
             <Route path="/engag" element={<Engagement />} />
@@ -43,6 +62,26 @@ const App = () => (
             <Route path="/carrieres/:id" element={<JobDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/declaration" element={<Declaration />} />
+
+            {/* Admin */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="pages" element={<PagesAdmin />} />
+              <Route path="sections" element={<SectionsAdmin />} />
+              <Route path="media" element={<MediaLibrary />} />
+              <Route path="centers" element={<CentersAdmin />} />
+              <Route path="claims" element={<ClaimsAdmin />} />
+              <Route path="messages" element={<MessagesAdmin />} />
+              <Route path="jobs" element={<JobsAdmin />} />
+              <Route path="applications" element={<ApplicationsAdmin />} />
+              <Route path="spontaneous" element={<SpontaneousAdmin />} />
+              <Route path="faq" element={<FaqAdmin />} />
+              <Route path="testimonials" element={<TestimonialsAdmin />} />
+              <Route path="settings" element={<SiteSettings />} />
+              <Route path="users" element={<UsersAdmin />} />
+              <Route path="activity" element={<ActivityLog />} />
+            </Route>
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
