@@ -1,6 +1,6 @@
 const VideoSection = () => {
   return (
-    <section className="w-full px-4 md:px-6 pb-2 md:pb-4">
+    <section className="w-full px-4 md:px-6 pt-2 md:pt-4 pb-2 md:pb-4">
       <div className="w-full overflow-hidden rounded-[20px] md:rounded-[32px]">
         <video
           autoPlay
