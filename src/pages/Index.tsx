@@ -25,6 +25,7 @@ const Index = () => {
       <TestimonialsSection />
       <PartnersLogoSection />
       <Footer />
+      <FloatingDeclarationButton />
     </div>
   );
 };
