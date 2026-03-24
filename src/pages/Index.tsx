@@ -9,6 +9,7 @@ import VideoSection from "@/components/VideoSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import PartnersLogoSection from "@/components/PartnersLogoSection";
 import Footer from "@/components/Footer";
+import FloatingDeclarationButton from "@/components/FloatingDeclarationButton";
 
 const Index = () => {
   return (
