@@ -5,7 +5,7 @@ import CarouselSection from "@/components/CarouselSection";
 import ServicesSection from "@/components/ServicesSection";
 import MapSection from "@/components/MapSection";
 import ProcessSection from "@/components/ProcessSection";
-import VideoSection from "@/components/VideoSection";
+import ClientJourneySection from "@/components/ClientJourneySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import PartnersLogoSection from "@/components/PartnersLogoSection";
 import Footer from "@/components/Footer";
@@ -21,7 +21,7 @@ const Index = () => {
       <ServicesSection />
       <MapSection />
       <ProcessSection />
-      <VideoSection />
+      <ClientJourneySection />
       <TestimonialsSection />
       <PartnersLogoSection />
       <Footer />

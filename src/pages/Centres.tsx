@@ -139,7 +139,7 @@ const MapFlyTo = ({ center }: { center: [number, number] | null }) => {
 };
 
 const Centres = () => {
-  const { t, language } = useLanguage();
+  const { t, lang } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCenterId, setActiveCenterId] = useState<string | null>(null);
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -199,13 +199,13 @@ const Centres = () => {
 
           <div className="flex flex-row w-full justify-between items-end md:flex-col md:justify-end md:w-auto md:gap-8 pb-2 mt-4 md:mt-0">
             {/* 24/7 Badge */}
-            <div className={`text-left ${language === 'fr' ? 'md:text-right' : 'md:text-left'}`}>
+            <div className={`text-left ${lang === 'fr' ? 'md:text-right' : 'md:text-left'}`}>
               <div className="text-yellow-500 font-black text-6xl md:text-7xl tracking-tighter">24<span className="text-4xl md:text-5xl text-yellow-600">/7</span></div>
               <div className="text-[10px] md:text-xs tracking-[0.2em] text-gray-500 font-semibold uppercase mt-2">{t("ASSISTANCE MOBILE", "مساعدة متنقلة")}</div>
             </div>
 
             {/* Centers Count Badge */}
-            <div className={`text-right ${language === 'fr' ? 'md:text-right' : 'md:text-left'}`}>
+            <div className={`text-right ${lang === 'fr' ? 'md:text-right' : 'md:text-left'}`}>
               <div className="text-yellow-500 font-black text-6xl md:text-7xl tracking-tighter">
                 {centers.length < 10 ? `0${centers.length}` : centers.length}
               </div>
@@ -228,13 +228,13 @@ const Centres = () => {
           className="flex flex-col gap-4 lg:col-start-1 lg:row-start-1 z-20"
         >
           <div className="relative">
-            <Search className={`absolute ${language === 'fr' ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 text-yellow-500 h-5 w-5`} />
+            <Search className={`absolute ${lang === 'fr' ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 text-yellow-500 h-5 w-5`} />
             <input 
               type="text" 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t("Entrez votre ville ou code postal...", "أدخل مدينتك أو الرمز البريدي...")} 
-              className={`w-full bg-[#111] border border-white/10 rounded-[28px] py-4 ${language === 'fr' ? 'pl-14 pr-6' : 'pr-14 pl-6'} text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 transition-colors shadow-[0_8px_30px_rgba(0,0,0,0.4)]`} 
+              className={`w-full bg-[#111] border border-white/10 rounded-[28px] py-4 ${lang === 'fr' ? 'pl-14 pr-6' : 'pr-14 pl-6'} text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500/50 transition-colors shadow-[0_8px_30px_rgba(0,0,0,0.4)]`} 
             />
           </div>
           <div className="flex gap-3 h-[54px]">
@@ -346,7 +346,7 @@ const Centres = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="h-4 w-4 text-yellow-500" />
-                    <span dir="ltr" className={language === 'ar' ? 'ml-auto' : ''}>{t(center.hoursFr, center.hoursAr)}</span>
+                    <span dir="ltr" className={lang === 'ar' ? 'ml-auto' : ''}>{t(center.hoursFr, center.hoursAr)}</span>
                   </div>
                 </div>
 
@@ -377,7 +377,7 @@ const Centres = () => {
 
       {/* Certifications footer matching the design bottom */}
       <div className="relative z-10 border-t border-[#222] bg-[#0a0a0a] py-12">
-        <div className={`max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24 opacity-70 px-6 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <div className={`max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24 opacity-70 px-6 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center font-bold text-[8px] tracking-wider text-center text-gray-300 bg-[#111]">IMANOR</div>
             <span className="text-[10px] font-bold tracking-[0.15em] text-gray-400">{t("NORME ISO 9001", "معيار ISO 9001")}</span>
