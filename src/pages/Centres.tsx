@@ -139,7 +139,7 @@ const MapFlyTo = ({ center }: { center: [number, number] | null }) => {
 };
 
 const Centres = () => {
-  const { t, language } = useLanguage();
+  const { t, lang } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCenterId, setActiveCenterId] = useState<string | null>(null);
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
