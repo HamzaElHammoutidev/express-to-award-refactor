@@ -87,10 +87,7 @@ const Blog = () => {
       <PageHeader
         breadcrumbs={[{ label: "Blog" }]}
         title={t("Nos conseils et actualités", "نصائحنا وأخبارنا")}
-        subtitle={t(
-          "Retrouvez ici tous nos articles autour du vitrage automobile, du bris de glace, de l'assurance, de l'entretien et des bonnes pratiques.",
-          "اكتشفوا جميع مقالاتنا حول زجاج السيارات والتأمين والصيانة والنصائح العملية."
-        )}
+        titleAr="نصائحنا وأخبارنا"
       />
 
       {/* Search */}

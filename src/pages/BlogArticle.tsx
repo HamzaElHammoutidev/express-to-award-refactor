@@ -38,7 +38,6 @@ const BlogArticle = () => {
       <PageHeader
         breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: articleData.category }]}
         title={articleData.title}
-        subtitle={articleData.subtitle}
       />
 
       {/* Content */}
