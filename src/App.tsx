@@ -14,6 +14,8 @@ import Carrieres from "./pages/Carrieres";
 import JobDetail from "./pages/JobDetail";
 import Contact from "./pages/Contact";
 import Declaration from "./pages/Declaration";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 import NotFound from "./pages/NotFound";
 
 // Admin
@@ -62,6 +64,8 @@ const App = () => (
             <Route path="/carrieres/:id" element={<JobDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/declaration" element={<Declaration />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
 
             {/* Admin */}
             <Route path="/admin" element={<AdminLayout />}>
