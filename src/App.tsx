@@ -73,6 +73,8 @@ const App = () => (
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="pages" element={<PagesAdmin />} />
+              <Route path="pages/:pageId" element={<PageBlocksAdmin />} />
+              <Route path="pages/:pageId/blocks/:blockId" element={<BlockEditorAdmin />} />
               <Route path="sections" element={<SectionsAdmin />} />
               <Route path="media" element={<MediaLibrary />} />
               <Route path="centers" element={<CentersAdmin />} />
