@@ -23,6 +23,8 @@ import AdminLayout from "./admin/layouts/AdminLayout";
 import Dashboard from "./admin/pages/Dashboard";
 import PagesAdmin from "./admin/pages/PagesAdmin";
 import SectionsAdmin from "./admin/pages/SectionsAdmin";
+import PageBlocksAdmin from "./admin/pages/PageBlocksAdmin";
+import BlockEditorAdmin from "./admin/pages/BlockEditorAdmin";
 import MediaLibrary from "./admin/pages/MediaLibrary";
 import CentersAdmin from "./admin/pages/CentersAdmin";
 import ClaimsAdmin from "./admin/pages/ClaimsAdmin";
