@@ -23,6 +23,8 @@ import AdminLayout from "./admin/layouts/AdminLayout";
 import Dashboard from "./admin/pages/Dashboard";
 import PagesAdmin from "./admin/pages/PagesAdmin";
 import SectionsAdmin from "./admin/pages/SectionsAdmin";
+import PageBlocksAdmin from "./admin/pages/PageBlocksAdmin";
+import BlockEditorAdmin from "./admin/pages/BlockEditorAdmin";
 import MediaLibrary from "./admin/pages/MediaLibrary";
 import CentersAdmin from "./admin/pages/CentersAdmin";
 import ClaimsAdmin from "./admin/pages/ClaimsAdmin";
@@ -71,6 +73,8 @@ const App = () => (
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="pages" element={<PagesAdmin />} />
+              <Route path="pages/:pageId" element={<PageBlocksAdmin />} />
+              <Route path="pages/:pageId/blocks/:blockId" element={<BlockEditorAdmin />} />
               <Route path="sections" element={<SectionsAdmin />} />
               <Route path="media" element={<MediaLibrary />} />
               <Route path="centers" element={<CentersAdmin />} />
