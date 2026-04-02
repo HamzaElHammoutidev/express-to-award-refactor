@@ -26,6 +26,7 @@ const Engagement = () => {
       <EngagementHeroSection />
       <EngagementCertsSection />
       <EngagementPillarsSection />
+      <EngagementGuaranteeSection />
       <EngagementProcessSection />
       <EngagementMobileSection />
       <EngagementSeoSection />
