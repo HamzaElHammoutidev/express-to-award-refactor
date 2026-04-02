@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import EngagementHeroSection from "@/components/engagement/EngagementHeroSection";
 import EngagementCertsSection from "@/components/engagement/EngagementCertsSection";
 import EngagementPillarsSection from "@/components/engagement/EngagementPillarsSection";
+import EngagementGuaranteeSection from "@/components/engagement/EngagementGuaranteeSection";
 import EngagementProcessSection from "@/components/engagement/EngagementProcessSection";
 import EngagementMobileSection from "@/components/engagement/EngagementMobileSection";
 import EngagementSeoSection from "@/components/engagement/EngagementSeoSection";
