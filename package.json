@@ -10,7 +10,16 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d postgres",
+    "db:shell": "docker exec -it postgres psql -U ${POSTGRES_USER:-glazz_user} ${POSTGRES_DB:-glazz_db}",
+    "db:logs": "docker compose logs -f postgres",
+    "api:dev": "cd server && npm run dev",
+    "api:migrate": "cd server && npm run migrate",
+    "api:build": "cd server && npm run build",
+    "api:typecheck": "cd server && npm run typecheck"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

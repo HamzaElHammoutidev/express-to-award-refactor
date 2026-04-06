@@ -44,83 +44,383 @@ interface Center {
 const centers: Center[] = [
   {
     id: "agadir",
-    name: "GLAZZ AGADIR",
-    addressFr: "Quartier Industriel, Avenue Hassan II",
-    addressAr: "الحي الصناعي، شارع الحسن الثاني",
-    phone: "+212 528 123 456",
-    hoursFr: "Lun - Sam: 08:30 - 19:00",
-    hoursAr: "الإثنين - السبت: 08:30 - 19:00",
-    coordinates: [30.427755, -9.598107]
+    name: "PBE AGADIR",
+    addressFr: "Résidence Marbella Imm A Bd 11 Janvier Quartier Dakhla",
+    addressAr: "ريزيدونس ماربيلا إيمم أ، بد 11 يناير، حي الداخلة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [30.4122, -9.54569]
   },
   {
-    id: "casablanca-ain-diab",
-    name: "GLAZZ CASABLANCA AIN DIAB",
-    addressFr: "Boulevard de la Corniche, Ain Diab",
-    addressAr: "شارع الكورنيش، عين الذئاب",
-    phone: "+212 522 987 654",
-    hoursFr: "Lun - Sam: 09:00 - 20:00",
-    hoursAr: "الإثنين - السبت: 09:00 - 20:00",
-    coordinates: [33.593888, -7.643333]
+    id: "beni-mellal",
+    name: "PBE BENI MELLAL",
+    addressFr: "Lot Yassmine N°7 Hay Taqaddoum",
+    addressAr: "لوط ياسمين رقم 7، حي التقدم",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.3475, -6.34108]
   },
   {
-    id: "casablanca-maarif",
-    name: "GLAZZ CASABLANCA MAÂRIF",
-    addressFr: "Bd Bir Anzarane, Quartier Maârif",
-    addressAr: "شارع بئر انزران، حي المعاريف",
-    phone: "+212 522 112 233",
-    hoursFr: "Lun - Sam: 08:00 - 19:30",
-    hoursAr: "الإثنين - السبت: 08:00 - 19:30",
-    coordinates: [33.585000, -7.632145]
+    id: "berrechid",
+    name: "PBE BERRECHID",
+    addressFr: "241 BD Omar Abouricha Rue Nasser Allah",
+    addressAr: "241 بلفار عمر أبو ريشة، زنقة ناصر الله",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.2578, -7.57806]
   },
   {
-    id: "marrakech",
-    name: "GLAZZ MARRAKECH",
-    addressFr: "Zone Industrielle Sidi Ghanem",
-    addressAr: "المنطقة الصناعية سيدي غانم",
-    phone: "+212 524 111 222",
-    hoursFr: "Lun - Sam: 08:00 - 18:30",
-    hoursAr: "الإثنين - السبت: 08:00 - 18:30",
-    coordinates: [31.650833, -8.020556]
+    id: "ain-sebaa",
+    name: "PBE AIN SEBAA",
+    addressFr: "13 Lot Halioua - Ain Sebaa",
+    addressAr: "13 لوط حليوة - عين السبع",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.6022, -7.53678]
   },
   {
-    id: "rabat",
-    name: "GLAZZ RABAT AGDAL",
-    addressFr: "Avenue de France, Agdal",
-    addressAr: "شارع فرنسا، أكدال",
-    phone: "+212 537 445 566",
-    hoursFr: "Lun - Sam: 08:30 - 19:00",
-    hoursAr: "الإثنين - السبت: 08:30 - 19:00",
-    coordinates: [34.0041, -6.8524]
+    id: "oulfa",
+    name: "PBE OULFA",
+    addressFr: "Lot Moulay Thami 116 Bd Haj Fateh - Oulfa",
+    addressAr: "لوط مولاي ثامي 116، بلفار الحاج فاتح - أولفا",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.5508, -7.68903]
   },
   {
-    id: "tanger",
-    name: "GLAZZ TANGER",
-    addressFr: "Route de Tétouan, Zone Franche",
-    addressAr: "طريق تطوان، المنطقة الحرة",
-    phone: "+212 539 778 899",
-    hoursFr: "Lun - Sam: 09:00 - 18:00",
-    hoursAr: "الإثنين - السبت: 09:00 - 18:00",
-    coordinates: [35.759465, -5.833954]
+    id: "zerktouni",
+    name: "PBE ZERKTOUNI",
+    addressFr: "181 Bd Zerktouni",
+    addressAr: "181 بلفار الزرقطوني",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.5861, -7.63089]
+  },
+  {
+    id: "dakhla",
+    name: "PBE DAKHLA",
+    addressFr: "Hay El Massira 2 Ahmed Bahnini N°37",
+    addressAr: "حي المسيرة 2، أحمد بحنيني رقم 37",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [23.6889, -15.9391]
+  },
+  {
+    id: "el-jadida",
+    name: "PBE EL JADIDA",
+    addressFr: "4 Lot Nadia Amine Hay Essalam",
+    addressAr: "4 لوط نادية أمين، حي السلام",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.2228, -8.50125]
+  },
+  {
+    id: "essaouira",
+    name: "PBE ESSAOUIRA",
+    addressFr: "340 Lot Erraounak",
+    addressAr: "340 لوط الروناك",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [31.4982, -9.75297]
   },
   {
     id: "fes",
-    name: "GLAZZ FÈS",
-    addressFr: "Avenue Hassan II, Centre Ville",
-    addressAr: "شارع الحسن الثاني، وسط المدينة",
-    phone: "+212 535 998 877",
-    hoursFr: "Lun - Ven: 08:00 - 18:00",
-    hoursAr: "الإثنين - الجمعة: 08:00 - 18:00",
-    coordinates: [34.03313, -5.00028]
+    name: "PBE FÈS",
+    addressFr: "Imm Ennour 4 Rue 1 Hay Sidi Hadi Zouagha Haut",
+    addressAr: "إيمم النور 4، زنقة 1، حي سيدي هادي زواغة العليا",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [34.0209, -5.03958]
+  },
+  {
+    id: "imintanout",
+    name: "PBE IMINTANOUT",
+    addressFr: "Quartier Al Qods Extension 39",
+    addressAr: "حي القدس امتداد 39",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [31.1845, -8.8425]
+  },
+  {
+    id: "kelaat-essraghna",
+    name: "PBE KELAAT ESSRAGHNA",
+    addressFr: "Lot 88 Quartier Industriel",
+    addressAr: "لوط 88، الحي الصناعي",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.0546, -7.38525]
+  },
+  {
+    id: "kenitra",
+    name: "PBE KÉNITRA",
+    addressFr: "Rue 21 Lot 3 N°51 Nouvelle Medina",
+    addressAr: "زنقة 21، لوط 3 رقم 51، المدينة الجديدة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [34.2674, -6.56547]
+  },
+  {
+    id: "khouribga",
+    name: "PBE KHOURIBGA",
+    addressFr: "Lot Yassamine 1 Bd Cheikh Maa El Aynain N°218",
+    addressAr: "لوط ياسمين 1، بلفار الشيخ ماء العينين رقم 218",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.8921, -6.89464]
+  },
+  {
+    id: "laayoune",
+    name: "PBE LAAYOUNE",
+    addressFr: "Bd Tantan Rue Albaate",
+    addressAr: "بلفار طنطان، زنقة البعاتة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [27.1402, -13.1868]
+  },
+  {
+    id: "marrakech",
+    name: "PBE MARRAKECH",
+    addressFr: "Bd du 18 Novembre Résidence Le Rubis Imm3 Mag 13 et 14",
+    addressAr: "بلفار 18 نونبر، ريزيدونس لو روبي، إيمم 3، محل 13 و14",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [31.6586, -8.02064]
+  },
+  {
+    id: "meknes",
+    name: "PBE MEKNES",
+    addressFr: "151 Riad Ismailia Tranche E",
+    addressAr: "151 رياض إسماعيلية، الشطر E",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.855, -5.56989]
+  },
+  {
+    id: "ouarzazate",
+    name: "PBE OUARZAZATE",
+    addressFr: "23 Lot Périphérique Bd Moulay Abdellah",
+    addressAr: "23 لوط المحيط، بلفار مولاي عبدالله",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [30.9272, -6.92642]
   },
   {
     id: "oujda",
-    name: "GLAZZ OUJDA",
-    addressFr: "Boulevard Mohammed V",
-    addressAr: "شارع محمد الخامس",
-    phone: "+212 536 223 344",
-    hoursFr: "Lun - Sam: 08:30 - 19:00",
-    hoursAr: "الإثنين - السبت: 08:30 - 19:00",
-    coordinates: [34.681389, -1.908889]
+    name: "PBE OUJDA",
+    addressFr: "3 Rue Sarae Lot Talhaoui Av Ibrahim Roudani",
+    addressAr: "3 زنقة سراع، لوط طلحاوي، شارع إبراهيم رودانة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [34.676, -1.87584]
+  },
+  {
+    id: "rabat",
+    name: "PBE RABAT",
+    addressFr: "Imm 507 Rue Attouquane Lot El Menzeh Yaakoub Al Mansour",
+    addressAr: "إيمم 507، زنقة التوقان، لوط المنزه، يعقوب المنصور",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.9769, -6.89478]
+  },
+  {
+    id: "safi",
+    name: "PBE SAFI",
+    addressFr: "Mouni 4 - 51 14 Rue Ourika",
+    addressAr: "موني 4 - 51 14، زنقة أوريكا",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.2854, -9.24203]
+  },
+  {
+    id: "sale",
+    name: "PBE SALÉ",
+    addressFr: "N°3 Résidence Al Nour Route de Kénitra Bab Lamrissa",
+    addressAr: "رقم 3، ريزيدونس النور، طريق القنيطرة، باب المريسة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [34.057, -6.80669]
+  },
+  {
+    id: "settat",
+    name: "PBE SETTAT",
+    addressFr: "33 Bd des Forces Armées Royales",
+    addressAr: "33 بلفار القوات المسلحة الملكية",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.0037, -7.61583]
+  },
+  {
+    id: "sidi-bennour",
+    name: "PBE SIDI BENNOUR",
+    addressFr: "Ard El Kheir 3 Hay El Fath",
+    addressAr: "أرض الخير 3، حي الفتح",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.6432, -8.42844]
+  },
+  {
+    id: "tanger",
+    name: "PBE TANGER",
+    addressFr: "Val Fleuri Lot Al Bassatine N°107",
+    addressAr: "فال فلوري، لوط البساتين رقم 107",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [35.7699, -5.82892]
+  },
+  {
+    id: "taroudant",
+    name: "PBE TAROUDANT",
+    addressFr: "46 Boulevard Mokhtar Assoussi Rue Balali",
+    addressAr: "46 بلفار المختار السوسي، زنقة بلالي",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [30.4689, -8.87431]
+  },
+  {
+    id: "tetouan",
+    name: "PBE TETOUAN",
+    addressFr: "Bd Oujda Résidence Al Oumna Bloc 5 Local N°2",
+    addressAr: "بلفار وجدة، ريزيدونس الأمنة، بلوك 5، محل رقم 2",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [35.5704, -5.35053]
+  },
+  {
+    id: "tinghir",
+    name: "PBE TINGHIR",
+    addressFr: "Hay Tichka Tinghir",
+    addressAr: "حي تيشكا، تنغير",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [31.5054, -5.54081]
+  },
+  {
+    id: "zagora",
+    name: "PBE ZAGORA",
+    addressFr: "278 Lot Draa",
+    addressAr: "278 لوط درعة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [30.3451, -5.83772]
+  },
+  {
+    id: "mohammedia",
+    name: "PBE MOHAMMEDIA",
+    addressFr: "Av Sebeta Résidence Tahra",
+    addressAr: "شارع سبتة، ريزيدونس طاهرة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.6898, -7.36292]
+  },
+  {
+    id: "larache",
+    name: "PBE LARACHE",
+    addressFr: "Lotissement Chaaban N°1137",
+    addressAr: "تجزئة شعبان رقم 1137",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [35.1659, -6.15222]
+  },
+  {
+    id: "taza",
+    name: "PBE TAZA",
+    addressFr: "Jnane 2 Quartier El Bahra Route de Fès",
+    addressAr: "جنان 2، حي البهرة، طريق فاس",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [34.2324, -4.03019]
+  },
+  {
+    id: "khenifra",
+    name: "PBE KHENIFRA",
+    addressFr: "N°261 Hay Amalou Aghribin Bd Al Massira Al Khadra",
+    addressAr: "رقم 261، حي أمالو أغريبين، بلفار المسيرة الخضراء",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.9385, -5.65306]
+  },
+  {
+    id: "benguerir",
+    name: "PBE BENGUERIR",
+    addressFr: "2512 Quartier Jnane Elkhair",
+    addressAr: "2512 حي جنان الخير",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [32.2378, -7.94336]
+  },
+  {
+    id: "aitmelloul",
+    name: "PBE AITMELLOUL",
+    addressFr: "Lotissement Ait Said N°24",
+    addressAr: "تجزئة آيت سعيد رقم 24",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [30.351, -9.49353]
+  },
+  {
+    id: "errachidia",
+    name: "PBE ERRACHIDIA",
+    addressFr: "Kaouzia 1",
+    addressAr: "القاوزية 1",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [31.9297, -4.422]
+  },
+  {
+    id: "had-soualem",
+    name: "PBE HAD SOUALEM",
+    addressFr: "N°108 Lotissement Altayssir",
+    addressAr: "رقم 108، تجزئة التيسير",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.4223, -7.85228]
+  },
+  {
+    id: "temara",
+    name: "PBE TEMARA",
+    addressFr: "Temara",
+    addressAr: "تمارة",
+    phone: "05 22 66 31 66",
+    hoursFr: "Lun–Ven: 8h30–12h30, 14h30–18h30 | Sam: 9h–13h",
+    hoursAr: "الإثنين–الجمعة: 8:30–12:30, 14:30–18:30 | السبت: 9:00–13:00",
+    coordinates: [33.926, -6.89005]
   }
 ];
 

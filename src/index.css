@@ -138,3 +138,9 @@ html {
   background: hsl(var(--gold) / 0.3);
   color: hsl(var(--foreground));
 }
+
+/* Fix Leaflet tile grid lines */
+.leaflet-tile-container img {
+  width: 256.5px !important;
+  height: 256.5px !important;
+}
