@@ -36,6 +36,7 @@ import TestimonialsAdmin from "./admin/pages/TestimonialsAdmin";
 import SiteSettings from "./admin/pages/SiteSettings";
 import UsersAdmin from "./admin/pages/UsersAdmin";
 import ActivityLog from "./admin/pages/ActivityLog";
+import DeclarationSettingsAdmin from "./admin/pages/DeclarationSettingsAdmin";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -87,6 +88,7 @@ const App = () => (
               <Route path="centers" element={<CentersAdmin />} />
               <Route path="claims" element={<ClaimsAdmin />} />
               <Route path="messages" element={<MessagesAdmin />} />
+              <Route path="declaration-settings" element={<DeclarationSettingsAdmin />} />
               <Route path="jobs" element={<JobsAdmin />} />
               <Route path="applications" element={<ApplicationsAdmin />} />
               <Route path="spontaneous" element={<SpontaneousAdmin />} />
