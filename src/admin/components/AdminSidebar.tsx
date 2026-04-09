@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   LayoutDashboard, FileText, Grid3X3, Image, MapPin, AlertTriangle,
   Mail, Briefcase, Users, ClipboardList, HelpCircle, MessageSquareQuote,
-  Settings, Shield, Activity, ChevronLeft, LogOut, UserPlus
+  Settings, Shield, Activity, ChevronLeft, LogOut, UserPlus, Link2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +28,7 @@ const menuSections = [
     items: [
       { label: "Centres / Agences", icon: MapPin, href: "/admin/centers" },
       { label: "Déclarations sinistre", icon: AlertTriangle, href: "/admin/claims" },
+      { label: "Interfaçage Odoo", icon: Link2, href: "/admin/odoo" },
       { label: "Messages contact", icon: Mail, href: "/admin/messages" },
     ],
   },
