@@ -5,6 +5,7 @@ import EngagementHeroSection from "@/components/engagement/EngagementHeroSection
 import EngagementCertsSection from "@/components/engagement/EngagementCertsSection";
 import EngagementPillarsSection from "@/components/engagement/EngagementPillarsSection";
 import EngagementGuaranteeSection from "@/components/engagement/EngagementGuaranteeSection";
+import EngagementGallerySection from "@/components/engagement/EngagementGallerySection";
 import EngagementProcessSection from "@/components/engagement/EngagementProcessSection";
 import EngagementMobileSection from "@/components/engagement/EngagementMobileSection";
 import EngagementSeoSection from "@/components/engagement/EngagementSeoSection";
@@ -27,6 +28,7 @@ const Engagement = () => {
       <EngagementCertsSection />
       <EngagementPillarsSection />
       <EngagementGuaranteeSection />
+      <EngagementGallerySection />
       <EngagementProcessSection />
       <EngagementMobileSection />
       <EngagementSeoSection />
