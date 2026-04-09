@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import engagementIntervention from "@/assets/engagement-intervention.jpg";
 
 const steps = [
   {
@@ -78,7 +79,7 @@ const EngagementProcessSection = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <img
-              src="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
+              src={engagementIntervention}
               alt={t("Technicien en intervention vitrage", "تقني أثناء التدخل على زجاج السيارة")}
               className="w-full h-full object-cover"
             />

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Clock, Lock, Car } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import engagementEntrepot from "@/assets/engagement-entrepot.jpg";
 
 const benefits = [
   {
@@ -69,7 +70,7 @@ const EngagementMobileSection = () => {
             transition={{ duration: 0.7 }}
           >
             <img
-              src="https://parebriseexpress.ma/images/events/Transpro.jpg"
+              src={engagementEntrepot}
               alt={t("Atelier mobile Pare-Brise Express", "الورشة المتنقلة باري بريز إكسبريس")}
               className="w-full h-full object-cover"
             />

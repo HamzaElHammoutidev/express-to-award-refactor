@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
+import engagementAccueil from "@/assets/engagement-accueil.jpg";
 
 const EngagementHeroSection = () => {
   const { t } = useLanguage();
@@ -45,7 +46,7 @@ const EngagementHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="https://parebriseexpress.ma/images/assets/bpe-rca.jpg"
+              src={engagementAccueil}
               alt={t("Technicien Pare-Brise Express en intervention", "تقني من باري بريز إكسبريس أثناء التدخل")}
               className="w-full h-full object-cover absolute inset-0"
             />
